@@ -12,11 +12,24 @@
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
   <style>
+    /* WIBFair Brand Color Variables */
+    :root {
+      --wibfair-primary-pink: #ec4899;
+      --wibfair-secondary-pink: #FF0080;
+      --wibfair-primary-purple: #7928CA;
+      --wibfair-black: #000000;
+      --wibfair-white: #ffffff;
+      --wibfair-text-secondary: #d1d5db;
+      --wibfair-text-muted: #9ca3af;
+      --wibfair-hover-pink: #db2777;
+      --wibfair-hover-purple: #6b21a8;
+    }
+    
     body { 
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
-      background-color: #000;
-      color: #fff;
+      background-color: var(--wibfair-black);
+      color: var(--wibfair-white);
     }
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
@@ -59,7 +72,7 @@
       left: 0;
       height: 3px;
       width: 0%;
-      background: #ec4899;
+      background: var(--wibfair-primary-pink);
       z-index: 1000;
     }
     
@@ -104,11 +117,11 @@
     /* Mobile menu */
     .mobile-link {
       display: block;
-      color: white;
+      color: var(--wibfair-white);
       transition: color 0.3s ease;
     }
     .mobile-link:hover {
-      color: #ec4899;
+      color: var(--wibfair-primary-pink);
     }
     
     /* Sections */
@@ -133,7 +146,7 @@
       left: -5px;
       right: -5px;
       bottom: -5px;
-      border: 2px solid #7928CA;
+      border: 2px solid var(--wibfair-primary-purple);
       border-radius: inherit;
       opacity: 0.5;
       z-index: -1;
@@ -188,7 +201,7 @@
       100% { transform: translateX(-100%); }
     }
     .text-outline {
-      -webkit-text-stroke: 1px #FF0080;
+      -webkit-text-stroke: 1px var(--wibfair-secondary-pink);
       color: transparent;
     }
     .grid-pattern {
@@ -232,7 +245,7 @@
       left: 0;
       height: 4px;
       width: 0%;
-      background: linear-gradient(90deg, #FF0080, #7928CA, #FF0080);
+      background: linear-gradient(90deg, var(--wibfair-secondary-pink), var(--wibfair-primary-purple), var(--wibfair-secondary-pink));
       background-size: 200% auto;
       z-index: 1000;
       animation: progressAnim 3s linear infinite;
@@ -266,7 +279,7 @@
       position: fixed;
       width: 40px;
       height: 40px;
-      border: 2px solid #FF0080;
+      border: 2px solid var(--wibfair-secondary-pink);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
@@ -277,11 +290,39 @@
       align-items: center;
       mix-blend-mode: difference;
     }
-    .cursor-dot {
-      width: 5px;
-      height: 5px;
-      background-color: #FF0080;
-      border-radius: 50%;
+    /* Standard Gradient Text Class */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--wibfair-primary-pink) 0%, var(--wibfair-primary-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Glitch text effect */
+    .glitch-text {
+      position: relative;
+      color: var(--wibfair-primary-pink);
+    }
+    
+    /* Shine effect for buttons */
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
     }
   </style>
 </head>
@@ -1476,13 +1517,13 @@
         item.addEventListener('mouseenter', () => {
           cursor.style.width = '60px';
           cursor.style.height = '60px';
-          cursorDot.style.backgroundColor = '#FF0080';
+          cursorDot.style.backgroundColor = 'var(--wibfair-secondary-pink)';
         });
         
         item.addEventListener('mouseleave', () => {
           cursor.style.width = '40px';
           cursor.style.height = '40px';
-          cursorDot.style.backgroundColor = '#FF0080';
+          cursorDot.style.backgroundColor = 'var(--wibfair-secondary-pink)';
         });
       });
     }
@@ -1506,7 +1547,7 @@
               }
             },
             "color": {
-              "value": ["#FF0080", "#7928CA", "#8A2BE2", "#9370DB"]
+              "value": ["var(--wibfair-secondary-pink)", "var(--wibfair-primary-purple)", "#8A2BE2", "#9370DB"]
             },
             "shape": {
               "type": "circle",
@@ -1541,7 +1582,7 @@
             "line_linked": {
               "enable": true,
               "distance": 150,
-              "color": "#FF0080",
+              "color": "var(--wibfair-secondary-pink)",
               "opacity": 0.2,
               "width": 1
             },
@@ -1639,8 +1680,8 @@
         positions = new Float32Array(particleCount * 3);
         colors = new Float32Array(particleCount * 3);
         
-        const color1 = new THREE.Color(0xFF0080);
-        const color2 = new THREE.Color(0x7928CA);
+        const color1 = new THREE.Color(0xec4899); // Primary pink
+        const color2 = new THREE.Color(0x7928CA); // Primary purple
         
         for (let i = 0; i < particleCount; i++) {
           // Positions
