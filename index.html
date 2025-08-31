@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIBFair Abuja - Elegant Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <style>
+    body { 
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      background-color: #000;
+      color: #fff;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+    .playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Simple animations */
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in forwards;
+    }
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Particle background */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: #ec4899;
+      z-index: 1000;
+    }
+    
+    /* Card hover effect */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.2);
+    }
+    
+    /* Sponsor scroll animation */
+    .sponsor-scroll {
+      animation: scroll 30s linear infinite;
+      display: inline-flex;
+    }
+    .sponsor-scroll-content {
+      display: inline-flex;
+      animation: scroll 30s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    /* Sponsor marquee styles */
+    .sponsor-marquee {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+    .sponsor-track {
+      width: fit-content;
+      display: flex;
+      gap: 2rem;
+    }
+    .sponsor-item {
+      min-width: 180px;
+    }
+    
+    /* Mobile menu */
+    .mobile-link {
+      display: block;
+      color: white;
+      transition: color 0.3s ease;
+    }
+    .mobile-link:hover {
+      color: #ec4899;
+    }
+    
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+    
+    /* Toggle menu button animation */
+    .toggle-active .toggle-bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .toggle-active .toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .toggle-active .toggle-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .artistic-border::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid #7928CA;
+      border-radius: inherit;
+      opacity: 0.5;
+      z-index: -1;
+      transform: rotate(1deg);
+    }
+    .particle-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    }
+    .btn-pulse {
+      animation: buttonPulse 2s infinite;
+    }
+    @keyframes buttonPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(236, 72, 153, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+      }
+    }
+    .rotate-slow {
+      animation: rotate 10s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .text-outline {
+      -webkit-text-stroke: 1px #FF0080;
+      color: transparent;
+    }
+    .grid-pattern {
+      background-image: linear-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, .1) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .scroll-hint {
+      animation: scrollHint 2s ease-in-out infinite;
+    }
+    @keyframes scrollHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    .reveal {
+      position: relative;
+      opacity: 0;
+    }
+    .blur-load {
+      filter: blur(5px);
+      transition: filter 0.3s ease-out;
+    }
+    .blur-load.loaded {
+      filter: blur(0);
+    }
+    .mask-text {
+      -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    }
+    .hero-particle-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #FF0080, #7928CA, #FF0080);
+      background-size: 200% auto;
+      z-index: 1000;
+      animation: progressAnim 3s linear infinite;
+    }
+    @keyframes progressAnim {
+      to {
+        background-position: 200% center;
+      }
+    }
+    .pointer-event-stroke {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: dash 3s ease-in-out forwards;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #canvas-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.6;
+    }
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #FF0080;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      mix-blend-mode: difference;
+    }
+    .cursor-dot {
+      width: 5px;
+      height: 5px;
+      background-color: #FF0080;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="bg-black min-h-screen text-gray-100">
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 bg-black z-[9999] flex justify-center items-center">
+    <div class="text-center">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">WIB<span class="text-pink-500">Fair</span></h1>
+      <div class="loading-bar w-64 h-1 mx-auto bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full w-0 bg-gradient-to-r from-pink-500 to-purple-500" id="loadingProgress"></div>
+      </div>
+      <p class="text-gray-400 mt-3" id="loadingText">Loading elegant experience...</p>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Navigation -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-black/70 backdrop-blur-sm sticky top-0 z-50 transition-all duration-300" id="mainNav">
+    <div class="flex items-center gap-3">
+      <img src="https://wibfair.com/assets/header-image-left.png" alt="WIBFair Logo" class="h-10 w-10 rounded-full shadow-md">
+      <span class="font-black text-xl text-white tracking-wide">WIB<span class="text-pink-500">Fair</span></span>
+    </div>
+    <ul class="hidden md:flex gap-8 font-semibold text-gray-300">
+      <li class="nav-item">
+        <a href="#about" class="hover:text-pink-400 transition-all duration-300 relative inline-block group">
+          About
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#why" class="hover:text-pink-400 transition-all duration-300 relative inline-block group">
+          Why Participate
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#highlights" class="hover:text-pink-400 transition-all duration-300 relative inline-block group">
+          Highlights
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#register" class="hover:text-pink-400 transition-all duration-300 relative inline-block group">
+          Register
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="hover:text-pink-400 transition-all duration-300 relative inline-block group">
+          Contact
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+    </ul>
+    <a href="#register" class="ml-4 px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg transition-all duration-300 font-bold hidden md:inline-block">Register Now</a>
+    <button class="md:hidden flex items-center focus:outline-none" id="menuBtn" aria-label="Toggle mobile menu">
+      <svg id="menuBtnIcon" class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 hidden">
+    <div class="mobile-menu-bg absolute inset-0 bg-black/95 backdrop-blur-md"></div>
+    <div class="flex flex-col h-full justify-center items-center relative z-10 p-5 space-y-8">
+      <ul class="flex flex-col gap-6 font-semibold text-center">
+        <li class="text-3xl"><a href="#about" class="mobile-link">About</a></li>
+        <li class="text-3xl"><a href="#why" class="mobile-link">Why Participate</a></li>
+        <li class="text-3xl"><a href="#highlights" class="mobile-link">Highlights</a></li>
+        <li class="text-3xl"><a href="#register" class="mobile-link">Register</a></li>
+        <li class="text-3xl"><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+      <a href="#register" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg transition-all duration-300 font-bold text-xl">Register Now</a>
+      
+      <!-- Social Media Icons -->
+      <div class="flex gap-6 mt-8">
+        <a href="#" class="text-white hover:text-pink-400 transition-colors" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
+        <a href="#" class="text-white hover:text-pink-400 transition-colors" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
+        <a href="#" class="text-white hover:text-pink-400 transition-colors" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin text-2xl"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-screen flex flex-col justify-center" id="hero">
+    <div id="particles-js" class="absolute inset-0 z-0 opacity-50"></div>
+    
+    <!-- Subtle Background Elements -->
+    <div class="absolute top-20 right-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-6 py-12 md:py-24 relative z-10">
+      <div class="grid md:grid-cols-2 items-center gap-10">
+        <div class="text-center md:text-left">
+          <h4 class="text-lg md:text-xl font-light mb-3 text-pink-400 tracking-widest">EMPOWERING WOMEN IN BUSINESS</h4>
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
+            <span class="text-white block lg:inline">Women </span> 
+            <span class="text-pink-500 block lg:inline">In Business</span>
+          </h1>
+          <p class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-300 leading-relaxed">
+            Unlock opportunities, build connections, and transform your business journey at the premier networking event for women entrepreneurs.
+          </p>
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
+            <a href="#register" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg transition-all duration-300 font-bold text-lg">
+              Register Now
+            </a>
+            <a href="#about" class="px-8 py-3 border border-white/20 text-white rounded-full hover:bg-white/10 transition-all duration-300 font-bold text-lg group">
+              Learn More
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+          
+          <!-- Event Details -->
+          <div class="grid grid-cols-3 gap-4 mt-12 max-w-lg mx-auto md:mx-0">
+            <div class="event-detail p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+              <div class="text-pink-400 text-3xl mb-1"><i class="far fa-calendar-alt"></i></div>
+              <p class="text-sm text-gray-300">October 2023</p>
+            </div>
+            <div class="event-detail p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+              <div class="text-pink-400 text-3xl mb-1"><i class="fas fa-map-marker-alt"></i></div>
+              <p class="text-sm text-gray-300">Abuja, Nigeria</p>
+            </div>
+            <div class="event-detail p-4 bg-white/5 rounded-lg backdrop-blur-sm">
+              <div class="text-pink-400 text-3xl mb-1"><i class="fas fa-users"></i></div>
+              <p class="text-sm text-gray-300">500+ Attendees</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hidden md:block relative">
+          <img src="assets/african_women_entrepreneurs.jpg" alt="African Women Entrepreneurs Meeting" class="rounded-lg shadow-2xl object-cover h-full">
+          <div class="absolute -bottom-5 -left-5 w-24 h-24 rounded-lg bg-pink-500 opacity-80"></div>
+          <div class="absolute -top-5 -right-5 w-24 h-24 rounded-lg border-2 border-purple-500"></div>
+        </div>
+      </div>
+    </div>
+    </section>
+          </div>
+        </div>
+        
+        <div class="relative hidden md:block" data-aos="fade-left">
+          <!-- Hero Image with Animated Border -->
+          
+          <!-- Floating Badges -->
+          <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-900/80 rounded-full flex items-center justify-center text-center p-4 backdrop-blur-sm border border-purple-500/30 shadow-lg rotating-slow">
+            <span class="text-white font-bold">500+ Attendees</span>
+          </div>
+          
+          <div class="absolute -bottom-5 -left-10 px-4 py-2 bg-gradient-to-r from-pink-500/80 to-purple-500/80 rounded-lg backdrop-blur-sm shadow-lg border border-pink-500/30 floating-element-slow">
+            <span class="text-white font-bold">Oct 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+      <a href="#about" class="text-white opacity-70 hover:opacity-100 transition-opacity">
+        <div class="flex flex-col items-center">
+          <span class="text-sm mb-2">Scroll Down</span>
+          <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+      </a>
+    </div>
+  </section>
+  <!-- Sponsors/Partners Section -->
+
+  <!-- Sponsors/Partners Section -->
+  <section class="py-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black to-purple-950/30 z-0"></div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-10 left-2 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-20 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">OUR SUPPORTERS</h4>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Trusted By Leading Brands</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          We are proud to partner with these innovative companies who share our vision of empowering women in business across Africa.
+        </p>
+      </div>
+      
+      <!-- Marquee Sponsors -->
+      <div class="relative overflow-hidden">
+        <!-- Gradient overlays for fading edges -->
+        <div class="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-black to-transparent z-10"></div>
+        <div class="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-black to-transparent z-10"></div>
+        
+        <div class="sponsor-marquee">
+          <div class="sponsor-track flex gap-8 py-4">
+            <div class="sponsor-item flex-shrink-0">
+              <div class="bg-black/40 border border-white/10 backdrop-blur-sm rounded-lg p-6 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1">
+                <img src="https://wibfair.com/assets/Amstel%20Malta%20Logo.png" alt="Amstel Malta" class="h-12 md:h-16 object-contain mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+              </div>
+            </div>
+            <div class="sponsor-item flex-shrink-0">
+              <div class="bg-black/40 border border-white/10 backdrop-blur-sm rounded-lg p-6 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1">
+                <img src="https://wibfair.com/assets/SSA.png" alt="SSA" class="h-12 md:h-16 object-contain mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+              </div>
+            </div>
+            <div class="sponsor-item flex-shrink-0">
+              <div class="bg-black/40 border border-white/10 backdrop-blur-sm rounded-lg p-6 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1">
+                <img src="https://wibfair.com/assets/MTN-Logo.png" alt="MTN" class="h-12 md:h-16 object-contain mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+              </div>
+            </div>
+            <div class="sponsor-item flex-shrink-0">
+              <div class="bg-black/40 border border-white/10 backdrop-blur-sm rounded-lg p-6 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1">
+                <img src="https://wibfair.com/assets/Outbox%20Logo%201%20dark.png" alt="Outbox" class="h-12 md:h-16 object-contain mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+              </div>
+            </div>
+            <div class="sponsor-item flex-shrink-0">
+              <div class="bg-black/40 border border-white/10 backdrop-blur-sm rounded-lg p-6 hover:border-pink-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:-translate-y-1">
+                <img src="https://wibfair.com/assets/BOI%20Logo%20PNG%202.png" alt="BOI" class="h-12 md:h-16 object-contain mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+              </div>
+            </div>
+            <!-- Clones will be added by JavaScript -->
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+        
+        <!-- Gradient Overlays -->
+        <div class="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-black to-transparent z-10"></div>
+        <div class="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-black to-transparent z-10"></div>
+      </div>
+      
+      <!-- Become a Sponsor -->
+      <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="text-white text-xl font-medium mb-6">Interested in supporting our mission?</h4>
+        <a href="#contact" class="px-8 py-3 border border-pink-500 text-pink-400 rounded-full hover:bg-pink-500/10 transition-all duration-300 font-medium text-lg inline-flex items-center group">
+          Become a Sponsor
+          <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-purple-950/30 to-black z-0"></div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-40 left-10 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"></div>
+    <div class="floating-element absolute top-[20%] right-[15%] w-5 h-5 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50"></div>
+    <div class="floating-element-reverse absolute bottom-[30%] left-[10%] w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative" data-aos="fade-right">
+          <!-- Image with animated border -->
+          <div class="animated-border relative z-10">
+            <img src="https://wibfair.com/assets/header-image-left.png" alt="WIBFair Event" class="w-full h-auto rounded-2xl shadow-2xl shadow-pink-500/20 object-cover">
+          </div>
+          
+          <!-- Decorative elements -->
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full blur-xl"></div>
+          <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-xl"></div>
+          
+          <!-- Event details card -->
+          <div class="absolute bottom-8 right-0 translate-x-1/4 bg-black/40 backdrop-blur-md p-6 rounded-xl border border-white/10 shadow-xl max-w-xs transform rotate-3 hover:rotate-0 transition-all duration-500">
+            <h3 class="text-xl font-bold gradient-text mb-3">Event Details</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                  <i class="far fa-calendar-alt text-lg"></i>
+                </div>
+                <p class="text-gray-300">31st October - 2nd November 2025</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                  <i class="fas fa-map-marker-alt text-lg"></i>
+                </div>
+                <p class="text-gray-300">National Stadium (main bowl), Abuja</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">ABOUT US</h4>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white playfair">About <span class="gradient-text">WIBFAIR</span></h2>
+          <h3 class="text-xl font-semibold text-purple-400 italic mb-6">From Her Hands To Your Home</h3>
+          
+          <div class="space-y-6 text-gray-300">
+            <p class="leading-relaxed animated-text">
+              WIBFair is organized by Ebiere Empere, the visionary CEO of Okads Seafood and founder of Women in Business Initiative. This innovative platform was born out of her passion to empower every woman, especially entrepreneurs, and provide a supportive ecosystem for their growth.
+            </p>
+            <p class="leading-relaxed animated-text-delay">
+              This year, with the help of the community she has built, they have been committed to giving back to the female community, reminding them that they "see them".
+            </p>
+            
+            <h3 class="text-xl font-bold text-pink-400 mb-4">WIBFair is dedicated to:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start group">
+                <div class="bg-pink-500/20 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-500/40 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-300 group-hover:text-white transition-colors duration-300">Fostering connections and collaborations among women in business</span>
+              </li>
+              <li class="flex items-start group">
+                <div class="bg-pink-500/20 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-500/40 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-300 group-hover:text-white transition-colors duration-300">Providing access to resources, mentorship, and funding opportunities</span>
+              </li>
+              <li class="flex items-start group">
+                <div class="bg-pink-500/20 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-500/40 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-300 group-hover:text-white transition-colors duration-300">Celebrating women's achievements and successes</span>
+              </li>
+              <li class="flex items-start group">
+                <div class="bg-pink-500/20 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-500/40 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-300 group-hover:text-white transition-colors duration-300">Creating a supportive community that inspires and motivates</span>
+              </li>
+            </ul>
+            
+            <div class="mt-8 inline-block relative">
+              <a href="#register" class="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg shine btn-pulse inline-flex items-center group">
+                Join Our Movement
+                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+              <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-500/20 rounded-full blur-xl animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Participate Section -->
+  <section id="why" class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black z-0"></div>
+    
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 grid-pattern opacity-10 z-0"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-element absolute top-1/4 left-[15%] w-4 h-4 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50 z-10"></div>
+    <div class="floating-element-reverse absolute top-1/3 right-[20%] w-6 h-6 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50 z-10"></div>
+    <div class="floating-element-slow absolute bottom-1/4 left-[30%] w-5 h-5 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50 z-10"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">WHY JOIN US</h4>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white playfair">Why <span class="gradient-text">Participate?</span></h2>
+        <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Join hundreds of women entrepreneurs and take your business to the next level. 
+          Here's why you should be part of this transformative event:
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-black/40 backdrop-blur-sm border border-pink-500/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-pink-500/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="100">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-pink-500/80 to-purple-500/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-4 group-hover:text-pink-300 transition-colors">Unmatched Exposure</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-pink-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Showcase your business to thousands of attendees, including potential customers, partners, and investors.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-pink-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Feature in our extensive promotional campaigns across social media, press releases, and event materials.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="bg-black/40 backdrop-blur-sm border border-purple-500/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-purple-500/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="200">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/80 to-pink-500/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-purple-400 mb-4 group-hover:text-purple-300 transition-colors">Networking Opportunities</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-purple-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Connect with other women entrepreneurs, industry experts, and key stakeholders.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-purple-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Attend exclusive seminars and workshops to gain valuable insights and knowledge.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="bg-black/40 backdrop-blur-sm border border-pink-500/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-pink-500/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="300">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-pink-500/80 to-purple-500/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-4 group-hover:text-pink-300 transition-colors">Business Growth</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-pink-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Discover new markets and opportunities for expansion.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-pink-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Engage directly with your target audience and receive immediate feedback.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="bg-black/40 backdrop-blur-sm border border-purple-500/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-purple-500/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="400">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/80 to-pink-500/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-purple-400 mb-4 group-hover:text-purple-300 transition-colors">VIP Privileges</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-purple-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">Enjoy prime booth locations and special mentions during the event.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-purple-500 mr-2 text-lg">•</div>
+              <span class="text-gray-300 group-hover:text-white transition-colors">VIP access to networking mixers and other exclusive activities.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Testimonial -->
+      <div class="mt-20 relative" data-aos="fade-up">
+        <div class="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-2xl transform -rotate-1"></div>
+        <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-2xl shadow-xl relative z-10 transform rotate-1">
+          <div class="text-pink-400 text-5xl opacity-30 absolute top-6 left-6">"</div>
+          <div class="text-center">
+            <p class="text-xl md:text-2xl text-gray-300 italic mb-6 leading-relaxed">
+              WIBFair was a game-changer for my business. The connections I made and the exposure I received led to a 200% increase in my customer base within just three months!
+            </p>
+            <div class="inline-flex items-center">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-pink-500 mr-4">
+                <img src="https://wibfair.com/assets/okada-newlogo.png" alt="Testimonial" class="w-full h-full object-cover">
+              </div>
+              <div class="text-left">
+                <h4 class="text-lg font-semibold text-white">Ebiere Empere</h4>
+                <p class="text-pink-400">CEO, Okads Seafood</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-pink-400 text-5xl opacity-30 absolute bottom-6 right-6">"</div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center" data-aos="fade-up">
+        <a href="#register" class="px-10 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg shine btn-pulse inline-flex items-center">
+          Register Now
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Previous Highlights Section -->
+  <section class="py-20 px-6 md:px-16 bg-gradient-to-br from-pink-50 to-purple-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-4">Highlights From Previous Editions</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Experience the energy and excitement of past WIBFair events through our gallery</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <!-- Nigerian-based photos for the highlights section -->
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/Nigerian_market_scenes.jpg" alt="Nigerian Market Scene" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Nigerian Market Scene</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/Nigerian_fashion_displays.jpg" alt="Nigerian Fashion" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Nigerian Fashion</span>
+          </div> 
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/African_crafts.jpg" alt="African Crafts" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">African Crafts</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/lagos_nigeria_cityscape.jpg" alt="Lagos Nigeria Cityscape" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Lagos Nigeria</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/african_women_entrepreneurs.jpg" alt="African Women Entrepreneurs" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Women Entrepreneurs</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/nigerian_marketplaces.jpg" alt="Nigerian Marketplaces" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Nigerian Market</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/cultural_festivals.jpg" alt="Cultural Festivals" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Cultural Festival</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/business_meetings.jpg" alt="Business Meetings" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Business Meeting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Event Highlights Section -->
+  <section id="highlights" class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black to-purple-950/30 z-0"></div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-20 left-20 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <div class="floating-element-slow absolute top-1/4 right-[10%] w-5 h-5 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50"></div>
+    <div class="floating-element absolute bottom-1/4 left-[10%] w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">WHAT TO EXPECT</h4>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white playfair">Event <span class="gradient-text">Highlights</span></h2>
+        <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          An immersive experience designed to elevate your business and connect you with like-minded entrepreneurs.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Highlight 1 -->
+        <div class="group bg-black/40 backdrop-blur-sm border border-pink-500/20 rounded-xl overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-all duration-500" data-aos="fade-right">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-1.png" alt="Marketplace Extravaganza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-pink-400 mb-3 group-hover:text-pink-300 transition-colors">Marketplace Extravaganza</h3>
+            <p class="text-gray-300 mb-5 leading-relaxed">
+              A vibrant marketplace featuring 200 women-owned businesses from various industries. Discover unique products, innovative services, and quality offerings directly from talented entrepreneurs.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Fashion</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Beauty</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Food</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Crafts</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Services</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 2 -->
+        <div class="group bg-black/40 backdrop-blur-sm border border-purple-500/20 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-500" data-aos="fade-left">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-2.png" alt="Kiddies Fun Park" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-purple-400 mb-3 group-hover:text-purple-300 transition-colors">Kiddies Fun Park</h3>
+            <p class="text-gray-300 mb-5 leading-relaxed">
+              A fun-filled zone for children with activities, games, and entertainment. Parents can shop and network while their children enjoy supervised play areas, creative workshops, and educational activities.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Games</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Face Painting</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Crafts</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Story Time</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 3 -->
+        <div class="group bg-black/40 backdrop-blur-sm border border-pink-500/20 rounded-xl overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-all duration-500" data-aos="fade-right" data-aos-delay="100">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-3.png" alt="Entertainment Village" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-pink-400 mb-3 group-hover:text-pink-300 transition-colors">Entertainment Village</h3>
+            <p class="text-gray-300 mb-5 leading-relaxed">
+              Enjoy live music, DJ sets, cultural performances, and culinary delights. This vibrant zone will keep you entertained throughout the event with performances from talented artists and delicious food options.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Live Music</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Cultural Shows</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Food Court</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Dance</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 4 -->
+        <div class="group bg-black/40 backdrop-blur-sm border border-purple-500/20 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-500" data-aos="fade-left" data-aos-delay="100">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-4.png" alt="One-Day Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-purple-400 mb-3 group-hover:text-purple-300 transition-colors">One-Day Seminar</h3>
+            <p class="text-gray-300 mb-5 leading-relaxed">
+              Learn about product packaging, global market entry, and export potential. This educational seminar will feature industry experts sharing valuable insights to help you scale your business internationally.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Expert Speakers</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Global Markets</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Packaging</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Export Strategies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Featured Speakers Section -->
+      <div class="mt-20" data-aos="fade-up">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold text-white mb-4 playfair">Featured <span class="gradient-text">Speakers</span></h3>
+          <p class="text-gray-300 max-w-2xl mx-auto">Learn from industry leaders and successful entrepreneurs who will share their knowledge and experience.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Speaker 1 -->
+          <div class="speaker-card group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            <div class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div class="relative mb-4 overflow-hidden rounded-full w-24 h-24 mx-auto">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Speaker 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <h4 class="text-xl font-bold text-white mb-1 text-center">Dr. Amina Mensah</h4>
+              <p class="text-pink-400 text-sm mb-3 text-center">Global Business Strategist</p>
+              <p class="text-gray-300 text-sm text-center">Expert in international market expansion and business growth strategies.</p>
+            </div>
+          </div>
+          
+          <!-- Speaker 2 -->
+          <div class="speaker-card group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            <div class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div class="relative mb-4 overflow-hidden rounded-full w-24 h-24 mx-auto">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Speaker 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <h4 class="text-xl font-bold text-white mb-1 text-center">Sarah Okafor</h4>
+              <p class="text-purple-400 text-sm mb-3 text-center">Tech Entrepreneur</p>
+              <p class="text-gray-300 text-sm text-center">Founder of three successful tech startups with expertise in digital transformation.</p>
+            </div>
+          </div>
+          
+          <!-- Speaker 3 -->
+          <div class="speaker-card group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            <div class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div class="relative mb-4 overflow-hidden rounded-full w-24 h-24 mx-auto">
+                <img src="https://randomuser.me/api/portraits/women/89.jpg" alt="Speaker 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <h4 class="text-xl font-bold text-white mb-1 text-center">Fatima Ibrahim</h4>
+              <p class="text-pink-400 text-sm mb-3 text-center">Marketing Expert</p>
+              <p class="text-gray-300 text-sm text-center">Specialist in branding and digital marketing strategies for small businesses.</p>
+            </div>
+          </div>
+          
+          <!-- Speaker 4 -->
+          <div class="speaker-card group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            <div class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div class="relative mb-4 overflow-hidden rounded-full w-24 h-24 mx-auto">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Speaker 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <h4 class="text-xl font-bold text-white mb-1 text-center">Elizabeth Kalu</h4>
+              <p class="text-purple-400 text-sm mb-3 text-center">Investment Advisor</p>
+              <p class="text-gray-300 text-sm text-center">Helping women entrepreneurs secure funding and investment for business growth.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-16 text-center">
+        <a href="#register" class="px-10 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg shine btn-pulse">Register Now</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- How to Participate Section -->
+  <section id="participate" class="py-20 px-6 md:px-16 bg-gradient-to-br from-pink-50 to-purple-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-4">How to Participate</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Join hundreds of women entrepreneurs in this exciting fair. Follow these simple steps:</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-pink-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">1</div>
+          <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-pink-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-pink-700 mb-4">Register Online</h3>
+          <p class="text-gray-700">Fill out the registration form below with your business details and contact information and be added to a waiting list.</p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-purple-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">2</div>
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-700 mb-4">Secure Your Spot</h3>
+          <p class="text-gray-700">Pay the participation fee of ₦250,000 to confirm your booth and access exclusive benefits.</p>
+          <p class="text-sm text-gray-500 mt-2">Includes: ₦200,000 stand fee + ₦50,000 mandatory billboard feature (shared across 25 FCT locations).</p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-pink-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">3</div>
+          <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-pink-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-pink-700 mb-4">Prepare for Success</h3>
+          <p class="text-gray-700">Join our WhatsApp community to receive detailed guidelines and support to help you prepare for the fair.</p>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-purple-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">4</div>
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-700 mb-4">Promote Your Presence</h3>
+          <p class="text-gray-700">Leverage our promotional tools and templates to announce your participation and attract attendees to your booth.</p>
+        </div>
+      </div>
+      
+      <div class="mt-16 bg-white p-8 rounded-xl shadow-xl">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/2">
+            <h3 class="text-xl font-bold text-pink-700 mb-4">Payment Details</h3>
+            <div class="bg-pink-50 p-5 rounded-lg border border-pink-200">
+              <p class="font-semibold text-gray-700 mb-2">After successful registration, kindly make your payment of ₦250,000 to:</p>
+              <div class="space-y-2 text-gray-700">
+                <p><span class="font-semibold">Account No:</span> 2046933515</p>
+                <p><span class="font-semibold">Account Name:</span> Wibfair Nigeria Limited</p>
+                <p><span class="font-semibold">Bank:</span> First Bank</p>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-xl font-bold text-purple-700 mb-4">Join Our Community</h3>
+            <div class="bg-purple-50 p-5 rounded-lg border border-purple-200">
+              <p class="font-semibold text-gray-700 mb-4">After payment, join the vendors WhatsApp group and send "Vendor Slot Paid" for confirmation.</p>
+              <a href="https://chat.whatsapp.com/JvYztK3G6gaAD8T2323byh?mode=ac_t" class="flex items-center justify-center gap-2 bg-green-500 text-white py-3 px-6 rounded-lg font-bold hover:bg-green-600 transition shadow-md">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Join WhatsApp Community
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form Section -->
+  <section id="register" class="py-20 px-6 md:px-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-4">Register Now</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Fill in the form below to secure your spot at WIBFair Abuja 2025</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Registration Form -->
+        <div class="bg-gradient-to-br from-pink-50 to-purple-100 p-8 md:p-10 rounded-xl shadow-xl">
+          <form id="registrationForm" class="space-y-6">
+            <!-- Business Information -->
+            <div class="space-y-5">
+              <h3 class="text-xl font-bold text-pink-700 border-b-2 border-pink-200 pb-2">Business Information</h3>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="businessName" class="block text-gray-700 font-semibold mb-2">Business Name *</label>
+                  <input type="text" id="businessName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="industry" class="block text-gray-700 font-semibold mb-2">Industry *</label>
+                  <select id="industry" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                    <option value="" selected disabled>Select your industry</option>
+                    <option value="Fashion">Fashion & Apparel</option>
+                    <option value="Beauty">Beauty & Cosmetics</option>
+                    <option value="Food">Food & Beverages</option>
+                    <option value="Arts">Arts & Crafts</option>
+                    <option value="Health">Health & Wellness</option>
+                    <option value="Tech">Technology</option>
+                    <option value="Education">Education</option>
+                    <option value="Professional">Professional Services</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                <label for="businessDescription" class="block text-gray-700 font-semibold mb-2">Business Description *</label>
+                <textarea id="businessDescription" rows="3" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Brief description of your business and products/services"></textarea>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="businessWebsite" class="block text-gray-700 font-semibold mb-2">Business Website (if any)</label>
+                  <input type="url" id="businessWebsite" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="socialMedia" class="block text-gray-700 font-semibold mb-2">Social Media Handle(s) *</label>
+                  <input type="text" id="socialMedia" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Instagram: @example, etc.">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="space-y-5">
+              <h3 class="text-xl font-bold text-pink-700 border-b-2 border-pink-200 pb-2">Contact Information</h3>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="fullName" class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                  <input type="text" id="fullName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="position" class="block text-gray-700 font-semibold mb-2">Position in Business *</label>
+                  <input type="text" id="position" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                  <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
+                  <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+              </div>
+              
+              <div>
+                <label for="address" class="block text-gray-700 font-semibold mb-2">Business Address *</label>
+                <textarea id="address" rows="2" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"></textarea>
+              </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="space-y-5">
+              <h3 class="text-xl font-bold text-pink-700 border-b-2 border-pink-200 pb-2">Additional Information</h3>
+              
+              <div>
+                <label for="expectations" class="block text-gray-700 font-semibold mb-2">What are your expectations from the fair? *</label>
+                <textarea id="expectations" rows="2" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"></textarea>
+              </div>
+              
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Have you participated in any trade fair before? *</label>
+                <div class="flex gap-6">
+                  <label class="flex items-center">
+                    <input type="radio" name="previousParticipation" value="yes" class="mr-2 h-5 w-5 text-pink-600 focus:ring-pink-500">
+                    <span>Yes</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="previousParticipation" value="no" class="mr-2 h-5 w-5 text-pink-600 focus:ring-pink-500">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div>
+                <label class="flex items-start">
+                  <input type="checkbox" required class="mt-1 mr-2 h-5 w-5 text-pink-600 focus:ring-pink-500">
+                  <span class="text-gray-700">I agree to the terms and conditions of WIBFair Abuja and consent to receive communications related to the event. *</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button type="submit" class="px-10 py-4 bg-pink-600 text-white text-lg font-bold rounded-full shadow-lg hover:bg-pink-700 transition transform hover:-translate-y-1">Submit Registration</button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Map Container -->
+        <div class="rounded-xl overflow-hidden shadow-xl flex flex-col">
+          <div class="bg-pink-700 text-white py-4 px-6">
+            <h3 class="text-xl font-bold">Event Location</h3>
+            <p class="text-pink-100">National Stadium (Main Bowl), Abuja, Nigeria</p>
+          </div>
+          <div class="flex-grow relative h-full min-h-[400px]">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.2686252785706!2d7.435066314770386!3d9.039478091063602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0ba5265e8a17%3A0xb278c3e53ba73a44!2sNational%20Stadium%20Abuja!5e0!3m2!1sen!2sng!4v1648133921522!5m2!1sen!2sng" 
+              class="absolute inset-0 w-full h-full border-0" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="bg-gray-100 p-6 space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="text-pink-600 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Address</h4>
+                <p class="text-gray-600">National Stadium (Main Bowl), Abuja, Federal Capital Territory, Nigeria</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="text-pink-600 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Event Dates</h4>
+                <p class="text-gray-600">March 8-12, 2025 | 9:00 AM - 8:00 PM daily</p>
+              </div>
+            </div>
+            <a href="https://goo.gl/maps/ZKzU9vY8xdQvLvVC6" target="_blank" class="inline-flex items-center text-pink-600 hover:text-pink-700 transition">
+              <span>Get Directions</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16 px-6 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- About Us -->
+        <div>
+          <h3 class="text-2xl font-bold text-pink-400 mb-4">About Us</h3>
+          <p class="text-gray-300 mb-6">The Women In Business (WIB) Fair Abuja is a premier event to celebrate and empower women entrepreneurs across diverse industries. This event provides a unique platform for showcasing products, networking with industry leaders, and exploring new business opportunities.</p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61562569674204" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+            </a>
+            <a href="https://www.tiktok.com/@wib.fair" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on TikTok">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.321 5.562a5.124 5.124 0 01-1.53 1.58 5.086 5.086 0 01-2.175.806v3.076a8.062 8.062 0 01-1.259-.1 8.166 8.166 0 01-3.88-1.938 8.005 8.005 0 01-2.397-3.183v6.554a7.632 7.632 0 01-2.247 5.428 7.73 7.73 0 01-5.45 2.252 7.688 7.688 0 01-3.75-.968A7.583 7.583 0 012.202 3.341a7.69 7.69 0 013.75-.968 7.78 7.78 0 013.343.752v3.302a4.484 4.484 0 00-3.343-1.485 4.512 4.512 0 00-3.2 1.327 4.468 4.468 0 00-1.328 3.183A4.5 4.5 0 005 13.37a4.478 4.478 0 003.2 1.326 4.434 4.434 0 003.046-1.159v-8.09A8.242 8.242 0 0013.3 2.56h2.675a5.153 5.153 0 003.346 3.001z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/wib.fair" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on Instagram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+            </a>
+            <a href="https://x.com/wibfair" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on Twitter (X)">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-2xl font-bold text-pink-400 mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#about" class="text-gray-300 hover:text-pink-400 transition">About WIBFair</a></li>
+            <li><a href="#why" class="text-gray-300 hover:text-pink-400 transition">Why Participate</a></li>
+            <li><a href="#highlights" class="text-gray-300 hover:text-pink-400 transition">Event Highlights</a></li>
+            <li><a href="#participate" class="text-gray-300 hover:text-pink-400 transition">How to Participate</a></li>
+            <li><a href="#register" class="text-gray-300 hover:text-pink-400 transition">Register Now</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="text-2xl font-bold text-pink-400 mb-4">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-pink-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span class="text-gray-300">National Stadium (main bowl), Abuja, Nigeria</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-pink-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span class="text-gray-300">info@wibfair.com</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-pink-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span class="text-gray-300">+234 (0) 123 456 7890</span>
+            </li>
+          </ul>
+          
+          <div class="mt-6">
+            <h4 class="text-xl font-semibold text-pink-400 mb-3">Event Date</h4>
+            <p class="text-gray-300 flex items-center">
+              <svg class="w-6 h-6 text-pink-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              31st October - 2nd November 2025
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+        <p>© 2025 WIBFair Abuja. All rights reserved. Packaged by Outbox Experience.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-6 right-6 bg-pink-600 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-pink-700" title="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    <span class="sr-only">Back to top</span>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true
+    });
+    
+    // Preloader
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      const loadingProgress = document.getElementById('loadingProgress');
+      const loadingText = document.getElementById('loadingText');
+      
+      // Simulate loading progress
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.random() * 10;
+        if (progress > 100) {
+          progress = 100;
+          clearInterval(interval);
+          
+          // Update text
+          loadingText.textContent = 'Ready!';
+          
+          // Hide preloader after a short delay
+          setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+              preloader.style.display = 'none';
+              
+              // Initialize the particles effect
+              initializeParticles();
+              
+              // Initialize 3D background
+              initThreejsBackground();
+            }, 500);
+          }, 500);
+        }
+        loadingProgress.style.width = `${progress}%`;
+        loadingText.textContent = `Loading artistic experience... ${Math.floor(progress)}%`;
+      }, 100);
+    });
+    
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const menuBtnIcon = document.getElementById('menuBtnIcon');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        // Open menu
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        // Change to X icon
+        menuBtnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        // Close menu
+        closeMenu();
+      }
+    });
+    
+    function closeMenu() { 
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      // Change back to hamburger icon
+      menuBtnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+    }
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+    
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+      
+      // Transparent navigation on scroll
+      const nav = document.getElementById('mainNav');
+      if (scrollTop > 50) {
+        nav.classList.add('bg-black/80');
+        nav.classList.remove('bg-transparent');
+      } else {
+        nav.classList.remove('bg-black/80');
+        nav.classList.add('bg-transparent');
+      }
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0');
+        backToTopButton.classList.add('opacity-100');
+      } else {
+        backToTopButton.classList.remove('opacity-100');
+        backToTopButton.classList.add('opacity-0');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Custom Cursor
+    if (window.innerWidth > 768) {
+      const cursor = document.querySelector('.custom-cursor');
+      const cursorDot = document.querySelector('.cursor-dot');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      
+      // Add hover effect on links
+      document.querySelectorAll('a, button').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          cursor.style.width = '60px';
+          cursor.style.height = '60px';
+          cursorDot.style.backgroundColor = '#FF0080';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          cursor.style.width = '40px';
+          cursor.style.height = '40px';
+          cursorDot.style.backgroundColor = '#FF0080';
+        });
+      });
+    }
+    
+    // Form submission (prevent default for demo)
+    document.getElementById('registrationForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for registering! We will contact you shortly with further details.');
+    });
+    
+    // Animation for floating elements
+    function initializeParticles() {
+      if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": ["#FF0080", "#7928CA", "#8A2BE2", "#9370DB"]
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              }
+            },
+            "opacity": {
+              "value": 0.4,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 2,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#FF0080",
+              "opacity": 0.2,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 1,
+              "direction": "none",
+              "random": true,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": true,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 140,
+                "line_linked": {
+                  "opacity": 0.4
+                }
+              },
+              "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+              },
+              "repulse": {
+                "distance": 200,
+                "duration": 0.4
+              },
+              "push": {
+                "particles_nb": 4
+              },
+              "remove": {
+                "particles_nb": 2
+              }
+            }
+          },
+          "retina_detect": true
+        });
+      }
+    }
+    
+    // Initialize Three.js background
+    function initThreejsBackground() {
+      if (typeof THREE === 'undefined' || !document.getElementById('canvas-wrapper')) return;
+      
+      const wrapper = document.getElementById('canvas-wrapper');
+      let scene, camera, renderer;
+      let particles, positions, colors;
+      
+      const init = () => {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 50;
+        
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setClearColor(0x000000, 0);
+        
+        wrapper.appendChild(renderer.domElement);
+        
+        // Create particle system
+        const particleCount = 1000;
+        const particleSystem = createParticleSystem(particleCount);
+        scene.add(particleSystem);
+        
+        window.addEventListener('resize', onWindowResize);
+        
+        animate();
+      };
+      
+      const createParticleSystem = (particleCount) => {
+        const particles = new THREE.BufferGeometry();
+        positions = new Float32Array(particleCount * 3);
+        colors = new Float32Array(particleCount * 3);
+        
+        const color1 = new THREE.Color(0xFF0080);
+        const color2 = new THREE.Color(0x7928CA);
+        
+        for (let i = 0; i < particleCount; i++) {
+          // Positions
+          const x = (Math.random() - 0.5) * 100;
+          const y = (Math.random() - 0.5) * 100;
+          const z = (Math.random() - 0.5) * 100;
+          
+          positions[i * 3] = x;
+          positions[i * 3 + 1] = y;
+          positions[i * 3 + 2] = z;
+          
+          // Colors - interpolate between two colors
+          const ratio = Math.random();
+          const color = color1.clone().lerp(color2, ratio);
+          
+          colors[i * 3] = color.r;
+          colors[i * 3 + 1] = color.g;
+          colors[i * 3 + 2] = color.b;
+        }
+        
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        
+        const material = new THREE.PointsMaterial({
+          size: 0.5,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.5
+        });
+        
+        return new THREE.Points(particles, material);
+      };
+      
+      const onWindowResize = () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      };
+      
+      const animate = () => {
+        requestAnimationFrame(animate);
+        
+        // Rotate camera slightly for subtle movement
+        camera.position.x = Math.sin(Date.now() * 0.0001) * 10;
+        camera.position.y = Math.cos(Date.now() * 0.0001) * 10;
+        camera.lookAt(scene.position);
+        
+        renderer.render(scene, camera);
+      };
+      
+      init();
+    }
+    
+    // Text animation
+    document.querySelectorAll('.animated-text').forEach(text => {
+      const textContent = text.textContent;
+      text.textContent = '';
+      
+      for (let i = 0; i < textContent.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = textContent[i];
+        span.style.opacity = '0';
+        span.style.transition = 'opacity 0.05s ease';
+        span.style.transitionDelay = `${i * 0.02}s`;
+        text.appendChild(span);
+      }
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            Array.from(text.children).forEach(span => {
+              span.style.opacity = '1';
+            });
+            observer.unobserve(text);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(text);
+    });
+    
+    // Initialize sponsor marquee animation
+    const sponsorTrack = document.querySelector('.sponsor-track');
+    const sponsorItems = document.querySelectorAll('.sponsor-item');
+    
+    if (sponsorTrack && sponsorItems.length > 0) {
+      // Clear any existing clones to avoid duplication
+      const existingItems = Array.from(sponsorItems);
+      
+      // Clone sponsor items to ensure smooth infinite scrolling
+      existingItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        sponsorTrack.appendChild(clone);
+      });
+      
+      // Calculate a better duration based on the number of items
+      const itemCount = existingItems.length;
+      const scrollDuration = Math.max(15, itemCount * 3); // 3 seconds per item, minimum 15 seconds
+      
+      // Start a smooth infinite scroll animation
+      gsap.to(sponsorTrack, {
+        x: "-50%",
+        ease: "linear",
+        duration: scrollDuration,
+        repeat: -1,
+        onRepeat: () => {
+          gsap.set(sponsorTrack, { x: "0%" });
+        }
+      });
+    }
+    
+    // Mobile animation for floating elements
+    const floatingElements = document.querySelectorAll('.floating-element');
+    floatingElements.forEach(element => {
+      gsap.to(element, {
+        y: -20,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    });
+    
+    const floatingElementsReverse = document.querySelectorAll('.floating-element-reverse');
+    floatingElementsReverse.forEach(element => {
+      gsap.to(element, {
+        y: 20,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    });
+    
+    const floatingElementsSlow = document.querySelectorAll('.floating-element-slow');
+    floatingElementsSlow.forEach(element => {
+      gsap.to(element, {
+        y: -15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    });
+    
+    // Scroll indicator animation
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      gsap.to(scrollIndicator, {
+        y: 10,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    }
+    
+    // Animated Border
+    const animatedBorders = document.querySelectorAll('.animated-border');
+    animatedBorders.forEach(border => {
+      border.innerHTML = `
+        <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-x"></div>
+        <div class="relative bg-black rounded-2xl overflow-hidden">
+          ${border.innerHTML}
+        </div>
+      `;
+    });
+    
+    // Initialize glitch text effect
+    document.querySelectorAll('.glitch-text').forEach(element => {
+      let originalText = element.innerText;
+      
+      element.addEventListener('mouseenter', () => {
+        let iterations = 0;
+        const interval = setInterval(() => {
+          element.innerText = originalText
+            .split('')
+            .map((char, index) => {
+              if (index < iterations) {
+                return originalText[index];
+              }
+              return ['!', '@', '#', '$', '%', '^', '&', '*'][Math.floor(Math.random() * 8)];
+            })
+            .join('');
+          
+          iterations += 1/3;
+          if (iterations >= originalText.length) {
+            clearInterval(interval);
+            element.innerText = originalText;
+          }
+        }, 30);
+      });
+    });
+  </script>
+</body>
+</html>
