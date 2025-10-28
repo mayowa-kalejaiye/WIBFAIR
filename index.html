@@ -858,16 +858,16 @@
       const FALLBACK = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="220"><rect width="100%" height="100%" fill="%23e2e8f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%234a5568" font-size="18">Image</text></svg>';
       
       const DEFAULT_IMAGES = [
-        'new assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.53_6d046ed9.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.53_f5745167.jpg'
+        'new-assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.53_6d046ed9.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.53_f5745167.jpg'
       ];
 
       const CARD_W = 280;
@@ -1385,14 +1385,14 @@
     <script>
       (function(){
         const images = [
-          'new assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
-          'new assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg'
+          'new-assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
+          'new-assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg'
         ];
 
         const track = document.getElementById('discoverTrack');
@@ -1420,16 +1420,31 @@
           ];
 
           images.forEach((src, i) => {
-          const card = document.createElement('a');
-          card.className = 'discover-card flex-shrink-0';
-          card.href = '#projects';
-          card.innerHTML = `
-              <img src="${src}" alt="${titles[i]}" loading="lazy" />
-              <div class="meta">
-                <div class="font-bold text-lg">${titles[i]}</div>
-                <div class="text-sm text-gray-700">${descriptions[i]}</div>
-              </div>
-          `;
+            const card = document.createElement('a');
+            card.className = 'discover-card flex-shrink-0';
+            card.href = '#projects';
+
+            // create img element programmatically and encode path segments
+            const img = document.createElement('img');
+            // encode each path segment so folders/filenames with spaces load correctly
+            if (typeof src === 'string') {
+              const parts = src.split('/');
+              img.src = parts.map(p => encodeURIComponent(p)).join('/');
+            } else {
+              img.src = src;
+            }
+            img.alt = titles[i] || '';
+            img.loading = 'lazy';
+
+            const meta = document.createElement('div');
+            meta.className = 'meta';
+            meta.innerHTML = `
+              <div class="font-bold text-lg">${titles[i]}</div>
+              <div class="text-sm text-gray-700">${descriptions[i]}</div>
+            `;
+
+            card.appendChild(img);
+            card.appendChild(meta);
 
           // tilt effect on pointer move
           card.addEventListener('pointermove', (e)=>{
@@ -1733,16 +1748,16 @@
       const CARD_H = 133;
       
       const images = [
-        'new assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.53_6d046ed9.jpg',
-        'new assets/WhatsApp Image 2025-10-06 at 11.33.53_f5745167.jpg'
+        'new-assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.53_6d046ed9.jpg',
+        'new-assets/WhatsApp Image 2025-10-06 at 11.33.53_f5745167.jpg'
       ];
 
       const loadedImages = [];
@@ -1947,18 +1962,20 @@
       document.body.style.overflow = 'auto'; // Restore scrolling
     }
     
-    // Menu button click
-    menuBtn.addEventListener('click', openMenu);
+    // Menu button click (guarded in case elements are missing)
+    menuBtn?.addEventListener('click', openMenu);
     
     // Close button click
-    closeMenuBtn.addEventListener('click', closeMenu);
+    closeMenuBtn?.addEventListener('click', closeMenu);
     
     // Close menu when clicking outside
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target === mobileMenu || e.target.classList.contains('mobile-menu-bg')) {
-        closeMenu();
-      }
-    });
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu || e.target.classList.contains('mobile-menu-bg')) {
+          closeMenu();
+        }
+      });
+    }
     
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-link').forEach(link => {
@@ -1975,12 +1992,14 @@
       
       // Transparent navigation on scroll
       const nav = document.getElementById('mainNav');
-      if (scrollTop > 50) {
-        nav.classList.add('bg-black/80');
-        nav.classList.remove('bg-transparent');
-      } else {
-        nav.classList.remove('bg-black/80');
-        nav.classList.add('bg-transparent');
+      if (nav) {
+        if (scrollTop > 50) {
+          nav.classList.add('bg-black/80');
+          nav.classList.remove('bg-transparent');
+        } else {
+          nav.classList.remove('bg-black/80');
+          nav.classList.add('bg-transparent');
+        }
       }
     });
     
@@ -1988,6 +2007,7 @@
     const backToTopButton = document.getElementById('backToTop');
     
     window.addEventListener('scroll', () => {
+      if (!backToTopButton) return;
       if (window.pageYOffset > 300) {
         backToTopButton.classList.remove('opacity-0');
         backToTopButton.classList.add('opacity-100');
@@ -1997,7 +2017,7 @@
       }
     });
     
-    backToTopButton.addEventListener('click', () => {
+    backToTopButton?.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
