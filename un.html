@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bunmi Alabi | Official Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Text Highlighter Animation */
+    .text-highlight {
+      background-image: linear-gradient(rgb(253, 141, 62), rgb(250, 196, 158));
+      background-size: 0% 100%;
+      background-position: 0% 0%;
+      background-repeat: no-repeat;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      padding: 0 0.25rem;
+      border-radius: 0.375rem;
+      display: inline-block;
+      transition: background-size 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+    }
+
+    .text-highlight.animate {
+      background-size: 100% 100%;
+    }
+
+    /* Shimmer Button Animation */
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .shimmer-button {
+      position: relative;
+      overflow: hidden;
+      background: white;
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite linear;
+    }
+
+    .shimmer-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(253, 141, 62, 0.4),
+        rgba(250, 196, 158, 0.4),
+        transparent
+      );
+      animation: shimmer-slide 3s infinite;
+    }
+
+    @keyframes shimmer-slide {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Text Highlighter - Scroll-triggered highlight effect */
+    .text-highlight {
+      position: relative;
+      display: inline;
+      background-image: linear-gradient(rgb(253, 141, 62), rgb(250, 196, 158));
+      background-repeat: no-repeat;
+      background-size: 0% 100%;
+      background-position: 0% 0%;
+      transition: background-size 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      border-radius: 0.25rem;
+      padding: 0 0.25rem;
+    }
+
+    .text-highlight.active {
+      background-size: 100% 100%;
+    }
+
+    /* Noise Card Effect */
+    .noise-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .noise-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image: url('https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/11/tv-static-gif-7.gif');
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      mix-blend-mode: multiply;
+      z-index: 1;
+    }
+
+    .noise-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Circle Closing Animation (Reversed) */
+    @keyframes closeCircle {
+      0% {
+        transform: translate(-50%, -50%) scale(30);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+      }
+    }
+
+    .circle-transition {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(30);
+      z-index: 10001;
+      pointer-events: none;
+    }
+
+    .circle-transition.close {
+      animation: closeCircle 1.5s ease-in-out forwards;
+    }
+
+    /* Hide content until loaded */
+    body.loading > *:not(#preloader):not(.circle-transition) {
+      visibility: hidden;
+    }
+
+    /* Preloader should be above circle initially */
+    #preloader {
+      z-index: 10002;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 loading">
+  
+  <script>
+    // Enhanced smooth scroll with ease-in-out timing
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all anchor links that point to sections
+      const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+      
+      smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          
+          // Skip if it's just '#' or empty
+          if (targetId === '#' || targetId === '') return;
+          
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            e.preventDefault();
+            
+            // Smooth scroll with custom easing
+            const startPosition = window.pageYOffset;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // 1.2 seconds for smooth transition
+            let startTime = null;
+            
+            // Ease-in-out function (slow start, fast middle, slow end)
+            function easeInOutCubic(t) {
+              return t < 0.5
+                ? 4 * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+            
+            function animation(currentTime) {
+              if (startTime === null) startTime = currentTime;
+              const timeElapsed = currentTime - startTime;
+              const progress = Math.min(timeElapsed / duration, 1);
+              const ease = easeInOutCubic(progress);
+              
+              window.scrollTo(0, startPosition + distance * ease);
+              
+              if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+              }
+            }
+            
+            requestAnimationFrame(animation);
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Navbar hide/show on scroll
+    let lastScrollTop = 0;
+    let scrollTimeout;
+    const mainNav = document.getElementById('mainNav');
+    
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Clear any existing timeout
+      clearTimeout(scrollTimeout);
+      
+      // Apply hide/show behavior to navbar
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down - hide navbar
+        mainNav.style.transform = 'translateY(-100%)';
+      } else if (scrollTop < lastScrollTop) {
+        // Scrolling up - show navbar
+        mainNav.style.transform = 'translateY(0)';
+      }
+      
+      // Show navbar when user stops scrolling
+      scrollTimeout = setTimeout(function() {
+        mainNav.style.transform = 'translateY(0)';
+      }, 150);
+      
+      lastScrollTop = scrollTop;
+    });
+  </script>
+
+
+
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+
+
+
+  <!-- Curved Text Loop Section -->
+  <section class="pt-20 pb-8 overflow-hidden">
+    <div class="w-full">
+      <canvas id="curvedTextCanvas" class="w-full block" style="height: 200px; cursor: grab; touch-action: none;"></canvas>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      const canvas = document.getElementById('curvedTextCanvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d', { alpha: true });
+      let offset = 0;
+      let targetOffset = 0;
+      let isDragging = false;
+      let lastPointerX = 0;
+      let velocity = 0;
+      let textWidth = 0;
+      let animationFrameId = null;
+      let lastTime = 0;
+
+      const config = {
+        speed: -1, // Negative for right to left
+        curveHeight: 50,
+        fontSize: 72,
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontWeight: 'bold',
+        height: 200,
+        easing: 0.05,
+        // Colors
+        sheColor: '#111827', // gray-900 (Featured Work background color)
+        roseColor: '#ea580c', // burnt orange
+        rebuiltColor: '#fb923c', // lighter orange
+        reignsColor: '#fdba74' // lightest orange
+      };
+
+      // Text parts with their colors
+      const textParts = [
+        { text: 'SHE', color: config.sheColor, hasGradient: false },
+        { text: ' Rose ', color: config.roseColor, hasGradient: false },
+        { text: '• ', color: config.sheColor, hasGradient: false },
+        { text: ' SHE', color: config.sheColor, hasGradient: false },
+        { text: ' Rebuilt ', color: config.rebuiltColor, hasGradient: false },
+        { text: '• ', color: config.sheColor, hasGradient: false },
+        { text: ' SHE', color: config.sheColor, hasGradient: false },
+        { text: ' Reigns ', color: config.reignsColor, hasGradient: false },
+        { text: '• ', color: config.sheColor, hasGradient: false },
+        { text: '  ', color: 'transparent', hasGradient: false }
+      ];
+
+      function setupCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = config.height * dpr;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = config.height + 'px';
+        ctx.scale(dpr, dpr);
+        measureText();
+      }
+
+      function measureText() {
+        ctx.font = `${config.fontWeight} ${config.fontSize}px ${config.fontFamily}`;
+        let totalWidth = 0;
+        textParts.forEach(part => {
+          const metrics = ctx.measureText(part.text);
+          part.width = metrics.width;
+          totalWidth += metrics.width;
+        });
+        textWidth = totalWidth;
+      }
+
+      function drawCurvedText() {
+        const width = canvas.width / (window.devicePixelRatio || 1);
+        const height = config.height;
+        
+        ctx.clearRect(0, 0, width, height);
+        ctx.font = `${config.fontWeight} ${config.fontSize}px ${config.fontFamily}`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        const repeatCount = Math.ceil(width / textWidth) + 2;
+        let normalizedOffset = offset % textWidth;
+        if (normalizedOffset > 0) normalizedOffset -= textWidth;
+
+        for (let i = 0; i < repeatCount; i++) {
+          const baseX = normalizedOffset + i * textWidth;
+          let charX = baseX;
+
+          textParts.forEach(part => {
+            for (let j = 0; j < part.text.length; j++) {
+              const char = part.text[j];
+              const charMetrics = ctx.measureText(char);
+              const charWidth = charMetrics.width;
+
+              if (charX + charWidth < 0 || charX > width) {
+                charX += charWidth;
+                continue;
+              }
+
+              const normalizedX = charX / width;
+              const t = normalizedX;
+              const curveY = height / 2 - config.curveHeight * Math.sin(t * Math.PI);
+
+              const angleT = Math.max(0, Math.min(1, normalizedX));
+              const derivative = -config.curveHeight * Math.PI * Math.cos(angleT * Math.PI) / width;
+              const angle = Math.atan(derivative);
+
+              ctx.save();
+              ctx.translate(charX + charWidth / 2, curveY);
+              ctx.rotate(angle);
+
+              // Apply solid color
+              ctx.fillStyle = part.color;
+              ctx.fillText(char, 0, 0);
+              ctx.restore();
+
+              charX += charWidth;
+            }
+          });
+        }
+      }
+
+      function animate(currentTime) {
+        const deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+
+        if (!isDragging) {
+          if (Math.abs(velocity) > 0.1) {
+            targetOffset += velocity;
+            velocity *= 0.95;
+          } else {
+            const speedMultiplier = deltaTime > 0 ? deltaTime / 16.67 : 1;
+            targetOffset += config.speed * speedMultiplier;
+          }
+        }
+
+        offset += (targetOffset - offset) * config.easing;
+
+        if (offset > textWidth) {
+          offset -= textWidth;
+          targetOffset -= textWidth;
+        } else if (offset < -textWidth) {
+          offset += textWidth;
+          targetOffset += textWidth;
+        }
+
+        drawCurvedText();
+        animationFrameId = requestAnimationFrame(animate);
+      }
+
+      // Event handlers
+      canvas.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        lastPointerX = e.clientX;
+        velocity = 0;
+        canvas.setPointerCapture(e.pointerId);
+        canvas.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - lastPointerX;
+        lastPointerX = e.clientX;
+        velocity = dx * 0.5;
+        targetOffset += dx;
+        offset += dx;
+      });
+
+      canvas.addEventListener('pointerup', (e) => {
+        isDragging = false;
+        canvas.releasePointerCapture(e.pointerId);
+        canvas.style.cursor = 'grab';
+      });
+
+      canvas.addEventListener('pointerleave', (e) => {
+        if (isDragging) {
+          isDragging = false;
+          canvas.style.cursor = 'grab';
+        }
+      });
+
+      // Setup and start
+      setupCanvas();
+      window.addEventListener('resize', setupCanvas);
+      lastTime = performance.now();
+      animationFrameId = requestAnimationFrame(animate);
+    })();
+  </script>
+  <!--  -->
+</body>
+</html>
+    
+    <!-- body { 
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      background-color: var(--wibfair-black);
+      color: var(--wibfair-white);
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+    .playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .hero-title {
+      font-family: 'Studio Feixen Sans', Arial, sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-shadow: none;
+      font-stretch: condensed;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+      text-rendering: geometricPrecision;
+    }
+    
+    /* Simple animations */
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in forwards;
+    }
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Particle background */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--wibfair-primary-pink);
+      z-index: 1000;
+    }
+    
+    /* Card hover effect */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 128, 115, 0.2);
+    }
+    
+    /* Logo sliding animations */
+    .logos-slider {
+      width: 100%;
+      overflow: hidden;
+      padding: 2rem 0;
+    }
+    
+    .logos-track {
+      display: flex;
+      width: max-content;
+    }
+    
+    .animate-slide-right {
+      animation: infinite-slide 30s linear infinite;
+    }
+    
+    @keyframes infinite-slide {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    
+    /* Dynamic scaling based on position */
+    .logo-item {
+      transition: transform 0.4s ease, filter 0.3s ease;
+      /* Removed scaling animation */
+    }
+    
+    /* Logo hover effects */
+    .logo-item:hover {
+      transform: translateY(-15px) scale(1.4) !important;
+      filter: brightness(1.3) drop-shadow(0 10px 20px rgba(255, 107, 53, 0.3));
+      z-index: 10;
+      position: relative;
+    }
+    
+    /* Sponsor scroll animation */
+    .sponsor-scroll {
+      animation: scroll 30s linear infinite;
+      display: inline-flex;
+    }
+    .sponsor-scroll-content {
+      display: inline-flex;
+      animation: scroll 30s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    /* Sponsor marquee styles */
+    .sponsor-marquee {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+    .sponsor-track {
+      width: fit-content;
+      display: flex;
+      gap: 2rem;
+    }
+    .sponsor-item {
+      min-width: 180px;
+    }
+    
+    /* Mobile menu */
+    .mobile-link {
+      display: block;
+      color: var(--wibfair-white);
+      transition: color 0.3s ease;
+    }
+    .mobile-link:hover {
+      color: var(--wibfair-primary-pink);
+    }
+    
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+    
+    /* Toggle menu button animation */
+    .toggle-active .toggle-bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .toggle-active .toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .toggle-active .toggle-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .artistic-border::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid var(--wibfair-primary-purple);
+      border-radius: inherit;
+      opacity: 0.5;
+      z-index: -1;
+      transform: rotate(1deg);
+    }
+    .particle-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    }
+    .btn-pulse {
+      animation: buttonPulse 2s infinite;
+    }
+    @keyframes buttonPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 128, 115, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(0, 128, 115, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 128, 115, 0);
+      }
+    }
+    .rotate-slow {
+      animation: rotate 10s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .text-outline {
+      -webkit-text-stroke: 1px var(--wibfair-secondary-pink);
+      color: transparent;
+    }
+    .grid-pattern {
+      background-image: linear-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, .1) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .scroll-hint {
+      animation: scrollHint 2s ease-in-out infinite;
+    }
+    @keyframes scrollHint {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    .reveal {
+      position: relative;
+      opacity: 0;
+    }
+    .blur-load {
+      filter: blur(5px);
+      transition: filter 0.3s ease-out;
+    }
+    .blur-load.loaded {
+      filter: blur(0);
+    }
+    .mask-text {
+      -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    }
+    .hero-particle-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--wibfair-secondary-pink), var(--wibfair-primary-purple), var(--wibfair-secondary-pink));
+      background-size: 200% auto;
+      z-index: 1000;
+      animation: progressAnim 3s linear infinite;
+    }
+    @keyframes progressAnim {
+      to {
+        background-position: 200% center;
+      }
+    }
+    .pointer-event-stroke {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: dash 3s ease-in-out forwards;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #canvas-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.6;
+    }
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--wibfair-secondary-pink);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      mix-blend-mode: difference;
+    }
+    /* Standard Gradient Text Class */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--main-colour) 0%, var(--sub-colour) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Glitch text effect */
+    .glitch-text {
+      position: relative;
+      color: var(--wibfair-primary-pink);
+    }
+    
+    /* Shine effect for buttons */
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+  </style> -->
+</head>
+</html>
+<body class="bg-white min-h-screen text-gray-900">
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 bg-black z-[9999] overflow-hidden">
+    <!-- Infinite Grid Background -->
+    <canvas id="gridCanvas" class="absolute inset-0 w-full h-full"></canvas>
+    
+    <!-- Loading Content (centered on top) -->
+    <div class="absolute inset-0 flex justify-center items-center z-10">
+      <div class="text-center bg-black/60 backdrop-blur-sm px-12 py-8 rounded-2xl">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">Bunmi <span class="text-orange-500">Alabi</span></h1>
+        <div class="loading-bar w-64 h-1 mx-auto bg-gray-800 rounded-full overflow-hidden">
+          <div class="h-full w-0 bg-gradient-to-r from-orange-600 to-orange-400" id="loadingProgress"></div>
+        </div>
+        <p class="text-gray-400 mt-3" id="loadingText">Loading...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Circle Transition -->
+  <div id="circleTransition" class="circle-transition"></div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Navigation -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-white backdrop-blur-md sticky top-0 z-50 w-full transition-all duration-300 border-b border-gray-200 shadow-sm" id="mainNav">
+    <div class="flex items-center gap-3">
+      <div class="h-10 w-10 rounded-full bg-black flex items-center justify-center shadow-md">
+        <span class="text-white font-bold text-lg">U</span>
+      </div>
+      <span class="font-black text-xl text-black tracking-wide">UN<span class="text-orange-500">BROKEN</span></span>
+    </div>
+    <ul class="hidden md:flex gap-8 font-semibold text-black">
+      <li class="nav-item">
+        <a href="#about" class="hover:text-orange-500 transition-all duration-300 relative inline-block group">
+          About Unbroken
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#mission" class="hover:text-orange-500 transition-all duration-300 relative inline-block group">
+          Our Mission
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#highlights" class="hover:text-orange-500 transition-all duration-300 relative inline-block group">
+          Event Highlights
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#register" class="hover:text-orange-500 transition-all duration-300 relative inline-block group">
+          Register
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#participate" class="hover:text-orange-500 transition-all duration-300 relative inline-block group">
+          How to Join
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+    </ul>
+    <a href="#register" class="ml-4 px-6 py-2 bg-black hover:bg-gray-800 text-white rounded-full shadow-lg transition-all duration-300 font-bold hidden md:inline-block">Join Us</a>
+    <button onclick="toggleUnbrokenMobileMenu()" class="md:hidden flex items-center focus:outline-none p-2" id="unbrokenMenuBtn" aria-label="Toggle mobile menu">
+      <svg id="unbrokenMenuIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="5" cy="6" r="1"/>
+        <circle cx="5" cy="12" r="1"/>
+        <circle cx="5" cy="18" r="1"/>
+        <line x1="9" y1="6" x2="20" y2="6"/>
+        <line x1="9" y1="12" x2="20" y2="12"/>
+        <line x1="9" y1="18" x2="20" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Unbroken Mobile Menu Overlay -->
+  <div id="unbrokenMobileOverlay" class="fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity md:hidden opacity-0 pointer-events-none" onclick="toggleUnbrokenMobileMenu()"></div>
+
+  <!-- Unbroken Mobile Menu Sidebar -->
+  <div id="unbrokenMobileSidebar" class="fixed top-0 left-0 h-full w-4/5 max-w-sm z-50 bg-gradient-to-br from-gray-900 via-black to-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out md:hidden -translate-x-full">
+    <div class="flex flex-col h-full">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-4 border-b border-gray-800">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-full bg-gradient-to-r from-orange-600 to-orange-400 flex items-center justify-center shadow-md">
+            <span class="text-white font-bold text-lg">U</span>
+          </div>
+          <span class="font-black text-xl text-white tracking-wide">UN<span class="text-orange-500">BROKEN</span></span>
+        </div>
+        <button onclick="toggleUnbrokenMobileMenu()" class="p-2 text-gray-400 rounded-md hover:bg-gray-800" aria-label="Close menu">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Links -->
+      <nav class="flex-grow p-4">
+        <div class="flex flex-col space-y-2">
+          <a href="#about" class="px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-800 hover:text-orange-400 transition-colors" onclick="toggleUnbrokenMobileMenu()">
+            About Unbroken
+          </a>
+          <a href="#mission" class="px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-800 hover:text-orange-400 transition-colors" onclick="toggleUnbrokenMobileMenu()">
+            Our Mission
+          </a>
+          <a href="#highlights" class="px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-800 hover:text-orange-400 transition-colors" onclick="toggleUnbrokenMobileMenu()">
+            Event Highlights
+          </a>
+          <a href="#register" class="px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-800 hover:text-orange-400 transition-colors" onclick="toggleUnbrokenMobileMenu()">
+            Register
+          </a>
+          <a href="#participate" class="px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-800 hover:text-orange-400 transition-colors" onclick="toggleUnbrokenMobileMenu()">
+            How to Join
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile CTA Button -->
+      <div class="p-4 border-t border-gray-800">
+        <a href="#register" class="w-full block text-center px-4 py-3 text-sm font-medium bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors shadow-lg">
+          Join the Conference
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-screen flex flex-col justify-center" id="hero">
+    <div id="particles-js" class="absolute inset-0 z-0 opacity-50"></div>
+    
+    <!-- SHERO 2025 Glass Badge - Top Center -->
+    <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+      <span class="
+        relative inline-block w-fit rounded-lg px-6 py-3
+        backdrop-blur-md
+        bg-white/80 dark:bg-gray-800/80
+        border border-gray-300 dark:border-white/20
+        shadow-2xl shadow-black/30
+      ">
+        <span aria-hidden class="
+          absolute inset-0 pointer-events-none rounded-lg overflow-hidden
+          mix-blend-multiply dark:mix-blend-soft-light
+        " style="opacity: 0.3; background-image: url('https://i0.wp.com/css-tricks.com/wp-content/uploads/2022/11/tv-static-gif-7.gif'); background-size: cover; background-position: center; background-repeat: repeat;"></span>
+        <span class="relative z-10 font-bold text-2xl md:text-3xl" style="color: #ea580c;">
+          SHERO 2025
+        </span>
+      </span>
+    </div>
+    
+    <!-- Subtle Background Elements -->
+    <div class="absolute top-20 right-20 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl hidden md:block"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl hidden md:block"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 py-8 md:py-12 lg:py-24 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-10">
+        <div class="text-center md:text-left order-2 md:order-1">
+          <!-- Event Details - Now at Top -->
+          <div class="grid grid-cols-3 gap-2 md:gap-4 mb-6 md:mb-8 max-w-lg mx-auto md:mx-0">
+            <div class="event-detail p-2 md:p-4 bg-orange-50 rounded-lg backdrop-blur-sm">
+              <div class="text-orange-400 text-xl md:text-3xl mb-1"><i class="far fa-calendar-alt"></i></div>
+              <p class="text-xs md:text-sm text-gray-700"><span class="text-highlight">Oct 18, 2025</span></p>
+            </div>
+            <div class="event-detail p-2 md:p-4 bg-orange-50 rounded-lg backdrop-blur-sm">
+              <div class="text-orange-400 text-xl md:text-3xl mb-1"><i class="fas fa-clock"></i></div>
+              <p class="text-xs md:text-sm text-gray-700"><span class="text-highlight">9:00 AM</span></p>
+            </div>
+            <div class="event-detail p-2 md:p-4 bg-orange-50 rounded-lg backdrop-blur-sm">
+              <div class="text-orange-400 text-xl md:text-3xl mb-1"><i class="fas fa-map-marker-alt"></i></div>
+              <p class="text-xs md:text-sm text-gray-700"><span class="text-highlight">Lagos</span></p>
+            </div>
+          </div>
+          
+          <p class="text-base md:text-lg lg:text-xl mb-4 md:mb-6 max-w-lg mx-auto md:mx-0 text-gray-700 leading-relaxed">
+            Unbroken is a platform that <span class="text-highlight">empowers women</span>, especially <span class="text-highlight">single mums</span> and <span class="text-highlight">mature single ladies</span>, to rise above life's challenges, heal from their brokenness, rediscover their identity, and embrace wholeness.
+          </p>
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 md:gap-4">
+            <a href="#register" class="px-6 md:px-8 py-2 md:py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg transition-all duration-300 font-bold text-base md:text-lg">
+              Join Us
+            </a>
+            <a href="#about" class="px-6 md:px-8 py-2 md:py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300 font-bold text-base md:text-lg group">
+              Learn More
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative mt-6 md:mt-0 order-1 md:order-2">
+          <!-- Hero Video -->
+          <div class="relative rounded-lg overflow-hidden shadow-2xl">
+            <video 
+              controls 
+              preload="metadata"
+              class="w-full h-auto rounded-lg max-h-64 sm:max-h-80 md:max-h-96 object-cover"
+              poster="assets/african_women_entrepreneurs.jpg"
+            >
+              <source src="SHERO2025.mp4" type="video/mp4">
+              <img src="assets/african_women_entrepreneurs.jpg" alt="Unbroken Conference" class="w-full h-auto">
+            </video>
+          </div>
+          <div class="absolute -bottom-3 -left-3 md:-bottom-5 md:-left-5 w-16 h-16 md:w-24 md:h-24 rounded-lg bg-orange-500 opacity-80 hidden sm:block"></div>
+          <div class="absolute -top-3 -right-3 md:-top-5 md:-right-5 w-16 h-16 md:w-24 md:h-24 rounded-lg border-2 border-orange-500 hidden sm:block"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+          </div>
+        </div>
+        
+        <div class="relative hidden md:block" data-aos="fade-left">
+          <!-- Hero Image with Animated Border -->
+          
+          <!-- Floating Badges -->
+          <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-900/80 rounded-full flex items-center justify-center text-center p-4 backdrop-blur-sm border border-orange-500/30 shadow-lg rotating-slow">
+            <span class="text-white font-bold">500+ Attendees</span>
+          </div>
+          
+          <div class="absolute -bottom-5 -left-10 px-4 py-2 bg-gradient-to-r from-teal-600/80 to-yellow-500/80 rounded-lg backdrop-blur-sm shadow-lg border border-teal-600/30 floating-element-slow">
+            <span class="text-white font-bold">Oct 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <!-- <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
+      <a href="#about" class="text-white opacity-70 hover:opacity-100 transition-opacity">
+        <div class="flex flex-col items-center">
+          <span class="text-sm mb-2">Scroll Down</span>
+          <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+      </a>
+    </div> -->
+  </section>
+  <!-- Sponsors/Partners Section -->
+  <section class="py-16 relative overflow-hidden bg-gray-50">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-50 to-orange-50/30 z-0"></div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-10 left-2 w-40 h-40 bg-purple-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-20 w-60 h-60 bg-pink-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h4 class="text-orange-400 font-medium text-lg mb-2 tracking-wider glitch-text">OUR SUPPORTERS</h4>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Trusted Partners</h2>
+      </div>
+      
+      <!-- Canvas Logo Slider -->
+      <div class="w-full">
+        <canvas id="partnersCanvas" class="w-full block" style="height: 150px; cursor: grab; touch-action: none;"></canvas>
+      </div>
+      
+      <!-- Become a Sponsor -->
+      <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="text-black text-xl font-medium mb-6">Interested in supporting our mission?</h4>
+        <a href="#contact" class="px-8 py-3 border border-orange-500 text-orange-400 rounded-full hover:bg-orange-500/10 transition-all duration-300 font-medium text-lg inline-flex items-center group">
+          Become a Partner
+          <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      const canvas = document.getElementById('partnersCanvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d', { alpha: true });
+      let offset = 0;
+      let targetOffset = 0;
+      let isDragging = false;
+      let lastPointerX = 0;
+      let velocity = 0;
+      let animationFrameId = null;
+      let lastTime = 0;
+      let imagesLoaded = false;
+      
+      // Logo images
+      const logos = [
+        { src: 'assets/jdd_logo.png', img: null, width: 0 },
+        { src: 'assets/thogmi_logo.png', img: null, width: 0 }
+      ];
+
+      const config = {
+        speed: -0.5, // Negative for right to left scrolling
+        height: 150,
+        logoHeight: 120,
+        gap: 80,
+        easing: 0.05
+      };
+
+      let totalWidth = 0;
+
+      function setupCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = config.height * dpr;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = config.height + 'px';
+        ctx.scale(dpr, dpr);
+      }
+
+      function loadImages() {
+        let loadedCount = 0;
+        const totalLogos = logos.length;
+
+        logos.forEach((logo, index) => {
+          const img = new Image();
+          img.onload = function() {
+            logo.img = img;
+            // Calculate width maintaining aspect ratio
+            const aspectRatio = img.width / img.height;
+            logo.width = config.logoHeight * aspectRatio;
+            
+            loadedCount++;
+            if (loadedCount === totalLogos) {
+              // Calculate total width of all logos plus gaps
+              totalWidth = logos.reduce((sum, logo) => sum + logo.width + config.gap, 0);
+              imagesLoaded = true;
+              lastTime = performance.now();
+              animationFrameId = requestAnimationFrame(animate);
+            }
+          };
+          img.onerror = function() {
+            loadedCount++;
+            if (loadedCount === totalLogos) {
+              imagesLoaded = true;
+            }
+          };
+          img.src = logo.src;
+        });
+      }
+
+      function drawLogos() {
+        const width = canvas.width / (window.devicePixelRatio || 1);
+        const height = config.height;
+        
+        ctx.clearRect(0, 0, width, height);
+
+        if (!imagesLoaded) return;
+
+        const repeatCount = Math.ceil(width / totalWidth) + 2;
+        let normalizedOffset = offset % totalWidth;
+        if (normalizedOffset > 0) normalizedOffset -= totalWidth;
+
+        for (let i = 0; i < repeatCount; i++) {
+          let currentX = normalizedOffset + i * totalWidth;
+
+          logos.forEach((logo) => {
+            if (!logo.img) return;
+
+            // Check if logo is visible on canvas
+            if (currentX + logo.width < 0 || currentX > width) {
+              currentX += logo.width + config.gap;
+              return;
+            }
+
+            // Draw logo centered vertically
+            const y = (height - config.logoHeight) / 2;
+            
+            ctx.save();
+            ctx.globalAlpha = 0.9;
+            ctx.drawImage(logo.img, currentX, y, logo.width, config.logoHeight);
+            ctx.restore();
+
+            currentX += logo.width + config.gap;
+          });
+        }
+      }
+
+      function animate(currentTime) {
+        const deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+
+        if (!isDragging) {
+          if (Math.abs(velocity) > 0.1) {
+            targetOffset += velocity;
+            velocity *= 0.95;
+          } else {
+            const speedMultiplier = deltaTime > 0 ? deltaTime / 16.67 : 1;
+            targetOffset += config.speed * speedMultiplier;
+          }
+        }
+
+        offset += (targetOffset - offset) * config.easing;
+
+        // Loop offset
+        if (offset > totalWidth) {
+          offset -= totalWidth;
+          targetOffset -= totalWidth;
+        } else if (offset < -totalWidth) {
+          offset += totalWidth;
+          targetOffset += totalWidth;
+        }
+
+        drawLogos();
+        animationFrameId = requestAnimationFrame(animate);
+      }
+
+      // Event handlers for drag interaction
+      canvas.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        lastPointerX = e.clientX;
+        velocity = 0;
+        canvas.setPointerCapture(e.pointerId);
+        canvas.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - lastPointerX;
+        lastPointerX = e.clientX;
+        velocity = dx * 0.5;
+        targetOffset += dx;
+        offset += dx;
+      });
+
+      canvas.addEventListener('pointerup', (e) => {
+        isDragging = false;
+        canvas.releasePointerCapture(e.pointerId);
+        canvas.style.cursor = 'grab';
+      });
+
+      canvas.addEventListener('pointerleave', (e) => {
+        if (isDragging) {
+          isDragging = false;
+          canvas.style.cursor = 'grab';
+        }
+      });
+
+      // Setup and start
+      setupCanvas();
+      loadImages();
+      window.addEventListener('resize', () => {
+        setupCanvas();
+        if (imagesLoaded) drawLogos();
+      });
+    })();
+  </script>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 relative overflow-hidden bg-white">
+    <div class="absolute inset-0 bg-gradient-to-b from-orange-50/30 to-white z-0"></div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-40 left-10 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"></div>
+    <div class="floating-element absolute top-[20%] right-[15%] w-5 h-5 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50"></div>
+    <div class="floating-element-reverse absolute bottom-[30%] left-[10%] w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative" data-aos="fade-right">
+          <!-- Image with animated border -->
+          <div class="animated-border relative z-10">
+            <img src="convener.jpg" alt="Bunmi Alabi - Unbroken Conference Convener" class="w-full h-auto rounded-2xl shadow-2xl shadow-pink-500/20 object-cover">
+          </div>
+          
+          <!-- Decorative elements -->
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full blur-xl"></div>
+          <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-xl"></div>
+          
+          <!-- Event details card -->
+          <div class="absolute bottom-8 right-0 translate-x-1/4 bg-white/90 backdrop-blur-md p-6 rounded-xl border border-gray-200 shadow-xl max-w-xs transform rotate-3 hover:rotate-0 transition-all duration-500">
+            <h3 class="text-xl font-bold gradient-text mb-3">Conference Details</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600">
+                  <i class="far fa-calendar-alt text-lg"></i>
+                </div>
+                <p class="text-gray-700">Saturday, October 18th, 2025</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600">
+                  <i class="fas fa-map-marker-alt text-lg"></i>
+                </div>
+                <p class="text-gray-700">599, U-turn bus stop Abeokuta Express way Lagos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">ABOUT UNBROKEN</h4>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black playfair">Empowering <span class="gradient-text text-highlight">Women</span> to Rise</h2>
+          <h3 class="text-xl font-semibold text-purple-400 italic mb-6">She Rose * She Rebuilt * She Reigns</h3>
+          
+          <div class="space-y-6 text-gray-700">
+            <p class="leading-relaxed animated-text">
+              Unbroken is a platform that <span class="text-highlight">empowers women</span>, especially <span class="text-highlight">single mums</span> and <span class="text-highlight">mature single ladies</span>, to rise above life's challenges, heal from their brokenness, rediscover their identity, and embrace wholeness.
+            </p>
+            <p class="leading-relaxed animated-text-delay">
+              Every <span class="text-highlight">October</span>, our annual <span class="text-highlight">Unbroken Conference</span> gathers women from all walks of life for an unforgettable experience of <span class="text-highlight">healing, empowerment, and transformation</span>.
+            </p>
+            
+            <h3 class="text-xl font-bold text-pink-400 mb-4">Our Mission:</h3>
+            <div class="bg-purple-100 p-6 rounded-lg border border-purple-200 mb-6">
+              <p class="leading-relaxed text-gray-700">
+                The mission of Unbroken is to <span class="text-highlight">empower women</span>—especially single mums and mature single ladies—to <span class="text-highlight">rise above life's challenges</span>, rediscover their true identity, and live fulfilled lives. We are committed to creating <span class="text-highlight">safe spaces for healing</span>, emotional restoration, and self-discovery, while providing practical resources, mentorship, and opportunities for personal and financial growth.
+              </p>
+            </div>
+            
+            <h3 class="text-xl font-bold text-pink-400 mb-4">Unbroken is dedicated to:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start group">
+                <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-200 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-700 group-hover:text-black transition-colors duration-300">Creating safe spaces for healing and emotional restoration</span>
+              </li>
+              <li class="flex items-start group">
+                <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-200 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-700 group-hover:text-black transition-colors duration-300">Providing practical resources and mentorship opportunities</span>
+              </li>
+              <li class="flex items-start group">
+                <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-200 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-700 group-hover:text-black transition-colors duration-300">Fostering personal and financial growth opportunities</span>
+              </li>
+              <li class="flex items-start group">
+                <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1 group-hover:bg-pink-200 transition-all duration-300">
+                  <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-gray-700 group-hover:text-black transition-colors duration-300">Equipping women with strength, confidence, and resilience</span>
+              </li>
+            </ul>
+            
+            <div class="mt-8 inline-block relative">
+              <a href="#register" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white rounded-full shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-bold text-lg shine btn-pulse inline-flex items-center group">
+                Join Our Movement
+                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+              <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-500/20 rounded-full blur-xl animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Attend Section -->
+  <section id="mission" class="py-24 relative overflow-hidden bg-gray-50">
+    <div class="absolute inset-0 bg-white z-0"></div>
+    
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 grid-pattern opacity-10 z-0"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-element absolute top-1/4 left-[15%] w-4 h-4 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50 z-10"></div>
+    <div class="floating-element-reverse absolute top-1/3 right-[20%] w-6 h-6 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50 z-10"></div>
+    <div class="floating-element-slow absolute bottom-1/4 left-[30%] w-5 h-5 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50 z-10"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">WHY ATTEND</h4>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black playfair">Transform Your <span class="gradient-text">Life</span></h2>
+        <p class="text-gray-700 max-w-2xl mx-auto leading-relaxed">
+          Join women from all walks of life for a life-changing experience of healing, empowerment, and transformation. 
+          Here's what awaits you at Unbroken:
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <div class="noise-card bg-purple-600 backdrop-blur-sm border border-purple-600/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-purple-600/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="100">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-purple-600/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-purple-600/80 to-pink-500/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-gray-100 transition-colors">Healing & Restoration</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-pink-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Experience emotional healing and inner restoration in a safe, supportive environment.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-pink-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Learn practical tools for overcoming past hurts and embracing wholeness.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="noise-card bg-pink-500 backdrop-blur-sm border border-pink-500/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-pink-500/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="200">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-pink-500/80 to-purple-600/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-gray-100 transition-colors">Empowerment & Identity</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-purple-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Rediscover your true identity and embrace your God-given purpose.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-purple-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Build confidence and develop resilience for life's challenges.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="noise-card bg-purple-600 backdrop-blur-sm border border-purple-600/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-purple-600/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="300">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-purple-600/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-purple-600/80 to-pink-500/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-gray-100 transition-colors">Personal Growth</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-pink-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Access practical resources for personal and financial development.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-pink-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Gain mentorship and guidance from experienced women leaders.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="noise-card bg-pink-500 backdrop-blur-sm border border-pink-500/20 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-pink-500/20 transition transform hover:-translate-y-2 duration-500 group" data-aos="zoom-in" data-aos-delay="400">
+          <div class="mb-6 relative">
+            <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-md"></div>
+            <div class="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-pink-500/80 to-purple-600/80 flex items-center justify-center text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-gray-100 transition-colors">Community & Connection</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <div class="text-purple-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Connect with like-minded women on similar journeys of transformation.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="text-purple-200 mr-2 text-lg">•</div>
+              <span class="text-white group-hover:text-gray-100 transition-colors">Join a supportive community that celebrates your victories and supports your growth.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Inspirational Quote -->
+      <div class="mt-20 relative" data-aos="fade-up">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-500/10 rounded-2xl transform -rotate-1"></div>
+        <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-2xl shadow-xl relative z-10 transform rotate-1">
+          <div class="text-purple-400 text-5xl opacity-30 absolute top-6 left-6">"</div>
+          <div class="text-center">
+            <p class="text-xl md:text-2xl text-gray-300 italic mb-6 leading-relaxed">
+              Every October, our annual Unbroken Conference gathers women from all walks of life for an unforgettable experience of healing, empowerment, and transformation. Come as you are, leave transformed.
+            </p>
+            <div class="inline-flex items-center">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-purple-600 mr-4">
+                <img src="convener.jpg" alt="Bunmi Alabi" class="w-full h-full object-cover">
+              </div>
+              <div class="text-left">
+                <h4 class="text-lg font-semibold text-white">Bunmi Alabi</h4>
+                <p class="text-purple-400">Convener, Unbroken Conference</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-pink-400 text-5xl opacity-30 absolute bottom-6 right-6">"</div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center" data-aos="fade-up">
+        <a href="#register" class="px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white rounded-full shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-bold text-lg shine btn-pulse inline-flex items-center">
+          Join Us
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Previous Highlights Section -->
+  <section class="py-20 px-6 md:px-16 bg-gradient-to-br from-pink-50 to-purple-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-4">Highlights From Previous Editions</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Experience the energy and excitement of past WIBFair events through our gallery</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <!-- Nigerian-based photos for the highlights section -->
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/Nigerian_market_scenes.jpg" alt="Nigerian Market Scene" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Nigerian Market Scene</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/Nigerian_fashion_displays.jpg" alt="Nigerian Fashion" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Nigerian Fashion</span>
+          </div> 
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/African_crafts.jpg" alt="African Crafts" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">African Crafts</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/lagos_nigeria_cityscape.jpg" alt="Lagos Nigeria Cityscape" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Lagos Nigeria</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/african_women_entrepreneurs.jpg" alt="African Women Entrepreneurs" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Women Entrepreneurs</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/nigerian_marketplaces.jpg" alt="Nigerian Marketplaces" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Nigerian Market</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/cultural_festivals.jpg" alt="Cultural Festivals" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Cultural Festival</span>
+          </div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 h-48 md:h-64">
+          <img src="assets/business_meetings.jpg" alt="Business Meetings" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end">
+            <span class="text-white font-semibold p-4">Business Meeting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Event Highlights Section -->
+  <section id="highlights" class="py-24 relative overflow-hidden bg-white">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-50 to-orange-50/30 z-0"></div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-20 left-20 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <div class="floating-element-slow absolute top-1/4 right-[10%] w-5 h-5 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50"></div>
+    <div class="floating-element absolute bottom-1/4 left-[10%] w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h4 class="text-pink-400 font-medium text-lg mb-2 tracking-wider glitch-text">WHAT TO EXPECT</h4>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black playfair">Event <span class="gradient-text">Highlights</span></h2>
+        <p class="text-gray-700 max-w-2xl mx-auto leading-relaxed">
+          An immersive experience designed to elevate your business and connect you with like-minded entrepreneurs.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Highlight 1 -->
+        <div class="group bg-white/90 backdrop-blur-sm border border-pink-200 rounded-xl overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-all duration-500" data-aos="fade-right">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-1.png" alt="Marketplace Extravaganza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-pink-600 mb-3 group-hover:text-pink-700 transition-colors">Marketplace Extravaganza</h3>
+            <p class="text-gray-700 mb-5 leading-relaxed">
+              A vibrant marketplace featuring 200 women-owned businesses from various industries. Discover unique products, innovative services, and quality offerings directly from talented entrepreneurs.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Fashion</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Beauty</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Food</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Crafts</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Services</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 2 -->
+        <div class="group bg-white/90 backdrop-blur-sm border border-purple-200 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-500" data-aos="fade-left">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-2.png" alt="Kiddies Fun Park" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-purple-600 mb-3 group-hover:text-purple-700 transition-colors">Kiddies Fun Park</h3>
+            <p class="text-gray-700 mb-5 leading-relaxed">
+              A fun-filled zone for children with activities, games, and entertainment. Parents can shop and network while their children enjoy supervised play areas, creative workshops, and educational activities.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Games</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Face Painting</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Crafts</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Story Time</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 3 -->
+        <div class="group bg-white/90 backdrop-blur-sm border border-pink-200 rounded-xl overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-all duration-500" data-aos="fade-right" data-aos-delay="100">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-3.png" alt="Entertainment Village" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-pink-600 mb-3 group-hover:text-pink-700 transition-colors">Entertainment Village</h3>
+            <p class="text-gray-700 mb-5 leading-relaxed">
+              Enjoy live music, DJ sets, cultural performances, and culinary delights. This vibrant zone will keep you entertained throughout the event with performances from talented artists and delicious food options.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Live Music</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Cultural Shows</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Food Court</span>
+              <span class="text-xs font-semibold bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full">Dance</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 4 -->
+        <div class="group bg-white/90 backdrop-blur-sm border border-purple-200 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-500" data-aos="fade-left" data-aos-delay="100">
+          <div class="relative overflow-hidden h-56">
+            <img src="https://wibfair.com/assets/event-img-4.png" alt="One-Day Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-60"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full p-4 w-20 h-20 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-purple-600 mb-3 group-hover:text-purple-700 transition-colors">One-Day Seminar</h3>
+            <p class="text-gray-700 mb-5 leading-relaxed">
+              Learn about product packaging, global market entry, and export potential. This educational seminar will feature industry experts sharing valuable insights to help you scale your business internationally.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Expert Speakers</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Global Markets</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Packaging</span>
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">Export Strategies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Featured Speakers Section -->
+      <div class="mt-20" data-aos="fade-up">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold text-black mb-4 playfair">Meet Our <span class="gradient-text">Speakers</span></h3>
+          <p class="text-gray-700 max-w-2xl mx-auto">Transformational voices who will inspire, empower, and guide you on your journey to wholeness.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <!-- Convener -->
+          <div class="speaker-card group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            <div class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl p-8 relative transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div class="text-center mb-4">
+                <div class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">CONVENER</div>
+              </div>
+              <div class="relative mb-6 overflow-hidden rounded-full w-32 h-32 mx-auto">
+                <img src="convener.jpg" alt="Bunmi Alabi - Unbroken Conference Convener" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <h4 class="text-2xl font-bold text-black mb-2 text-center">Bunmi Alabi</h4>
+              <p class="text-purple-600 text-base mb-4 text-center">Mental Health Counselor, Writer & Host of Unbroken</p>
+              <div class="text-gray-700 text-sm space-y-3">
+                <p>Bunmi Alabi is a compassionate Mental Health Counselor, Writer, and Host of Unbroken—an annual women's empowerment conference. She is the founder of Oasis Counseling, where she provides therapy and guidance for single mums, young women, and singles navigating their journey of self-discovery.</p>
+                <p>As the author of "Couples' Waiting Room," Bunmi shares hope and practical steps for couples in their waiting season. Her passion is to help women heal from emotional pain, embrace their identity, and live fulfilled lives with confidence and purpose.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Guest Speaker -->
+          <div class="speaker-card group relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            <div class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl p-8 relative transform group-hover:-translate-y-2 transition-transform duration-500">
+              <div class="text-center mb-4">
+                <div class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">GUEST SPEAKER</div>
+              </div>
+              <div class="relative mb-6 overflow-hidden rounded-full w-32 h-32 mx-auto">
+                <img src="lolo1.jpg" alt="Omotunde Adebowale David (LOLO 1)" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <h4 class="text-2xl font-bold text-black mb-2 text-center">Omotunde Adebowale David</h4>
+              <p class="text-pink-600 text-base mb-1 text-center font-semibold">(LOLO 1)</p>
+              <p class="text-pink-600 text-base mb-4 text-center">Media Executive | Broadcaster | Content Creator</p>
+              <div class="text-gray-700 text-sm space-y-3">
+                <p>LOLO 1 is a seasoned media executive and one of Nigeria's most celebrated broadcasters. With over 25 years of experience across radio, television, and digital media, she has made an indelible mark as a pioneer female pidgin radio host and media strategist.</p>
+                <p>From hosting the iconic Oga Madam Office Show on Wazobia FM to leading Lasgidi FM as General Manager, LOLO 1 currently co-hosts JASIRI on News Central TV—a bold platform for African women's voices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial from LOLO 1 -->
+        <div class="mt-16 relative" data-aos="fade-up">
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl transform -rotate-1"></div>
+          <div class="bg-white/90 backdrop-blur-sm border border-gray-200 p-8 md:p-12 rounded-2xl shadow-xl relative z-10 transform rotate-1">
+            <div class="text-purple-400 text-5xl opacity-30 absolute top-6 left-6">"</div>
+            <div class="text-center">
+              <p class="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
+                Unbroken for me in precise is a God given assignment that has targeted audience and for me for every opportunity I have to serve am blessed and fulfilled as service is my core. I wish unbroken a brighter future and greater move in Jesus ❤❤
+              </p>
+              <div class="inline-flex items-center">
+                <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-pink-600 mr-4">
+                  <img src="lolo1.jpg" alt="LOLO 1 Testimonial" class="w-full h-full object-cover">
+                </div>
+                <div class="text-left">
+                  <h4 class="text-lg font-semibold text-black">LOLO 1</h4>
+                  <p class="text-pink-400">Media Executive & Guest Speaker</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-pink-400 text-5xl opacity-30 absolute bottom-6 right-6">"</div>
+          </div>
+        </div>
+        
+        <!-- Video Review Section -->
+        <div class="mt-16" data-aos="fade-up">
+          <div class="text-center mb-8">
+            <h4 class="text-2xl font-bold text-white mb-4">Hear from Our Community</h4>
+            <p class="text-gray-300">Watch testimonials from women whose lives have been transformed through Unbroken.</p>
+          </div>
+          
+          <div class="max-w-4xl mx-auto">
+            <div class="relative rounded-lg overflow-hidden shadow-2xl">
+              <video 
+                controls 
+                class="w-full h-auto"
+                poster="assets/african_women_entrepreneurs.jpg"
+              >
+                <source src="sec_vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="text-center mt-6">
+              <p class="text-pink-400 font-semibold">And she won the free massage at #unbroken2024</p>
+              <a href="https://www.instagram.com/reel/DBZlZDpNaMd/?igsh=MTNpNmczeXJ1eTNnZQ==" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center mt-2">
+                View on Instagram
+                <i class="fas fa-external-link-alt ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-16 text-center">
+        <a href="#register" class="px-10 py-4 bg-gradient-to-r from-teal-600 to-yellow-500 hover:from-teal-700 hover:to-yellow-600 text-white rounded-full shadow-lg hover:shadow-teal-500/50 transition-all duration-300 font-bold text-lg shine btn-pulse">Register Now</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- How to Participate Section -->
+  <section id="participate" class="py-20 px-6 md:px-16 bg-gradient-to-br from-pink-50 to-purple-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-4">How to Participate</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Join the Unbroken Conference community and be part of this transformative women's empowerment event. Follow these simple steps:</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">1</div>
+          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-orange-700 mb-4">Register Online</h3>
+          <p class="text-gray-700">Fill out the registration form below with your details and contact information to secure your spot at the conference.</p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-orange-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">2</div>
+          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-orange-700 mb-4">Join Our Community</h3>
+          <p class="text-gray-700">Join our WhatsApp community to receive updates, connect with other attendees, and get all conference information.</p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">3</div>
+          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-orange-700 mb-4">Prepare for Transformation</h3>
+          <p class="text-gray-700">Get ready to be inspired, learn, and connect with other amazing women on their journey to wholeness and empowerment.</p>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="absolute -top-5 -right-5 bg-orange-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">4</div>
+          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-orange-700 mb-4">Attend & Transform</h3>
+          <p class="text-gray-700">Join us on October 18th, 2025, for a powerful day of healing, restoration, and empowerment with inspiring speakers and like-minded women.</p>
+        </div>
+      </div>
+      
+      <div class="mt-16 bg-white p-8 rounded-xl shadow-xl">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/2">
+            <h3 class="text-xl font-bold text-orange-700 mb-4">Become a Sponsor/Partner</h3>
+            <div class="bg-orange-50 p-5 rounded-lg border border-orange-200">
+              <p class="font-semibold text-gray-700 mb-2">Partner with us to empower women and make a lasting impact in the community.</p>
+              <div class="space-y-2 text-gray-700">
+                <p><span class="font-semibold">Email:</span> Unbrokenladies@gmail.com</p>
+                <p><span class="font-semibold">For:</span> Sponsorship & Partnership Opportunities</p>
+                <p class="text-sm">Join organizations like JDD Integrated Resources and The House of God Ministry in supporting women's empowerment.</p>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-xl font-bold text-orange-700 mb-4">Join Our Community</h3>
+            <div class="bg-orange-50 p-5 rounded-lg border border-orange-200">
+              <p class="font-semibold text-gray-700 mb-4">Join our WhatsApp community for updates, inspiration, and to connect with other amazing women.</p>
+              <a href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=ems_copy_c" class="flex items-center justify-center gap-2 bg-green-500 text-white py-3 px-6 rounded-lg font-bold hover:bg-green-600 transition shadow-md">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Join Unbroken Community
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form Section -->
+  <section id="register" class="py-20 px-6 md:px-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-pink-700 mb-4">Register Now</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Fill in the form below to secure your spot at WIBFair Abuja 2025</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Registration Form -->
+        <div class="bg-gradient-to-br from-pink-50 to-purple-100 p-8 md:p-10 rounded-xl shadow-xl">
+          <form id="registrationForm" class="space-y-6">
+            <!-- Business Information -->
+            <div class="space-y-5">
+              <h3 class="text-xl font-bold text-pink-700 border-b-2 border-pink-200 pb-2">Business Information</h3>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="businessName" class="block text-gray-700 font-semibold mb-2">Business Name *</label>
+                  <input type="text" id="businessName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="industry" class="block text-gray-700 font-semibold mb-2">Industry *</label>
+                  <select id="industry" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                    <option value="" selected disabled>Select your industry</option>
+                    <option value="Fashion">Fashion & Apparel</option>
+                    <option value="Beauty">Beauty & Cosmetics</option>
+                    <option value="Food">Food & Beverages</option>
+                    <option value="Arts">Arts & Crafts</option>
+                    <option value="Health">Health & Wellness</option>
+                    <option value="Tech">Technology</option>
+                    <option value="Education">Education</option>
+                    <option value="Professional">Professional Services</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                <label for="businessDescription" class="block text-gray-700 font-semibold mb-2">Business Description *</label>
+                <textarea id="businessDescription" rows="3" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Brief description of your business and products/services"></textarea>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="businessWebsite" class="block text-gray-700 font-semibold mb-2">Business Website (if any)</label>
+                  <input type="url" id="businessWebsite" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="socialMedia" class="block text-gray-700 font-semibold mb-2">Social Media Handle(s) *</label>
+                  <input type="text" id="socialMedia" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Instagram: @example, etc.">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="space-y-5">
+              <h3 class="text-xl font-bold text-pink-700 border-b-2 border-pink-200 pb-2">Contact Information</h3>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="fullName" class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                  <input type="text" id="fullName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="position" class="block text-gray-700 font-semibold mb-2">Position in Business *</label>
+                  <input type="text" id="position" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                  <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                  <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
+                  <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                </div>
+              </div>
+              
+              <div>
+                <label for="address" class="block text-gray-700 font-semibold mb-2">Business Address *</label>
+                <textarea id="address" rows="2" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"></textarea>
+              </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="space-y-5">
+              <h3 class="text-xl font-bold text-pink-700 border-b-2 border-pink-200 pb-2">Additional Information</h3>
+              
+              <div>
+                <label for="expectations" class="block text-gray-700 font-semibold mb-2">What are your expectations from the fair? *</label>
+                <textarea id="expectations" rows="2" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"></textarea>
+              </div>
+              
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Have you participated in any trade fair before? *</label>
+                <div class="flex gap-6">
+                  <label class="flex items-center">
+                    <input type="radio" name="previousParticipation" value="yes" class="mr-2 h-5 w-5 text-pink-600 focus:ring-pink-500">
+                    <span>Yes</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="previousParticipation" value="no" class="mr-2 h-5 w-5 text-pink-600 focus:ring-pink-500">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div>
+                <label class="flex items-start">
+                  <input type="checkbox" required class="mt-1 mr-2 h-5 w-5 text-pink-600 focus:ring-pink-500">
+                  <span class="text-gray-700">I agree to the terms and conditions of WIBFair Abuja and consent to receive communications related to the event. *</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button type="submit" class="px-10 py-4 bg-pink-600 text-white text-lg font-bold rounded-full shadow-lg hover:bg-pink-700 transition transform hover:-translate-y-1">Submit Registration</button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Map Container -->
+        <div class="rounded-xl overflow-hidden shadow-xl flex flex-col">
+          <div class="bg-orange-600 text-white py-4 px-6">
+            <h3 class="text-xl font-bold">Conference Location</h3>
+            <p class="text-orange-100">To Be Announced - Lagos, Nigeria</p>
+          </div>
+          <div class="flex-grow relative h-full min-h-[400px]">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7803644147487!2d3.3712115147585716!3d6.427051925355776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc692ba70c6c8e9!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1696339744821!5m2!1sen!2sng" 
+              class="absolute inset-0 w-full h-full border-0" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="bg-gray-100 p-6 space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="text-orange-600 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Venue</h4>
+                <p class="text-gray-600">Lagos, Nigeria - Venue details will be announced soon</p>
+                <p class="text-sm text-orange-600 font-medium">Follow our WhatsApp community for venue updates</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="text-orange-600 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Conference Date</h4>
+                <p class="text-gray-600">October 18, 2025 | 9:00 AM - 6:00 PM</p>
+                <p class="text-sm text-orange-600 font-medium">Mark your calendar for this transformative day!</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="text-orange-600 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800">Getting There</h4>
+                <p class="text-gray-600">Transportation details and venue address will be shared with registered attendees</p>
+              </div>
+            </div>
+            <a href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=ems_copy_c" target="_blank" class="inline-flex items-center text-orange-600 hover:text-orange-700 transition">
+              <span>Join Community for Updates</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16 px-6 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- About Us -->
+        <div>
+          <h3 class="text-2xl font-bold text-pink-400 mb-4">About Unbroken</h3>
+          <p class="text-gray-300 mb-6">Unbroken is a platform that empowers women, especially single mums and mature single ladies, to rise above life's challenges, heal from their brokenness, rediscover their identity, and embrace wholeness. Every October, our annual Unbroken Conference gathers women from all walks of life for healing, empowerment, and transformation.</p>
+          <div class="flex space-x-4">
+            <a href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=ems_copy_c" class="text-gray-300 hover:text-pink-400 transition" title="Join our WhatsApp Community">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@unbrokenladies2?_t=ZS-8zU9goACwbg&_r=1" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on TikTok">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.321 5.562a5.124 5.124 0 01-1.53 1.58 5.086 5.086 0 01-2.175.806v3.076a8.062 8.062 0 01-1.259-.1 8.166 8.166 0 01-3.88-1.938 8.005 8.005 0 01-2.397-3.183v6.554a7.632 7.632 0 01-2.247 5.428 7.73 7.73 0 01-5.45 2.252 7.688 7.688 0 01-3.75-.968A7.583 7.583 0 012.202 3.341a7.69 7.69 0 013.75-.968 7.78 7.78 0 013.343.752v3.302a4.484 4.484 0 00-3.343-1.485 4.512 4.512 0 00-3.2 1.327 4.468 4.468 0 00-1.328 3.183A4.5 4.5 0 005 13.37a4.478 4.478 0 003.2 1.326 4.434 4.434 0 003.046-1.159v-8.09A8.242 8.242 0 0013.3 2.56h2.675a5.153 5.153 0 003.346 3.001z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/unbrokenladies" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on Instagram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+            </a>
+            <a href="https://www.facebook.com/unbrokenladies" class="text-gray-300 hover:text-pink-400 transition" title="Follow us on Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-2xl font-bold text-pink-400 mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#about" class="text-gray-300 hover:text-pink-400 transition">About Unbroken</a></li>
+            <li><a href="#mission" class="text-gray-300 hover:text-pink-400 transition">Our Mission</a></li>
+            <li><a href="#speakers" class="text-gray-300 hover:text-pink-400 transition">Speakers</a></li>
+            <li><a href="#register" class="text-gray-300 hover:text-pink-400 transition">Register</a></li>
+            <li><a href="#contact" class="text-gray-300 hover:text-pink-400 transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="text-2xl font-bold text-pink-400 mb-4">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-pink-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span class="text-gray-300">599, U-turn bus stop Abeokuta Express way Lagos</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-pink-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span class="text-gray-300">info@unbrokenconference.com</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-pink-400 mr-3 mt-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <a href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=ems_copy_c" class="text-gray-300 hover:text-pink-400 transition">Join WhatsApp Community</a>
+            </li>
+          </ul>
+          
+          <div class="mt-6">
+            <h4 class="text-xl font-semibold text-pink-400 mb-3">Conference Date</h4>
+            <p class="text-gray-300 flex items-center">
+              <svg class="w-6 h-6 text-pink-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              Saturday, October 18th, 2025 at 9:00 AM
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+        <p>© 2025 Unbroken Conference. All rights reserved. Hosted by Bunmi Alabi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-6 right-6 bg-pink-600 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-pink-700" title="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    <span class="sr-only">Back to top</span>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true
+    });
+
+    // Infinite Grid Background for Preloader
+    (function() {
+      const canvas = document.getElementById('gridCanvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const CARD_W = 200;
+      const CARD_H = 133;
+      
+      const images = [
+        'new assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.31.05_3de76065.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.31.09_a02f0df3.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.35_d8782c23.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.37_2982f354.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.50_40755e38.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.51_9fd2be9d.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.52_003020ab.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.53_6d046ed9.jpg',
+        'new assets/WhatsApp Image 2025-10-06 at 11.33.53_f5745167.jpg'
+      ];
+
+      const loadedImages = [];
+      let imagesLoaded = 0;
+
+      // Preload images
+      images.forEach((src, index) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedImages[index] = img;
+          imagesLoaded++;
+        };
+        img.onerror = () => {
+          imagesLoaded++;
+        };
+        img.src = src;
+      });
+
+      let offset = { x: 0, y: 0 };
+      let velocity = { x: 0.3, y: 0.2 }; // Auto-scroll
+      let isDragging = false;
+      let lastPos = { x: 0, y: 0 };
+      const picks = {};
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function getRandomImage(col, row) {
+        const key = `${col}:${row}`;
+        if (!picks[key]) {
+          picks[key] = Math.floor(Math.random() * loadedImages.length);
+        }
+        return loadedImages[picks[key]];
+      }
+
+      function drawGrid() {
+        if (imagesLoaded === 0) return;
+
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const cols = Math.ceil(canvas.width / CARD_W) + 2;
+        const rows = Math.ceil(canvas.height / CARD_H) + 2;
+        const colOffset = Math.floor(offset.x / CARD_W);
+        const rowOffset = Math.floor(offset.y / CARD_H);
+
+        for (let row = -1; row < rows; row++) {
+          for (let col = -1; col < cols; col++) {
+            const tCol = colOffset + col;
+            const tRow = rowOffset + row;
+            const img = getRandomImage(tCol, tRow);
+
+            if (img && img.complete) {
+              const x = col * CARD_W + (offset.x % CARD_W);
+              const y = row * CARD_H + (offset.y % CARD_H);
+              
+              ctx.globalAlpha = 0.4; // Dimmed for background effect
+              ctx.drawImage(img, x, y, CARD_W, CARD_H);
+            }
+          }
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      function animate() {
+        if (!isDragging) {
+          offset.x += velocity.x;
+          offset.y += velocity.y;
+        }
+        drawGrid();
+        requestAnimationFrame(animate);
+      }
+
+      // Mouse/Touch events
+      canvas.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        lastPos = { x: e.clientX, y: e.clientY };
+        velocity = { x: 0, y: 0 };
+      });
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - lastPos.x;
+        const dy = e.clientY - lastPos.y;
+        offset.x += dx;
+        offset.y += dy;
+        lastPos = { x: e.clientX, y: e.clientY };
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        isDragging = false;
+        velocity = { x: 0.3, y: 0.2 };
+      });
+
+      canvas.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        const touch = e.touches[0];
+        lastPos = { x: touch.clientX, y: touch.clientY };
+        velocity = { x: 0, y: 0 };
+      });
+
+      canvas.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const touch = e.touches[0];
+        const dx = touch.clientX - lastPos.x;
+        const dy = touch.clientY - lastPos.y;
+        offset.x += dx;
+        offset.y += dy;
+        lastPos = { x: touch.clientX, y: touch.clientY };
+      });
+
+      canvas.addEventListener('touchend', () => {
+        isDragging = false;
+        velocity = { x: 0.3, y: 0.2 };
+      });
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      animate();
+    })();
+    
+    // Preloader
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      const loadingProgress = document.getElementById('loadingProgress');
+      const loadingText = document.getElementById('loadingText');
+      const circleTransition = document.getElementById('circleTransition');
+      
+      let circleStarted = false;
+      
+      // Simulate loading progress
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.random() * 10;
+        
+        // Start circle closing animation at 95%
+        if (progress >= 95 && !circleStarted) {
+          circleStarted = true;
+          
+          // Fade out preloader immediately
+          preloader.style.transition = 'opacity 0.5s';
+          preloader.style.opacity = '0';
+          
+          setTimeout(() => {
+            preloader.style.display = 'none';
+            
+            // Remove loading class to show content
+            document.body.classList.remove('loading');
+            
+            // Start closing circle animation after content is visible
+            setTimeout(() => {
+              circleTransition.classList.add('close');
+              
+              // Remove circle after animation completes
+              setTimeout(() => {
+                circleTransition.style.display = 'none';
+              }, 1500);
+            }, 100);
+          }, 500);
+        }
+        
+        if (progress > 100) {
+          progress = 100;
+          clearInterval(interval);
+          
+          // Initialize effects after everything is done
+          setTimeout(() => {
+            if (typeof initializeParticles === 'function') {
+              initializeParticles();
+            }
+            
+            if (typeof initThreejsBackground === 'function') {
+              initThreejsBackground();
+            }
+          }, 2000);
+        }
+        loadingProgress.style.width = `${progress}%`;
+        loadingText.textContent = `Loading... ${Math.floor(progress)}%`;
+      }, 100);
+    });
+    
+    // Unbroken Mobile Menu Toggle
+    function toggleUnbrokenMobileMenu() {
+      const overlay = document.getElementById('unbrokenMobileOverlay');
+      const sidebar = document.getElementById('unbrokenMobileSidebar');
+      const menuIcon = document.getElementById('unbrokenMenuIcon');
+      
+      const isOpen = !sidebar.classList.contains('-translate-x-full');
+      
+      if (isOpen) {
+        // Close menu
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        sidebar.classList.add('-translate-x-full');
+        sidebar.classList.remove('translate-x-0');
+        document.body.style.overflow = 'auto';
+      } else {
+        // Open menu
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        sidebar.classList.remove('-translate-x-full');
+        sidebar.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Text Highlighter - Scroll-triggered IntersectionObserver
+    function initTextHighlighter() {
+      const highlightElements = document.querySelectorAll('.text-highlight');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Once animated, stop observing
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      highlightElements.forEach(element => {
+        observer.observe(element);
+      });
+    }
+    
+    // Initialize text highlighter when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTextHighlighter);
+    } else {
+      initTextHighlighter();
+    }
+    
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+      
+      // Transparent navigation on scroll
+      const nav = document.getElementById('mainNav');
+      if (scrollTop > 50) {
+        nav.classList.add('bg-black/80');
+        nav.classList.remove('bg-transparent');
+      } else {
+        nav.classList.remove('bg-black/80');
+        nav.classList.add('bg-transparent');
+      }
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0');
+        backToTopButton.classList.add('opacity-100');
+      } else {
+        backToTopButton.classList.remove('opacity-100');
+        backToTopButton.classList.add('opacity-0');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Custom Cursor
+    if (window.innerWidth > 768) {
+      const cursor = document.querySelector('.custom-cursor');
+      const cursorDot = document.querySelector('.cursor-dot');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      
+      // Add hover effect on links
+      document.querySelectorAll('a, button').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          cursor.style.width = '60px';
+          cursor.style.height = '60px';
+          cursorDot.style.backgroundColor = 'var(--wibfair-secondary-pink)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          cursor.style.width = '40px';
+          cursor.style.height = '40px';
+          cursorDot.style.backgroundColor = 'var(--wibfair-secondary-pink)';
+        });
+      });
+    }
+    
+    // Form submission (prevent default for demo)
+    document.getElementById('registrationForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for registering! We will contact you shortly with further details.');
+    });
+    
+    // Animation for floating elements
+    function initializeParticles() {
+      if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": ["#008073", "#FFB81E", "#B4931F", "#0F4C78"]
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              }
+            },
+            "opacity": {
+              "value": 0.4,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 2,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "var(--wibfair-secondary-pink)",
+              "opacity": 0.2,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 1,
+              "direction": "none",
+              "random": true,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": true,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 140,
+                "line_linked": {
+                  "opacity": 0.4
+                }
+              },
+              "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+              },
+              "repulse": {
+                "distance": 200,
+                "duration": 0.4
+              },
+              "push": {
+                "particles_nb": 4
+              },
+              "remove": {
+                "particles_nb": 2
+              }
+            }
+          },
+          "retina_detect": true
+        });
+      }
+    }
+    
+    // Initialize Three.js background
+    function initThreejsBackground() {
+      if (typeof THREE === 'undefined' || !document.getElementById('canvas-wrapper')) return;
+      
+      const wrapper = document.getElementById('canvas-wrapper');
+      let scene, camera, renderer;
+      let particles, positions, colors;
+      
+      const init = () => {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 50;
+        
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setClearColor(0x000000, 0);
+        
+        wrapper.appendChild(renderer.domElement);
+        
+        // Create particle system
+        const particleCount = 1000;
+        const particleSystem = createParticleSystem(particleCount);
+        scene.add(particleSystem);
+        
+        window.addEventListener('resize', onWindowResize);
+        
+        animate();
+      };
+      
+      const createParticleSystem = (particleCount) => {
+        const particles = new THREE.BufferGeometry();
+        positions = new Float32Array(particleCount * 3);
+        colors = new Float32Array(particleCount * 3);
+        
+        const color1 = new THREE.Color(0x008073); // Main colour (teal)
+        const color2 = new THREE.Color(0xFFB81E); // Sub colour (orange)
+        
+        for (let i = 0; i < particleCount; i++) {
+          // Positions
+          const x = (Math.random() - 0.5) * 100;
+          const y = (Math.random() - 0.5) * 100;
+          const z = (Math.random() - 0.5) * 100;
+          
+          positions[i * 3] = x;
+          positions[i * 3 + 1] = y;
+          positions[i * 3 + 2] = z;
+          
+          // Colors - interpolate between two colors
+          const ratio = Math.random();
+          const color = color1.clone().lerp(color2, ratio);
+          
+          colors[i * 3] = color.r;
+          colors[i * 3 + 1] = color.g;
+          colors[i * 3 + 2] = color.b;
+        }
+        
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        
+        const material = new THREE.PointsMaterial({
+          size: 0.5,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.5
+        });
+        
+        return new THREE.Points(particles, material);
+      };
+      
+      const onWindowResize = () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      };
+      
+      const animate = () => {
+        requestAnimationFrame(animate);
+        
+        // Rotate camera slightly for subtle movement
+        camera.position.x = Math.sin(Date.now() * 0.0001) * 10;
+        camera.position.y = Math.cos(Date.now() * 0.0001) * 10;
+        camera.lookAt(scene.position);
+        
+        renderer.render(scene, camera);
+      };
+      
+      init();
+    }
+    
+    // Text animation
+    document.querySelectorAll('.animated-text').forEach(text => {
+      const textContent = text.textContent;
+      text.textContent = '';
+      
+      for (let i = 0; i < textContent.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = textContent[i];
+        span.style.opacity = '0';
+        span.style.transition = 'opacity 0.05s ease';
+        span.style.transitionDelay = `${i * 0.02}s`;
+        text.appendChild(span);
+      }
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            Array.from(text.children).forEach(span => {
+              span.style.opacity = '1';
+            });
+            observer.unobserve(text);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(text);
+    });
+    
+    // Initialize sponsor marquee animation
+    const sponsorTrack = document.querySelector('.sponsor-track');
+    const sponsorItems = document.querySelectorAll('.sponsor-item');
+    
+    if (sponsorTrack && sponsorItems.length > 0) {
+      // Clear any existing clones to avoid duplication
+      const existingItems = Array.from(sponsorItems);
+      
+      // Clone sponsor items to ensure smooth infinite scrolling
+      existingItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        sponsorTrack.appendChild(clone);
+      });
+      
+      // Calculate a better duration based on the number of items
+      const itemCount = existingItems.length;
+      const scrollDuration = Math.max(15, itemCount * 3); // 3 seconds per item, minimum 15 seconds
+      
+      // Start a smooth infinite scroll animation
+      gsap.to(sponsorTrack, {
+        x: "-50%",
+        ease: "linear",
+        duration: scrollDuration,
+        repeat: -1,
+        onRepeat: () => {
+          gsap.set(sponsorTrack, { x: "0%" });
+        }
+      });
+    }
+    
+    // Mobile animation for floating elements
+    const floatingElements = document.querySelectorAll('.floating-element');
+    floatingElements.forEach(element => {
+      gsap.to(element, {
+        y: -20,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    });
+    
+    const floatingElementsReverse = document.querySelectorAll('.floating-element-reverse');
+    floatingElementsReverse.forEach(element => {
+      gsap.to(element, {
+        y: 20,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    });
+    
+    const floatingElementsSlow = document.querySelectorAll('.floating-element-slow');
+    floatingElementsSlow.forEach(element => {
+      gsap.to(element, {
+        y: -15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    });
+    
+    // Scroll indicator animation
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      gsap.to(scrollIndicator, {
+        y: 10,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    }
+    
+    // Animated Border
+    const animatedBorders = document.querySelectorAll('.animated-border');
+    animatedBorders.forEach(border => {
+      border.innerHTML = `
+        <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-x"></div>
+        <div class="relative bg-black rounded-2xl overflow-hidden">
+          ${border.innerHTML}
+        </div>
+      `;
+    });
+    
+    // Initialize glitch text effect
+    document.querySelectorAll('.glitch-text').forEach(element => {
+      let originalText = element.innerText;
+      
+      element.addEventListener('mouseenter', () => {
+        let iterations = 0;
+        const interval = setInterval(() => {
+          element.innerText = originalText
+            .split('')
+            .map((char, index) => {
+              if (index < iterations) {
+                return originalText[index];
+              }
+              return ['!', '@', '#', '$', '%', '^', '&', '*'][Math.floor(Math.random() * 8)];
+            })
+            .join('');
+          
+          iterations += 1/3;
+          if (iterations >= originalText.length) {
+            clearInterval(interval);
+            element.innerText = originalText;
+          }
+        }, 30);
+      });
+    });
+  </script>
+</body>
