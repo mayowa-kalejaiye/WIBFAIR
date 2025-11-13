@@ -1,0 +1,11 @@
+# Environment variables
+.env
+.env.local
+.env.production
+
+# API keys and secrets
+**/api-key.txt
+**/*secret*
+
+# Node modules
+node_modules/
