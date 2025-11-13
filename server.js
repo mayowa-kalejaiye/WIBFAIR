@@ -122,6 +122,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Handle all .html files explicitly (fixes navigation issues)
+app.get('*.html', (req, res) => {
+  res.sendFile(path.join(__dirname, req.path));
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
