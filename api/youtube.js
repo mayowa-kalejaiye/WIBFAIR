@@ -1,13 +1,20 @@
-// Serverless function for Vercel/Netlify
+// Netlify serverless function
 // This keeps your API key secure on the server side
 
-export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET');
-  
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+exports.handler = async function(event, context) {
+  const req = event;
+  const res = {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Content-Type': 'application/json'
+    },
+    body: ''
+  };
+  // Handle OPTIONS for CORS
+  if (event.httpMethod === 'OPTIONS') {
+    return res;
   }
 
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
@@ -51,16 +58,19 @@ export default async function handler(req, res) {
     const videosData = await videosResponse.json();
     
     // Return the data
-    res.status(200).json({
+    res.body = JSON.stringify({
       success: true,
       videos: videosData.items
     });
+    return res;
     
   } catch (error) {
     console.error('YouTube API Error:', error);
-    res.status(500).json({
+    res.statusCode = 500;
+    res.body = JSON.stringify({
       success: false,
       error: error.message
     });
+    return res;
   }
-}
+};
