@@ -21,7 +21,20 @@ exports.handler = async function(event, context) {
   const CHANNEL_ID = 'UCBNLIKUGe1kUQoRq8Vzhw3w';
   const MAX_RESULTS = 50;
 
+  // Check if API key is configured
+  if (!YOUTUBE_API_KEY) {
+    console.error('ERROR: YOUTUBE_API_KEY not set in environment variables');
+    res.statusCode = 500;
+    res.body = JSON.stringify({
+      success: false,
+      error: 'YouTube API key not configured. Please add YOUTUBE_API_KEY to Netlify environment variables.'
+    });
+    return res;
+  }
+
   try {
+    console.log('Fetching YouTube videos for channel:', CHANNEL_ID);
+    
     // Step 1: Get channel uploads playlist
     const channelResponse = await fetch(
       `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
@@ -32,7 +45,13 @@ exports.handler = async function(event, context) {
     }
     
     const channelData = await channelResponse.json();
+    
+    if (!channelData.items || channelData.items.length === 0) {
+      throw new Error('Channel not found');
+    }
+    
     const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+    console.log('Uploads playlist ID:', uploadsPlaylistId);
     
     // Step 2: Get videos from uploads playlist
     const playlistResponse = await fetch(
@@ -44,7 +63,18 @@ exports.handler = async function(event, context) {
     }
     
     const playlistData = await playlistResponse.json();
+    
+    if (!playlistData.items || playlistData.items.length === 0) {
+      console.log('No videos found in playlist');
+      res.body = JSON.stringify({
+        success: true,
+        videos: []
+      });
+      return res;
+    }
+    
     const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
+    console.log(`Found ${playlistData.items.length} videos`);
     
     // Step 3: Get detailed video information
     const videosResponse = await fetch(
@@ -57,10 +87,12 @@ exports.handler = async function(event, context) {
     
     const videosData = await videosResponse.json();
     
+    console.log(`Successfully fetched ${videosData.items?.length || 0} videos with details`);
+    
     // Return the data
     res.body = JSON.stringify({
       success: true,
-      videos: videosData.items
+      videos: videosData.items || []
     });
     return res;
     
