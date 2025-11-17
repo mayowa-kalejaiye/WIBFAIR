@@ -1,10 +1,17 @@
-export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Content-Type', 'application/json');
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+// Netlify-compatible serverless function handler
+exports.handler = async function (event, context) {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    'Content-Type': 'application/json'
+  };
+
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ ok: true })
+    };
   }
 
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
@@ -12,16 +19,15 @@ export default async function handler(req, res) {
   const MAX_RESULTS = 50;
 
   if (!YOUTUBE_API_KEY) {
-    res.status(500).json({
-      success: false,
-      error: 'YouTube API key not configured. Please add YOUTUBE_API_KEY to Vercel environment variables.'
-    });
-    return;
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ success: false, error: 'YouTube API key not configured. Please add YOUTUBE_API_KEY to environment variables.' })
+    };
   }
 
   try {
     // Step 1: Get channel uploads playlist
-    // Use the global `fetch` available in Node 18+/Vercel runtime to avoid import issues
     const channelResponse = await fetch(
       `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
     );
@@ -43,8 +49,11 @@ export default async function handler(req, res) {
     }
     const playlistData = await playlistResponse.json();
     if (!playlistData.items || playlistData.items.length === 0) {
-      res.status(200).json({ success: true, videos: [] });
-      return;
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ success: true, videos: [] })
+      };
     }
     const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
 
@@ -56,14 +65,17 @@ export default async function handler(req, res) {
       throw new Error(`Videos API error: ${videosResponse.status}`);
     }
     const videosData = await videosResponse.json();
-    res.status(200).json({
-      success: true,
-      videos: videosData.items || []
-    });
+
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ success: true, videos: videosData.items || [] })
+    };
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error.message
-    });
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ success: false, error: error.message })
+    };
   }
-}
+};
