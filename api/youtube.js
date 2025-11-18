@@ -1,17 +1,12 @@
-// Netlify-compatible serverless function handler
-exports.handler = async function (event, context) {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, OPTIONS',
-    'Content-Type': 'application/json'
-  };
+// Vercel-compatible serverless function handler
+export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Content-Type', 'application/json');
 
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ ok: true })
-    };
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
   }
 
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
@@ -19,11 +14,11 @@ exports.handler = async function (event, context) {
   const MAX_RESULTS = 50;
 
   if (!YOUTUBE_API_KEY) {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ success: false, error: 'YouTube API key not configured. Please add YOUTUBE_API_KEY to environment variables.' })
-    };
+    res.status(500).json({
+      success: false,
+      error: 'YouTube API key not configured. Please add YOUTUBE_API_KEY to Vercel environment variables.'
+    });
+    return;
   }
 
   try {
@@ -49,11 +44,8 @@ exports.handler = async function (event, context) {
     }
     const playlistData = await playlistResponse.json();
     if (!playlistData.items || playlistData.items.length === 0) {
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({ success: true, videos: [] })
-      };
+      res.status(200).json({ success: true, videos: [] });
+      return;
     }
     const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
 
@@ -66,16 +58,14 @@ exports.handler = async function (event, context) {
     }
     const videosData = await videosResponse.json();
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ success: true, videos: videosData.items || [] })
-    };
+    res.status(200).json({
+      success: true,
+      videos: videosData.items || []
+    });
   } catch (error) {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ success: false, error: error.message })
-    };
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
   }
-};
+}
