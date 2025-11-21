@@ -1,0 +1,29 @@
+name: Keep Server Alive
+
+on:
+  schedule:
+    # every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    env:
+      KEEP_ALIVE_URL: ${{ secrets.KEEP_ALIVE_URL }}
+    steps:
+      - name: Ping keep-alive URL
+        run: |
+          url="${{ env.KEEP_ALIVE_URL }}"
+          if [ -z "$url" ]; then
+            url="https://bunmialabi.com/ping"
+          fi
+          echo "Pinging $url"
+          # Use curl quietly, show status code. If curl fails, return 000.
+          status=$(curl -s -o /dev/null -w "%{http_code}" "$url" || echo "000")
+          echo "HTTP status: $status"
+          # Exit non-zero if we didn't get 200 to make failures visible in Actions
+          if [ "$status" != "200" ]; then
+            echo "Ping returned $status"
+            exit 1
+          fi
