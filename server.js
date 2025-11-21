@@ -117,6 +117,12 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Simple ping endpoint for uptime monitors
+app.get('/ping', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.status(200).send('pong');
+});
+
 // Serve index.html for root route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -133,3 +139,26 @@ app.listen(PORT, () => {
   console.log(`API Key configured: ${!!YOUTUBE_API_KEY}`);
   console.log(`Visit: http://localhost:${PORT}`);
 });
+
+// Optional keep-alive/self-ping loop to prevent sleep on hosts that allow it.
+// Controlled via environment variables:
+// KEEP_ALIVE=true (enable) and KEEP_ALIVE_URL=https://your-app-url/ping
+// KEEP_ALIVE_INTERVAL_MS (defaults to 5 minutes)
+if (process.env.KEEP_ALIVE === 'true') {
+  const keepAliveUrl = process.env.KEEP_ALIVE_URL || `http://localhost:${PORT}/ping`;
+  const intervalMs = parseInt(process.env.KEEP_ALIVE_INTERVAL_MS, 10) || 5 * 60 * 1000;
+  console.log(`Keep-alive enabled. Pinging ${keepAliveUrl} every ${intervalMs}ms`);
+
+  const keepAliveFetch = async () => {
+    try {
+      const resp = await (await import('node-fetch')).default(keepAliveUrl);
+      console.log('Keep-alive ping status:', resp.status);
+    } catch (err) {
+      console.error('Keep-alive ping failed:', err.message || err);
+    }
+  };
+
+  // Fire immediately and then at intervals
+  keepAliveFetch();
+  setInterval(keepAliveFetch, intervalMs);
+}
