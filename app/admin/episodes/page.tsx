@@ -31,7 +31,7 @@ export default async function EpisodesPage() {
             </tr>
           </thead>
           <tbody>
-            {episodes.map((ep) => (
+            {episodes.map((ep: any) => (
               <tr key={ep.id} className="border-b border-ink/5 font-sans text-sm">
                 <td className="px-4 py-4">
                   <p className="font-medium">{ep.title}</p>

@@ -29,7 +29,7 @@ export default async function StoriesPage() {
             </tr>
           </thead>
           <tbody>
-            {stories.map((s) => (
+            {stories.map((s: any) => (
               <tr key={s.id} className="border-b border-ink/5 font-sans text-sm">
                 <td className="px-4 py-4">
                   <p className="font-medium">{s.title}</p>

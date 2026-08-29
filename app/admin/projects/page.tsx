@@ -27,7 +27,7 @@ export default async function ProjectsPage() {
             </tr>
           </thead>
           <tbody>
-            {projects.map((p) => (
+            {projects.map((p: any) => (
               <tr key={p.id} className="border-b border-ink/5 font-sans text-sm">
                 <td className="px-4 py-4">
                   <p className="font-medium">{p.name}</p>
