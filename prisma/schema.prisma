@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Episode {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  description     String
+  youtubeUrl      String
+  guest           String?
+  topics          String[] // PostgreSQL array
+  publishedAt     DateTime?
+  status          String   @default("draft") // draft | published
+  durationMinutes Int?
+  thumbnailId     String?
+  thumbnail       Media?   @relation("EpisodeThumbnail", fields: [thumbnailId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Story {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String   // Rich text / markdown
+  category    String
+  publishedAt DateTime?
+  status      String   @default("draft") // draft | published
+  coverId     String?
+  cover       Media?   @relation("StoryCover", fields: [coverId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  year        String
+  link        String?
+  coverId     String?
+  cover       Media?   @relation("ProjectCover", fields: [coverId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String
+  mimeType  String
+  width     Int?
+  height    Int?
+  size      Int      // bytes
+  data      Bytes    // PostgreSQL BYTEA
+  createdAt DateTime @default(now())
+
+  // Relations
+  episodes Episode[] @relation("EpisodeThumbnail")
+  stories  Story[]   @relation("StoryCover")
+  projects Project[] @relation("ProjectCover")
+}

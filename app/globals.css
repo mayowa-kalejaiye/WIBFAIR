@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-instrument);
+  --font-sans: var(--font-geist);
+
+  --color-cream: #F5F0E8;
+  --color-ink: #171512;
+  --color-paper: #EDE6DA;
+  --color-clay: #A56F52;
+  --color-olive: #62634A;
+  --color-white: #FCFAF6;
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
