@@ -46,7 +46,7 @@ export default async function DashboardPage() {
         <div className="bg-white border border-ink/10 p-6">
           <h2 className="font-display text-xl mb-4">Recent episodes</h2>
           <div className="space-y-3">
-            {recentEpisodes.map((ep) => (
+            {recentEpisodes.map((ep: any) => (
               <Link key={ep.id} href={`/admin/episodes/${ep.id}/edit`} className="flex justify-between items-center border-b border-ink/5 pb-3 last:border-0 hover:opacity-70">
                 <div>
                   <p className="font-sans text-sm font-medium line-clamp-1">{ep.title}</p>
@@ -61,7 +61,7 @@ export default async function DashboardPage() {
         <div className="bg-white border border-ink/10 p-6">
           <h2 className="font-display text-xl mb-4">Recent stories</h2>
           <div className="space-y-3">
-            {recentStories.map((s) => (
+            {recentStories.map((s: any) => (
               <Link key={s.id} href={`/admin/stories/${s.id}/edit`} className="flex justify-between items-center border-b border-ink/5 pb-3 last:border-0 hover:opacity-70">
                 <div>
                   <p className="font-sans text-sm font-medium line-clamp-1">{s.title}</p>
