@@ -184,8 +184,8 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
 export async function generateStaticParams() {
   try {
     const stories = await prisma.story.findMany({ select: { slug: true } });
-    if (stories.length > 0) return stories.map((s) => ({ slug: s.slug }));
+    if (stories.length > 0) return stories.map((s: any) => ({ slug: s.slug }));
   } catch {}
   const { STORIES } = await import("@/data/stories");
-  return STORIES.map((s) => ({ slug: s.slug }));
+  return STORIES.map((s: any) => ({ slug: s.slug }));
 }

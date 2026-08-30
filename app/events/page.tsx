@@ -41,7 +41,7 @@ export default function EventsPage() {
             </span>
           </div>
 
-          {events.map((event) => (
+          {events.map((event: any) => (
             <div
               key={event.title}
               className="bg-white border border-ink/10 overflow-hidden mb-12"

@@ -119,9 +119,9 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
 export async function generateStaticParams() {
   try {
     const episodes = await prisma.episode.findMany({ select: { slug: true } });
-    if (episodes.length > 0) return episodes.map((ep) => ({ slug: ep.slug }));
+    if (episodes.length > 0) return episodes.map((ep: any) => ({ slug: ep.slug }));
   } catch {}
   // fallback
   const { EPISODES } = await import("@/data/episodes");
-  return EPISODES.map((ep) => ({ slug: ep.slug }));
+  return EPISODES.map((ep: any) => ({ slug: ep.slug }));
 }

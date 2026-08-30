@@ -57,7 +57,7 @@ export default function StoriesPreview() {
 
           {/* Secondary Stories - Stacked */}
           <div className="lg:col-span-5 flex flex-col gap-16 lg:mt-32">
-            {sideStories.map((story, index) => (
+            {sideStories.map((story: any, index: number) => (
               <article key={story.id} className="group cursor-pointer">
                 <Link href={`/stories/${story.slug}`}>
                   <div className={`relative aspect-[4/3] bg-paper overflow-hidden mb-6 rounded-[2px] ${index === 1 ? 'lg:ml-12 lg:w-4/5' : ''}`}>

@@ -42,7 +42,7 @@ export default function StorePage() {
 
       <section className="py-24 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {products.map((p) => (
+          {products.map((p: any) => (
             <a
               key={p.title}
               href={p.href}

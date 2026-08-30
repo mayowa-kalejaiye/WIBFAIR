@@ -17,7 +17,7 @@ export default async function JustAChatPage() {
   }
   if (episodes.length === 0) {
     // fallback to mock data in dev if DB empty
-    episodes = FALLBACK.map((e) => ({
+    episodes = FALLBACK.map((e: any) => ({
       ...e,
       youtubeUrl: `https://www.youtube.com/watch?v=${e.youtubeId}`,
       thumbnailId: null,
@@ -110,7 +110,7 @@ export default async function JustAChatPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-            {otherEpisodes.map((episode, idx) => (
+            {otherEpisodes.map((episode: any, idx: number) => (
               <Link key={episode.id} href={`/just-a-chat/${episode.slug}`} className="group block">
                 <div className="relative aspect-[16/10] bg-paper rounded-[2px] overflow-hidden mb-6">
                   <div className="absolute inset-0 bg-ink/5 group-hover:bg-transparent transition-colors duration-500 z-10" />

@@ -38,7 +38,7 @@ export default function CounselingPage() {
           <span className="font-sans text-xs tracking-widest uppercase text-olive">Lagos • Virtual</span>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((s) => (
+          {services.map((s: any) => (
             <div key={s.title} className="bg-white border border-ink/10 p-8">
               <h3 className="font-display text-2xl mb-3">{s.title}</h3>
               <p className="font-sans text-sm text-olive leading-relaxed mb-6">{s.desc}</p>

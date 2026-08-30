@@ -40,7 +40,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
     >
       {/* Background Hover Image Reveal (Optional signature interaction) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-30 md:opacity-40">
-        {NAV_ITEMS.map((item, i) => (
+        {NAV_ITEMS.map((item: any, i: number) => (
           <motion.div
             key={item.label}
             initial={{ opacity: 0, scale: 1.1 }}
@@ -57,7 +57,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
       </div>
 
       <nav className="relative z-10 flex flex-col gap-6 md:gap-8">
-        {NAV_ITEMS.map((item, i) => (
+        {NAV_ITEMS.map((item: any, i: number) => (
           <motion.div
             key={item.label}
             initial={{ opacity: 0, y: 40 }}

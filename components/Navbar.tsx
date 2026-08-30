@@ -50,7 +50,7 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
+              {navLinks.map((link: any) => (
                 <Link
                   key={link.name}
                   href={link.href}
@@ -98,7 +98,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden pt-24"
           >
             <div className="flex flex-col items-center space-y-6 p-4">
-              {navLinks.map((link) => (
+              {navLinks.map((link: any) => (
                 <Link
                   key={link.name}
                   href={link.href}

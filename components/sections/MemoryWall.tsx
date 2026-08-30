@@ -64,7 +64,7 @@ export default function MemoryWall() {
         {/* We will scatter the images asymmetrically across the container */}
         <div className="absolute w-full h-full flex flex-wrap md:flex-nowrap items-center justify-around gap-4 md:gap-0 px-4 md:px-12">
           
-          {ARCHIVE_PHOTOS.map((photo, i) => (
+          {ARCHIVE_PHOTOS.map((photo: any, i: number) => (
             <div 
               key={photo.year}
               ref={el => { imagesRef.current[i] = el; }}

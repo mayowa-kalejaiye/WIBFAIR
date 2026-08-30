@@ -40,7 +40,7 @@ export default function BlogPage() {
 
       <section className="pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {posts.map((post) => (
+          {posts.map((post: any) => (
             <Link key={post.title} href={post.href} className="group block bg-white border border-ink/10 overflow-hidden">
               <div className="relative aspect-[16/9] overflow-hidden bg-paper">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
