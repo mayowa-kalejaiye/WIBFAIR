@@ -48,7 +48,7 @@ const SPEAKERS_2026 = [
 const PATHWAYS = [
   {
     title: "Attend Conference",
-    desc: "Register for the annual gathering. Experience anointed live ministry, practical life workshops, business marketplace, and life-changing fellowship.",
+    desc: "Register for the annual gathering. Experience live ministry, practical life workshops, business marketplace, and life-changing fellowship.",
     btn: "Register Free (Bitly)",
     href: "https://bit.ly/4ywiov5",
     silhouette: "rounded-t-[84px] rounded-b-[28px]",

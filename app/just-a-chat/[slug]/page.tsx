@@ -206,7 +206,7 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
             <div>
               <Eyebrow>Continue Listening</Eyebrow>
               <h3 className="font-display text-3xl md:text-4xl text-[#1A1118] mt-1">
-                More Sacred Conversations
+                More Episodes &amp; Conversations
               </h3>
             </div>
             <Link

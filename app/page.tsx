@@ -5,6 +5,7 @@ import FlowerMotif from "@/components/motif/FlowerMotif";
 import SpinningSeal from "@/components/motion/SpinningSeal";
 import MarqueeTicker from "@/components/motion/MarqueeTicker";
 import TiltCard from "@/components/motion/TiltCard";
+import HeroTitleRotator from "@/components/motion/HeroTitleRotator";
 
 const SPEAKERS_2026 = [
   { name: "Bunmi Alabi", role: "Convener", sub: "Unbroken Ladies", img: "/IMG_9133.JPG.jpeg" },
@@ -30,12 +31,12 @@ export default function HomePage() {
 
         <div className="max-w-[1600px] mx-auto w-full px-6 md:px-12 relative z-10">
           
-          {/* Top Marquee-style Header Tag */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-[#EDD8E4]/60">
+          {/* Top Marquee-style Header Tag (Hidden on mobile) */}
+          <div className="hidden sm:flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-[#EDD8E4]/60">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-[#C97A9E] animate-pulse" />
-              <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#7A5C72] font-semibold">
-                Lagos, Nigeria · Global Calling
+              <p className="hidden sm:block font-sans text-[11px] tracking-[0.28em] uppercase text-[#7A5C72] font-semibold">
+                Lagos, Nigeria &middot; Global Calling
               </p>
             </div>
             <div className="hidden sm:flex items-center gap-4 font-sans text-[11px] tracking-widest uppercase text-[#7A5C72] font-semibold">
@@ -55,9 +56,9 @@ export default function HomePage() {
             {/* Left: Monumental Typography */}
             <div className="lg:col-span-7 relative z-20">
               <Reveal>
-                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/80 border border-[#EDD8E4] shadow-sm mb-6">
-                  <FlowerMotif size={24} ambient={true} />
-                  <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#C97A9E] font-bold">
+                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/80 border border-[#EDD8E4] shadow-sm mb-4 sm:mb-6">
+                  <FlowerMotif size={20} ambient={true} />
+                  <span className="font-sans text-[8.5px] sm:text-[10px] tracking-[0.16em] sm:tracking-[0.25em] uppercase text-[#C97A9E] font-bold">
                     The Official Space of Bunmi Alabi
                   </span>
                 </div>
@@ -71,21 +72,9 @@ export default function HomePage() {
                 </h1>
               </Reveal>
 
-              {/* Strategist Mandated Titles — Clean Editorial Typographic Line (No Clutter) */}
+              {/* Strategist Mandated Titles — Single-spot Vertical Rotator on Mobile, Full Line on Desktop */}
               <Reveal delay={0.15}>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-6 text-xs font-sans tracking-[0.18em] uppercase text-[#7A5C72]">
-                  <span className="font-semibold text-[#1A1118]">Mental Health Counselor &amp; Coach</span>
-                  <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">Speaker</span>
-                  <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">Assistant Pastor</span>
-                  <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">Author</span>
-                  <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">Media Personality</span>
-                  <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">President, Unbroken Ladies</span>
-                </div>
+                <HeroTitleRotator />
               </Reveal>
 
               <Reveal delay={0.2}>
@@ -114,8 +103,8 @@ export default function HomePage() {
             {/* Right: Cathedral Archway Portal (Crystal Clear, Sharp & Unobstructed on Mobile & Desktop) */}
             <div className="lg:col-span-5 relative flex justify-center items-center mt-6 lg:mt-0">
               
-              {/* Spinning Brand Seal (Visible on mobile too, scaled gracefully) */}
-              <div className="absolute -top-6 -left-3 sm:-top-10 sm:-left-6 md:-left-12 z-30 scale-75 sm:scale-100 origin-top-left">
+              {/* Spinning Brand Seal */}
+              <div className="absolute -top-6 -left-3 sm:-top-10 sm:-left-6 md:-left-12 z-30 origin-top-left">
                 <SpinningSeal
                   text="BUNMI ALABI • SISTERHOOD • HEALING • OASIS • UNBROKEN •"
                   size={140}
@@ -149,8 +138,8 @@ export default function HomePage() {
                 </div>
               </TiltCard>
 
-              {/* Floating Decorative Petal Accent (Scaled gracefully on mobile) */}
-              <div className="absolute -bottom-6 -right-3 sm:-bottom-8 sm:-right-6 z-20 scale-75 sm:scale-100 origin-bottom-right">
+              {/* Floating Decorative Petal Accent */}
+              <div className="absolute -bottom-6 -right-3 sm:-bottom-8 sm:-right-6 z-20 origin-bottom-right">
                 <FlowerMotif size={80} ambient={true} interactive={true} />
               </div>
 
@@ -162,7 +151,7 @@ export default function HomePage() {
 
         {/* Scroll down prompt */}
         <div className="max-w-[1600px] mx-auto w-full px-6 md:px-12 pt-16 flex items-center justify-between text-xs font-sans text-[#7A5C72]">
-          <span className="tracking-[0.2em] uppercase text-[10px]">Scroll to enter the sanctuary</span>
+          <span className="tracking-[0.2em] uppercase text-[10px]">Scroll to explore</span>
           <span className="w-12 h-px bg-[#C97A9E]/40" />
         </div>
       </section>

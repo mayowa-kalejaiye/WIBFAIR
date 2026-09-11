@@ -141,7 +141,7 @@ export default async function JustAChatPage() {
             <div className="lg:col-span-7">
               <Reveal>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-[#E8A0BF] font-sans text-xs tracking-[0.2em] uppercase font-semibold mb-6">
-                  Unscripted &bull; Sacred &bull; Real
+                  Unscripted &bull; Authentic &bull; Real
                 </div>
               </Reveal>
 
@@ -154,7 +154,7 @@ export default async function JustAChatPage() {
 
               <Reveal delay={0.16}>
                 <p className="font-sans text-lg md:text-xl text-white/75 mt-8 max-w-xl leading-relaxed">
-                  Honest, unscripted conversations on marriage, reproductive grief, family patterns, and the sacred truths we too often carry in silence. Hosted by Bunmi Alabi.
+                  Honest, unscripted conversations on marriage, reproductive grief, family patterns, and the real-life truths we too often carry in silence. Hosted by Bunmi Alabi.
                 </p>
               </Reveal>
 

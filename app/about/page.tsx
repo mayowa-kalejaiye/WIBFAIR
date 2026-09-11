@@ -112,8 +112,8 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1118]/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <p className="font-display text-2xl">Bunmi Alabi</p>
-                <p className="font-sans text-xs tracking-widest uppercase text-[#E8A0BF]">
-                  Lagos, Nigeria · Global Calling
+                <p className="hidden sm:block font-sans text-xs tracking-widest uppercase text-[#E8A0BF]">
+                  Lagos, Nigeria &middot; Global Calling
                 </p>
               </div>
             </div>

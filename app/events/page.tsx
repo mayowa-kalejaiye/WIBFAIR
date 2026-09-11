@@ -108,7 +108,7 @@ export default function EventsPage() {
             <div className="lg:col-span-7">
               <Reveal delay={0.08}>
                 <h1 className="font-display text-5xl md:text-7xl lg:text-[98px] leading-[0.88] tracking-tight text-[#1A1118]">
-                  Sacred <br />
+                  Upcoming <br />
                   <span className="italic font-serif text-[#C97A9E]">Gatherings &amp; Events</span>
                 </h1>
               </Reveal>

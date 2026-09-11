@@ -38,53 +38,56 @@ export default function FlowerMotif({
 
   const isAmbientActive = ambient && !isMobile;
 
-  if (shouldReduceMotion) {
+  if (shouldReduceMotion || isMobile) {
     return (
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={className}
-        aria-hidden="true"
-      >
-        <g transform="translate(50, 50)">
-          {OUTER_PETALS.map((deg) => (
-            <path
-              key={`outer-${deg}`}
-              d="M 0 0 C -10 -20, -14 -35, 0 -44 C 14 -35, 10 -20, 0 0 Z"
-              fill="#F9E6EE"
-              stroke="#E8A0BF"
-              strokeWidth="0.8"
-              opacity="0.85"
-              transform={`rotate(${deg})`}
-            />
-          ))}
-          {MID_PETALS.map((deg) => (
-            <path
-              key={`mid-${deg}`}
-              d="M 0 0 C -8 -16, -11 -28, 0 -34 C 11 -28, 8 -16, 0 0 Z"
-              fill="#F4D3E3"
-              stroke="#C97A9E"
-              strokeWidth="0.8"
-              opacity="0.9"
-              transform={`rotate(${deg})`}
-            />
-          ))}
-          {INNER_PETALS.map((deg) => (
-            <path
-              key={`inner-${deg}`}
-              d="M 0 0 C -6 -12, -8 -20, 0 -24 C 8 -20, 6 -12, 0 0 Z"
-              fill="#E8A0BF"
-              opacity="0.95"
-              transform={`rotate(${deg})`}
-            />
-          ))}
-          <circle cx="0" cy="0" r="6" fill="#C97A9E" />
-          <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
-        </g>
-      </svg>
+      <div className={`inline-block select-none ${className}`}>
+        <svg
+          width={size}
+          height={size}
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <g transform="translate(50, 50)">
+            {OUTER_PETALS.map((deg) => (
+              <path
+                key={`outer-${deg}`}
+                d="M 0 0 C -10 -20, -14 -35, 0 -44 C 14 -35, 10 -20, 0 0 Z"
+                fill="#F9E6EE"
+                stroke="#E8A0BF"
+                strokeWidth="0.8"
+                opacity="0.88"
+                transform={`rotate(${deg})`}
+              />
+            ))}
+            {MID_PETALS.map((deg) => (
+              <path
+                key={`mid-${deg}`}
+                d="M 0 0 C -8 -16, -11 -28, 0 -34 C 11 -28, 8 -16, 0 0 Z"
+                fill="#F4D3E3"
+                stroke="#C97A9E"
+                strokeWidth="0.8"
+                opacity="0.92"
+                transform={`rotate(${deg})`}
+              />
+            ))}
+            {INNER_PETALS.map((deg) => (
+              <path
+                key={`inner-${deg}`}
+                d="M 0 0 C -6 -12, -8 -20, 0 -24 C 8 -20, 6 -12, 0 0 Z"
+                fill="#E8A0BF"
+                stroke="#C97A9E"
+                strokeWidth="0.6"
+                opacity="0.95"
+                transform={`rotate(${deg})`}
+              />
+            ))}
+            <circle cx="0" cy="0" r="6" fill="#C97A9E" />
+            <circle cx="0" cy="0" r="2.6" fill="#FFFFFF" />
+          </g>
+        </svg>
+      </div>
     );
   }
 

@@ -178,7 +178,7 @@ export default function Footer() {
       <div className="relative w-full overflow-hidden select-none border-t border-white/5 pt-4">
         
         {/* Living Garden of Floral Ornaments Placed Thoughtfully Across the Lettering */}
-        <div className="absolute inset-0 pointer-events-none z-20 scale-75 sm:scale-100 origin-center">
+        <div className="absolute inset-0 pointer-events-none z-20 origin-center">
           
           {/* Flower 1: Nestled above the 'B' */}
           <div className="absolute top-[8%] left-[4%] sm:left-[6%] -rotate-12">
