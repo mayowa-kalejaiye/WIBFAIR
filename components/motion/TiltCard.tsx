@@ -22,6 +22,7 @@ export default function TiltCard({
   const rotateY = useSpring(0, { stiffness: 200, damping: 20 });
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -44,7 +45,9 @@ export default function TiltCard({
   }
 
   function handleMouseEnter() {
-    setIsHovered(true);
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      setIsHovered(true);
+    }
   }
 
   return (
@@ -56,13 +59,12 @@ export default function TiltCard({
       style={{
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
       }}
-      className={`perspective-1000 transition-shadow duration-500 ${
+      className={`transition-shadow duration-500 ${
         isHovered ? "shadow-2xl shadow-[#C97A9E]/15" : ""
       } ${className}`}
     >
-      <div style={{ transform: "translateZ(20px)" }} className="w-full h-full">
+      <div className="w-full h-full">
         {children}
       </div>
     </motion.div>

@@ -73,14 +73,18 @@ export default function HomePage() {
 
               {/* Strategist Mandated Titles — Clean Editorial Typographic Line (No Clutter) */}
               <Reveal delay={0.15}>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-6 text-xs font-sans tracking-[0.2em] uppercase text-[#7A5C72]">
-                  <span className="font-semibold text-[#1A1118]">Prof. Counselor</span>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-6 text-xs font-sans tracking-[0.18em] uppercase text-[#7A5C72]">
+                  <span className="font-semibold text-[#1A1118]">Mental Health Counselor &amp; Coach</span>
                   <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">President, Unbroken Ladies</span>
+                  <span className="font-semibold text-[#1A1118]">Speaker</span>
                   <span className="text-[#C97A9E]">•</span>
-                  <span className="font-semibold text-[#1A1118]">Convener, BAHF</span>
+                  <span className="font-semibold text-[#1A1118]">Assistant Pastor</span>
                   <span className="text-[#C97A9E]">•</span>
                   <span className="font-semibold text-[#1A1118]">Author</span>
+                  <span className="text-[#C97A9E]">•</span>
+                  <span className="font-semibold text-[#1A1118]">Media Personality</span>
+                  <span className="text-[#C97A9E]">•</span>
+                  <span className="font-semibold text-[#1A1118]">President, Unbroken Ladies</span>
                 </div>
               </Reveal>
 
@@ -633,8 +637,8 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.1} y={20}>
-            <blockquote className="font-display text-[clamp(28px,4.2vw,56px)] leading-[1.2] tracking-tight text-[#1A1118]">
-              &ldquo;I believe every woman deserves a space where she can be honest about where she is — without shame, without pretense. That is what all of this is about.&rdquo;
+            <blockquote className="font-display text-[clamp(26px,3.8vw,52px)] leading-[1.2] tracking-tight text-[#1A1118]">
+              &ldquo;What happened to you does not have to define you, where you are does not have to be where you remain, and every difficult season can become a pathway to becoming stronger, wiser, and more purposeful.&rdquo;
             </blockquote>
           </Reveal>
 

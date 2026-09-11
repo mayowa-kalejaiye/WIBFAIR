@@ -59,11 +59,14 @@ export default function VintagePage() {
         <Gallery items={ITEMS} />
       </section>
 
-      <section className="py-16 bg-[#FDF6F8] border-y border-[#EDD8E4] px-6 md:px-12">
-        <div className="max-w-3xl mx-auto text-center">
-          <Eyebrow>Vintage Africana</Eyebrow>
-          <p className="font-sans text-[#7A5C72] text-lg mt-3">
-            This personal archive shares the same heartbeat as Vintage Africana — celebrating African cultural heritage and narrative preservation.
+      <section className="py-20 bg-[#FDF6F8] border-y border-[#EDD8E4] px-6 md:px-12">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <Eyebrow>Vintage Africana Experience</Eyebrow>
+          <h2 className="font-display text-3xl md:text-4xl text-[#1A1118]">
+            Culinary Heritage, Hospitality &amp; Culture
+          </h2>
+          <p className="font-sans text-[#7A5C72] text-base md:text-lg leading-relaxed">
+            With over 25 years of experience in the food and confectionery business, Bunmi Alabi explores the intersection of creativity, entrepreneurship, culture, and impact through Vintage Africana &mdash; an African cultural and culinary experience celebrating Nigerian heritage through food, history, culture, and hospitality.
           </p>
         </div>
       </section>

@@ -19,8 +19,8 @@ export default function HumanitarianPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-px bg-[#C97A9E]" />
-              <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#C97A9E] font-semibold">
-                BAHF · Compassion in Action
+              <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#C97A9E] font-bold">
+                BAHF &bull; &ldquo;Restoring Hope, Empowering Future&rdquo;
               </p>
             </div>
           </Reveal>
@@ -34,7 +34,7 @@ export default function HumanitarianPage() {
 
           <Reveal delay={0.18}>
             <p className="font-sans text-lg md:text-xl text-[#7A5C72] leading-relaxed mt-6 max-w-xl">
-              Rooted in the belief that everyone deserves dignity, care, and opportunity. We walk alongside underprivileged women, single mothers, and vulnerable families through life-changing interventions.
+              Committed to supporting children from single-parent homes and creating opportunities that promote their wellbeing, education, dignity, and future.
             </p>
           </Reveal>
 

@@ -102,7 +102,14 @@ export default function SiteHeader() {
                 aria-expanded={moreOpen}
               >
                 More
-                <span className={`inline-block transition-transform duration-200 text-xs ${moreOpen ? "rotate-180" : ""}`}>▾</span>
+                <svg
+                  className={`w-3 h-3 transition-transform duration-200 text-[#C97A9E] ${moreOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
 
               <AnimatePresence>

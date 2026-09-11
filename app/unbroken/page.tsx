@@ -203,7 +203,7 @@ export default function UnbrokenPage() {
                     </p>
                   </div>
                   <p className="font-display text-base text-[#1A1118] leading-snug">
-                    Convener: Bunmi Alabi
+                    President: Bunmi Alabi
                   </p>
                   <p className="font-sans text-[11px] text-[#7A5C72] mt-1">
                     Daily prayer, business networking, and intentional friendship.

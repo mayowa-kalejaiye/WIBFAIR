@@ -15,34 +15,76 @@ export const metadata = {
 // Set real Calendly URL here when provided
 const CALENDLY_URL = "";
 
-const SPECIALIZED_CARE = [
+const OASIS_SCOPE = [
   {
-    category: "01 / Motherhood",
-    title: "Single Mothers & Lone Parenting",
-    desc: "Navigating lone parenting pressures, healing from rejection, emotional fatigue, and rebuilding confidence with grace and spiritual stability.",
-    silhouette: "rounded-t-[96px] rounded-b-[28px]",
-    badge: "Parenting Sanctuary",
+    category: "01 / Mental Health",
+    title: "Mental Health & Emotional Wellness",
+    desc: "Understanding emotional patterns, anxiety, mood regulation, burnout, and developing healthier coping mechanisms for daily life.",
+    silhouette: "rounded-t-[84px] rounded-b-[24px]",
+    badge: "Emotional Wellness",
   },
   {
-    category: "02 / Delay & Grief",
-    title: "Waiting Seasons & Delayed Hope",
-    desc: "The silent grief of delayed marital union, childbearing expectations, and remaining anchored in joy while standing in the waiting room of life.",
-    silhouette: "rounded-[48px_16px_48px_16px]",
-    badge: "Reproductive & Life Delay",
+    category: "02 / Trauma Care",
+    title: "Emotional Healing & Trauma Recovery",
+    desc: "Overcoming limiting past experiences, heartbreak, grief, loss, narcissistic abuse wounds, and untangling painful memories in safety.",
+    silhouette: "rounded-[44px_16px_44px_16px]",
+    badge: "Trauma Recovery",
   },
   {
-    category: "03 / Trauma Recovery",
-    title: "Emotional Healing & Rebuilding",
-    desc: "Untangling past domestic heartache, narcissistic wounds, grief, identity confusion, and reclaiming your inner voice without shame.",
-    silhouette: "rounded-t-[28px] rounded-b-[96px]",
-    badge: "Inner Restoration",
+    category: "03 / Identity & Worth",
+    title: "Self-Identity, Self-Worth & Confidence",
+    desc: "Rediscovering identity, building unshakeable self-worth, setting healthy emotional boundaries, and walking in purposeful confidence.",
+    silhouette: "rounded-t-[24px] rounded-b-[84px]",
+    badge: "Self-Worth & Boundaries",
   },
   {
-    category: "04 / Kingdom Alignment",
-    title: "Relationships & Pre-Marital",
-    desc: "Establishing healthy emotional boundaries, resolving deep-seated resentment, communication alignment, and intentional kingdom courtship.",
-    silhouette: "rounded-[16px_48px_16px_48px]",
-    badge: "Couples & Marital Care",
+    category: "04 / Relationships",
+    title: "Relationship & Marriage Counseling",
+    desc: "Resolving deep marital rift, pre-marital alignment, communication breakdown, infidelity recovery, and building healthy partnership.",
+    silhouette: "rounded-[16px_44px_16px_44px]",
+    badge: "Marital & Pre-Marital",
+  },
+  {
+    category: "05 / Fertility Care",
+    title: "Fertility & TTC Emotional Support",
+    desc: "Dedicated emotional support, perspective, and guidance for couples trying to conceive (TTC) & navigating reproductive waiting seasons.",
+    silhouette: "rounded-t-[84px] rounded-b-[24px]",
+    badge: "Couples Waiting Room",
+  },
+  {
+    category: "06 / Women's Growth",
+    title: "Women’s Personal Development",
+    desc: "Empowering women in life transitions, lone parenting, singlehood, career shifts, and personal transformation with dignity.",
+    silhouette: "rounded-[44px_16px_44px_16px]",
+    badge: "Personal Development",
+  },
+  {
+    category: "07 / Life & Purpose",
+    title: "Life Coaching & Purpose Discovery",
+    desc: "Clarifying personal vision, setting intentional goals, overcoming fear of failure, and stepping into the life you were created to live.",
+    silhouette: "rounded-t-[24px] rounded-b-[84px]",
+    badge: "Purpose Coaching",
+  },
+  {
+    category: "08 / Faith Integration",
+    title: "Faith-Based Counseling",
+    desc: "Integrating spiritual foundation, pastoral care, prayer, and biblically-sound guidance with evidence-based mental health practice.",
+    silhouette: "rounded-[16px_44px_16px_44px]",
+    badge: "Faith & Healing",
+  },
+  {
+    category: "09 / Organizational",
+    title: "Workplace Wellness & Emotional Intelligence",
+    desc: "Equipping teams and leaders with emotional intelligence, stress management, workplace mental health strategies, and conflict resolution.",
+    silhouette: "rounded-t-[84px] rounded-b-[24px]",
+    badge: "Workplace & Executive",
+  },
+  {
+    category: "10 / Education & Speaking",
+    title: "Mental Health Workshops & Keynotes",
+    desc: "Transformative speaking and workshops combining professional insight, lived experience, storytelling, and actionable tools for change.",
+    silhouette: "rounded-[44px_16px_44px_16px]",
+    badge: "Speaking & Workshops",
   },
 ];
 
@@ -268,20 +310,20 @@ export default function CounselingPage() {
         </div>
       </section>
 
-      {/* ── SPECIALIZED CARE (4 ARCHITECTURAL SILHOUETTES) ───────────────── */}
+      {/* ── SPECIALIZED CARE (10 ARCHITECTURAL SCOPE CARDS) ───────────────── */}
       <section id="specialized-care" className="py-16 md:py-28 px-6 md:px-12 max-w-[1600px] mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <Eyebrow>Specialized Care</Eyebrow>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <Eyebrow>Comprehensive Scope</Eyebrow>
           <h2 className="font-display text-4xl md:text-6xl text-[#1A1118] mt-2">
-            Areas of Focus &amp; Restoration
+            Scope of Oasis Counseling
           </h2>
-          <p className="font-sans text-base text-[#7A5C72] mt-4">
-            Compassionate, specialized counselling tailored to the delicate complexities of life, marriage, and emotional renewal.
+          <p className="font-sans text-base text-[#7A5C72] mt-4 leading-relaxed">
+            Professional counseling, coaching, and workshops focused on emotional healing, self-worth, identity, relationships, boundaries, heartbreak, and personal transformation.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {SPECIALIZED_CARE.map((area, idx) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {OASIS_SCOPE.map((area) => (
             <TiltCard key={area.title} maxTilt={6}>
               <div
                 className={`bg-white border border-[#EDD8E4] hover:border-[#C97A9E] transition-all duration-500 shadow-sm hover:shadow-2xl p-8 md:p-10 flex flex-col justify-between h-full group ${area.silhouette}`}

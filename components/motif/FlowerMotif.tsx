@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 type FlowerMotifProps = {
@@ -27,6 +28,15 @@ export default function FlowerMotif({
   cycleDuration = 2.4,
 }: FlowerMotifProps) {
   const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setIsMobile(true);
+    }
+  }, []);
+
+  const isAmbientActive = ambient && !isMobile;
 
   if (shouldReduceMotion) {
     return (
@@ -85,7 +95,7 @@ export default function FlowerMotif({
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={interactive ? { scale: 1.18, rotate: 12 } : undefined}
+      whileHover={interactive && !isMobile ? { scale: 1.18, rotate: 12 } : undefined}
     >
       <motion.svg
         width={size}
@@ -95,7 +105,7 @@ export default function FlowerMotif({
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         animate={
-          ambient
+          isAmbientActive
             ? {
                 rotate: [0, 7, -6, 0],
                 scale: [1, 1.04, 0.96, 1],
@@ -103,7 +113,7 @@ export default function FlowerMotif({
             : undefined
         }
         transition={
-          ambient
+          isAmbientActive
             ? {
                 duration: cycleDuration + 0.6,
                 repeat: Infinity,
@@ -126,7 +136,7 @@ export default function FlowerMotif({
               whileInView={{ scale: 1, rotate: deg, opacity: 0.88 }}
               viewport={{ once: true }}
               animate={
-                ambient
+                isAmbientActive
                   ? {
                       scale: [1, 1.12, 0.94, 1],
                       rotate: [deg, deg + 5, deg - 4, deg],
@@ -134,7 +144,7 @@ export default function FlowerMotif({
                   : undefined
               }
               transition={
-                ambient
+                isAmbientActive
                   ? {
                       duration: cycleDuration,
                       repeat: Infinity,
@@ -163,7 +173,7 @@ export default function FlowerMotif({
               whileInView={{ scale: 1, rotate: deg, opacity: 0.92 }}
               viewport={{ once: true }}
               animate={
-                ambient
+                isAmbientActive
                   ? {
                       scale: [1, 0.91, 1.12, 1],
                       rotate: [deg, deg - 6, deg + 5, deg],
@@ -171,7 +181,7 @@ export default function FlowerMotif({
                   : undefined
               }
               transition={
-                ambient
+                isAmbientActive
                   ? {
                       duration: Math.max(1.8, cycleDuration - 0.3),
                       repeat: Infinity,
@@ -200,7 +210,7 @@ export default function FlowerMotif({
               whileInView={{ scale: 1, rotate: deg, opacity: 0.95 }}
               viewport={{ once: true }}
               animate={
-                ambient
+                isAmbientActive
                   ? {
                       scale: [1, 1.16, 0.88, 1],
                       rotate: [deg, deg + 4, deg - 4, deg],
@@ -208,7 +218,7 @@ export default function FlowerMotif({
                   : undefined
               }
               transition={
-                ambient
+                isAmbientActive
                   ? {
                       duration: Math.max(1.5, cycleDuration - 0.6),
                       repeat: Infinity,
@@ -234,14 +244,14 @@ export default function FlowerMotif({
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             animate={
-              ambient
+              isAmbientActive
                 ? {
                     scale: [1, 1.28, 0.88, 1],
                   }
                 : undefined
             }
             transition={
-              ambient
+              isAmbientActive
                 ? {
                     duration: Math.max(1.3, cycleDuration - 0.9),
                     repeat: Infinity,
@@ -260,7 +270,7 @@ export default function FlowerMotif({
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             animate={
-              ambient
+              isAmbientActive
                 ? {
                     scale: [1, 1.35, 0.8, 1],
                     opacity: [0.9, 1, 0.6, 0.9],
@@ -268,7 +278,7 @@ export default function FlowerMotif({
                 : undefined
             }
             transition={
-              ambient
+              isAmbientActive
                 ? {
                     duration: Math.max(1.1, cycleDuration - 1.1),
                     repeat: Infinity,
