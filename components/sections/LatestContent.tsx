@@ -37,16 +37,16 @@ export default async function LatestContent() {
 
   const epThumb = latestEpisode?.thumbnailId
     ? `/api/media/${latestEpisode.thumbnailId}`
-    : latestEpisode?._ytThumb || youtubeThumbnail(latestEpisode.youtubeUrl || latestEpisode.youtubeId || "") || "/assets/african_women_entrepreneurs.jpg";
+    : latestEpisode?._ytThumb || youtubeThumbnail(latestEpisode.youtubeUrl || latestEpisode.youtubeId || "") || "/IMG_9123.JPG.jpeg";
   const coverMap: Record<string, string> = {
-    "couples-waiting-room-hope-in-the-waiting-season": "/assets/Nigerian_fashion_displays.jpg",
-    "music-memories-and-tiv": "/new-assets/whatsapp-2025-10-06-11-31-05_743fdd0e.jpg",
-    "why-we-started-vintage-africana": "/assets/african_women_entrepreneurs.jpg",
-    "unbroken-she-rose-she-rebuilt-she-reigns": "/assets/cultural_festivals.jpg",
+    "couples-waiting-room-hope-in-the-waiting-season": "/IMG_9472.JPG.jpeg",
+    "music-memories-and-tiv": "/IMG_9473.JPG.jpeg",
+    "why-we-started-vintage-africana": "/IMG_9474.JPG.jpeg",
+    "unbroken-she-rose-she-rebuilt-she-reigns": "/IMG_9475.JPG.jpeg",
   };
   const storyThumb = latestStory?.coverId
     ? `/api/media/${latestStory.coverId}`
-    : (latestStory?.coverImage && !latestStory.coverImage.includes("/images/stories/") ? latestStory.coverImage : coverMap[latestStory.slug] || "/assets/Nigerian_fashion_displays.jpg");
+    : (latestStory?.coverImage && !latestStory.coverImage.includes("/images/stories/") ? latestStory.coverImage : coverMap[latestStory.slug] || "/IMG_9127.JPG.jpeg");
 
   // — Truncate noisy YouTube descriptions (timestamps, bullets) for homepage card —
   function truncateDesc(text: string, max = 160) {

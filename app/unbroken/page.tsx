@@ -7,12 +7,12 @@ import SpinningSeal from "@/components/motion/SpinningSeal";
 import TiltCard from "@/components/motion/TiltCard";
 
 export const metadata = {
-  title: "Events & Gatherings — Bunmi Alabi",
+  title: "Unbroken Ladies Community — Bunmi Alabi",
   description:
-    "Unbroken 2026: Becoming — Annual women's conference hosted by Bunmi Alabi. 31st October 2026, Lagos Nigeria.",
+    "Faith, Purpose, Sisterhood, Impact. Home of the annual Unbroken conference, WhatsApp community, and women's empowerment initiatives.",
 };
 
-const SPEAKERS = [
+const SPEAKERS_2026 = [
   {
     name: "Bunmi Alabi",
     role: "Convener & Founder",
@@ -45,42 +45,46 @@ const SPEAKERS = [
   },
 ];
 
-const GATHERING_FORMATS = [
+const PATHWAYS = [
   {
-    title: "Annual Mega Conferences",
-    category: "01 / Flagship",
-    desc: "Large-scale transformational gatherings bringing together hundreds of women for life-shifting ministry, keynote teachings, legal & financial breakout rooms, and marketplace exhibitions.",
+    title: "Attend Conference",
+    desc: "Register for the annual gathering. Experience anointed live ministry, practical life workshops, business marketplace, and life-changing fellowship.",
+    btn: "Register Free (Bitly)",
+    href: "https://bit.ly/4ywiov5",
     silhouette: "rounded-t-[84px] rounded-b-[28px]",
-    badge: "Unbroken Annual",
+    badge: "Annual Gathering",
   },
   {
-    title: "Oasis Closed Retreats",
-    category: "02 / Therapeutic",
-    desc: "Intimate, confidential healing retreats for single mothers, grieving wives, and women navigating acute emotional exhaustion or heartbreak.",
+    title: "Join WhatsApp Sisterhood",
+    desc: "Step into our private, active sisterhood for daily encouragement, heartfelt prayer support, mutual accountability, and sisterly connection.",
+    btn: "Join Private Circle",
+    href: "https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt",
     silhouette: "rounded-[44px_16px_44px_16px]",
-    badge: "Restorative Chambers",
+    badge: "Daily Community",
   },
   {
-    title: "Broadcast Live Sessions",
-    category: "03 / Digital Broadcast",
-    desc: "Interactive bi-weekly virtual watch parties, live Q&As, and deep-dive community discussions streaming directly to our global YouTube audience.",
+    title: "Sponsor / Exhibit",
+    desc: "Showcase your women-led brand at our conference marketplace or sponsor attendance packages for single mothers and underprivileged sisters.",
+    btn: "Call Secretariat",
+    href: "tel:08035637325",
     silhouette: "rounded-t-[28px] rounded-b-[84px]",
-    badge: "Just A Chat Live",
+    badge: "Marketplace & Giving",
   },
   {
-    title: "Humanitarian Convocations",
-    category: "04 / Outreach",
-    desc: "On-the-ground welfare outreaches, distribution of food staples, skill-training seminars, and medical screenings for vulnerable widows and children.",
+    title: "Partner / Volunteer",
+    desc: "Lend your professional gifts, medical services, counselling skills, or media talents to the growing Unbroken movement across Nigeria.",
+    btn: "Connect With Us",
+    href: "/connect",
     silhouette: "rounded-[16px_44px_16px_44px]",
-    badge: "BAHF Initiatives",
+    badge: "Kingdom Service",
   },
 ];
 
-export default function EventsPage() {
+export default function UnbrokenPage() {
   return (
     <div className="bg-white min-h-screen text-[#1A1118]">
       
-      {/* ── HERO: GATHERINGS & CONVOCATIONS ──────────────────────────────── */}
+      {/* ── HERO BANNER & EMBLEM ─────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-36 bg-[#FDF6F8] border-b border-[#EDD8E4]">
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -97,109 +101,113 @@ export default function EventsPage() {
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#C97A9E] animate-pulse" />
               <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#C97A9E] font-bold">
-                Conferences &bull; Retreats &bull; Healing Summits
+                Faith &bull; Purpose &bull; Sisterhood &bull; Impact
               </p>
             </div>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Left Headline Column */}
+            {/* Left Headline & Action Suite */}
             <div className="lg:col-span-7">
               <Reveal delay={0.08}>
                 <h1 className="font-display text-5xl md:text-7xl lg:text-[98px] leading-[0.88] tracking-tight text-[#1A1118]">
-                  Sacred <br />
-                  <span className="italic font-serif text-[#C97A9E]">Gatherings &amp; Events</span>
+                  Unbroken <br />
+                  <span className="italic font-serif text-[#C97A9E]">Ladies Community</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={0.16}>
                 <p className="font-sans text-lg md:text-xl text-[#7A5C72] leading-relaxed mt-8 max-w-xl">
-                  High-impact annual conferences, restorative closed retreats, and transformational summits convened by Bunmi Alabi to awaken God-given identity, heal hidden fractures, and equip women for purpose.
+                  A transformative movement empowering single mothers, mature singles, and women navigating life transitions. We gather to heal from brokenness, rediscover God-given identity, and walk in total wholeness.
                 </p>
               </Reveal>
 
               <Reveal delay={0.24} className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="#flagship-2026"
+                  href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-8 py-4 hover:bg-[#9B4D77] transition-all font-semibold rounded-full shadow-lg shadow-[#C97A9E]/25 inline-flex items-center gap-2 group"
                 >
-                  <span>Explore Unbroken 2026</span>
+                  <span>Join WhatsApp Community</span>
                   <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </a>
 
                 <a
-                  href="#formats"
+                  href="#upcoming-2026"
                   className="font-sans text-xs tracking-[0.22em] uppercase text-[#1A1118] border border-[#EDD8E4] px-8 py-4 hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all rounded-full bg-white shadow-sm"
                 >
-                  Gathering Formats &darr;
+                  Unbroken 2026 Conference &darr;
                 </a>
               </Reveal>
 
-              {/* Event Metrics */}
+              {/* Sisterhood Pillars */}
               <Reveal delay={0.32} className="mt-14 pt-8 border-t border-[#EDD8E4] grid grid-cols-3 gap-6">
                 <div>
-                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">Oct 2026</p>
+                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">500+</p>
                   <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
-                    Next Flagship
+                    Sisters Connected
                   </p>
                 </div>
                 <div>
-                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">100% Free</p>
+                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">Annual</p>
                   <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
-                    General Admission
+                    Flagship Gathering
                   </p>
                 </div>
                 <div>
-                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">Lagos</p>
+                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">100%</p>
                   <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
-                    Host City
+                    Safe Sisterhood
                   </p>
                 </div>
               </Reveal>
             </div>
 
-            {/* Right Column: Rotating Botanical Seal with Event Highlight */}
+            {/* Right Column: Architectural Shield Medallion for Official Emblem */}
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="relative w-full max-w-[460px]">
                 
-                {/* Botanical Shield Frame */}
-                <div className="relative aspect-square rounded-[60px_20px_60px_20px] bg-white border-2 border-[#EDD8E4] p-10 shadow-2xl shadow-[#C97A9E]/20 flex flex-col justify-between group overflow-hidden">
-                  <div className="flex items-center justify-between">
-                    <span className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E] bg-[#FDF6F8] px-3.5 py-1.5 rounded-full border border-[#EDD8E4]">
-                      Flagship Event
-                    </span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#C97A9E] animate-ping" />
+                {/* Botanical Sculpted Shield Medallion */}
+                <div className="relative aspect-square rounded-[60px_20px_60px_20px] bg-white border-2 border-[#EDD8E4] p-10 shadow-2xl shadow-[#C97A9E]/20 flex items-center justify-center group overflow-hidden">
+                  <div className="relative w-full h-full p-4">
+                    <Image
+                      src="/IMG_9362.PNG"
+                      alt="Unbroken Ladies Community Official Emblem"
+                      fill
+                      priority
+                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
 
-                  <div className="my-auto">
-                    <p className="font-sans text-xs tracking-widest uppercase text-[#7A5C72]">
-                      Annual Women&rsquo;s Conference
-                    </p>
-                    <h3 className="font-display text-3xl md:text-4xl text-[#1A1118] mt-2 leading-tight">
-                      Unbroken 2026: <br />
-                      <span className="text-[#C97A9E] italic">Becoming</span>
-                    </h3>
-                    <p className="font-sans text-sm text-[#7A5C72] mt-3">
-                      Saturday, 31st October 2026 &bull; 10:00 AM Prompt &bull; Lagos, Nigeria.
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#EDD8E4] flex items-center justify-between">
-                    <span className="font-sans text-xs tracking-wider uppercase font-semibold text-[#1A1118]">
-                      Dresscode: Pink
-                    </span>
-                    <span className="text-[#C97A9E] font-bold">&rarr;</span>
-                  </div>
+                  {/* Inner subtle glow */}
+                  <div className="absolute inset-0 bg-[#C97A9E]/5 rounded-[60px_20px_60px_20px] pointer-events-none" />
                 </div>
 
-                {/* Floating Spinning Seal */}
+                {/* Floating Spinning Botanical Seal */}
                 <div className="absolute -top-8 -right-6 md:-right-10 z-20">
                   <SpinningSeal
-                    text="BUNMI ALABI • CONFERENCES • HEALING • SISTERHOOD • "
+                    text="UNBROKEN LADIES COMMUNITY • FAITH • PURPOSE • SISTERHOOD • "
                     size={148}
                     flowerSize={50}
                   />
+                </div>
+
+                {/* Floating Sisterhood Pill */}
+                <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white/95 backdrop-blur-md border border-[#EDD8E4] p-5 rounded-[28px_10px_28px_10px] shadow-xl max-w-[260px] z-20">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="w-2 h-2 rounded-full bg-[#C97A9E]" />
+                    <p className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E]">
+                      Official Sisterhood
+                    </p>
+                  </div>
+                  <p className="font-display text-base text-[#1A1118] leading-snug">
+                    Convener: Bunmi Alabi
+                  </p>
+                  <p className="font-sans text-[11px] text-[#7A5C72] mt-1">
+                    Daily prayer, business networking, and intentional friendship.
+                  </p>
                 </div>
 
               </div>
@@ -209,8 +217,74 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── FEATURED GRAND EVENT: UNBROKEN 2026 (ALIGNED WITH UNBROKEN PAGE) ── */}
-      <section id="flagship-2026" className="py-24 md:py-36 bg-[#150D13] text-white relative overflow-hidden">
+      {/* ── SISTERHOOD SHOWCASE (IMG_8906 ORGANIC SILHOUETTE) ─────────────── */}
+      <section className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left: Sculpted Organic Leaf Portal with 3D Tilt */}
+          <div className="lg:col-span-7">
+            <TiltCard maxTilt={5}>
+              <div className="relative aspect-[16/11] rounded-[72px_24px_72px_24px] overflow-hidden border-2 border-[#EDD8E4] shadow-2xl shadow-[#C97A9E]/15 group">
+                <Image
+                  src="/IMG_8906.jpg"
+                  alt="The Unbroken Sisterhood Gathering"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1118]/70 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+
+                {/* Floating HUD Badge */}
+                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
+                  <div className="bg-[#1A1118]/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                    <span className="font-sans text-[11px] tracking-widest uppercase font-semibold text-[#E8A0BF]">
+                      Lagos Sisterhood Chapter
+                    </span>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-sans">
+                    <span className="w-2 h-2 rounded-full bg-[#E8A0BF]" />
+                    <span>Real Community</span>
+                  </div>
+                </div>
+              </div>
+            </TiltCard>
+          </div>
+
+          {/* Right: Editorial Narrative */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="flex items-center gap-3">
+              <FlowerMotif size={44} ambient={true} />
+              <span className="w-8 h-px bg-[#C97A9E]" />
+              <Eyebrow>Beyond The Stage</Eyebrow>
+            </div>
+
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#1A1118] leading-[1.05]">
+              Community that outlasts the conference.
+            </h2>
+
+            <p className="font-sans text-base md:text-lg text-[#7A5C72] leading-relaxed">
+              Unbroken is not merely a once-a-year conference &mdash; it is a living, daily sanctuary. Through private WhatsApp circles, shared devotions, business networking, crisis prayer calls, and authentic fellowship, women discover that brokenness was never the final chapter.
+            </p>
+
+            <div className="pt-4">
+              <a
+                href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs tracking-[0.22em] uppercase font-bold bg-[#C97A9E] text-white px-8 py-4 rounded-full hover:bg-[#9B4D77] transition-all shadow-md inline-flex items-center gap-2 group"
+              >
+                <span>Join our private WhatsApp circle</span>
+                <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── UPCOMING FLAGSHIP: UNBROKEN 2026: BECOMING (MIDNIGHT LUXURY) ──── */}
+      <section id="upcoming-2026" className="py-24 md:py-36 bg-[#150D13] text-white relative overflow-hidden">
         {/* Radial Ambient Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/15 rounded-full blur-[140px] pointer-events-none" />
 
@@ -347,12 +421,12 @@ export default function EventsPage() {
                 Ministers &amp; Keynote Leaders
               </span>
               <h3 className="font-display text-4xl md:text-5xl text-white">
-                Featured Keynote Speakers
+                Meet the 2026 Speakers
               </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {SPEAKERS.map((sp) => (
+              {SPEAKERS_2026.map((sp) => (
                 <TiltCard key={sp.name} maxTilt={6}>
                   <div className="group bg-[#1E131B] border border-white/10 rounded-t-[72px] rounded-b-[20px] overflow-hidden hover:border-[#E8A0BF] transition-all p-3 shadow-xl h-full flex flex-col justify-between">
                     <div>
@@ -392,46 +466,50 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── GATHERING FORMATS (4 ARCHITECTURAL SILHOUETTES) ──────────────── */}
-      <section id="formats" className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
+      {/* ── HOW TO BE A PART (4 ARCHITECTURAL SILHOUETTES) ───────────────── */}
+      <section className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <Eyebrow>Curated Spaces</Eyebrow>
+          <Eyebrow>Engage &amp; Belong</Eyebrow>
           <h2 className="font-display text-4xl md:text-6xl text-[#1A1118] mt-2">
-            The Gathering Formats
+            Pathways into Unbroken
           </h2>
           <p className="font-sans text-base text-[#7A5C72] mt-4">
-            From stadium-scale conferences to discreet, closed healing rooms &mdash; every space is designed for safety, spiritual depth, and dignity.
+            There is a place for you in this sisterhood &mdash; whether as an attendee, a volunteer, a marketplace vendor, or a partner.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {GATHERING_FORMATS.map((format) => (
-            <TiltCard key={format.title} maxTilt={6}>
+          {PATHWAYS.map((item) => (
+            <TiltCard key={item.title} maxTilt={6}>
               <div
-                className={`bg-white border border-[#EDD8E4] hover:border-[#C97A9E] transition-all duration-500 shadow-sm hover:shadow-2xl p-8 md:p-10 flex flex-col justify-between h-full group ${format.silhouette}`}
+                className={`bg-white border border-[#EDD8E4] hover:border-[#C97A9E] transition-all duration-500 shadow-sm hover:shadow-2xl p-8 md:p-10 flex flex-col justify-between h-full group ${item.silhouette}`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#C97A9E] bg-[#FDF6F8] px-3 py-1 rounded-full border border-[#EDD8E4]">
-                      {format.category}
+                      {item.badge}
                     </span>
                     <span className="w-2 h-2 rounded-full bg-[#EDD8E4] group-hover:bg-[#C97A9E] transition-colors" />
                   </div>
 
                   <h3 className="font-display text-2xl md:text-[26px] leading-[1.2] text-[#1A1118] group-hover:text-[#C97A9E] transition-colors mb-4">
-                    {format.title}
+                    {item.title}
                   </h3>
 
                   <p className="font-sans text-sm text-[#7A5C72] leading-relaxed">
-                    {format.desc}
+                    {item.desc}
                   </p>
                 </div>
 
                 <div className="pt-8 mt-8 border-t border-[#EDD8E4]/60 flex items-center justify-between">
-                  <span className="font-sans text-[11px] tracking-wider uppercase font-semibold text-[#1A1118]">
-                    {format.badge}
-                  </span>
-                  <span className="text-[#C97A9E] group-hover:translate-x-1 transition-transform font-bold">&rarr;</span>
+                  <a
+                    href={item.href}
+                    className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[#C97A9E] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1.5"
+                  >
+                    <span>{item.btn}</span>
+                    <span>&rarr;</span>
+                  </a>
+                  <span className="w-2 h-2 rounded-full bg-[#EDD8E4] group-hover:bg-[#C97A9E] transition-colors" />
                 </div>
               </div>
             </TiltCard>
@@ -439,46 +517,61 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── CONTINUOUS SISTERHOOD CALLOUT BANNER ─────────────────────────── */}
-      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="relative rounded-[56px] bg-[#FDF6F8] border border-[#EDD8E4] p-10 md:p-20 text-center shadow-xl overflow-hidden">
-          
-          <div className="flex justify-center mb-6">
-            <FlowerMotif size={68} ambient={true} />
+      {/* ── ARCHIVAL: UNBROKEN 2019 LANDMARK GATHERING ───────────────────── */}
+      <section id="past-2019" className="py-20 md:py-28 bg-[#FDF6F8] border-t border-[#EDD8E4] px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-4 border-b border-[#EDD8E4]">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="bg-[#1A1118] text-white font-sans text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-bold">
+                  Heritage Archive
+                </span>
+                <Eyebrow>2019 Landmark Gathering</Eyebrow>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl text-[#1A1118]">
+                Where The Sisterhood Began
+              </h2>
+            </div>
+            <p className="font-sans text-xs tracking-widest uppercase text-[#C97A9E] font-bold">
+              Unbroken 2019 &bull; Lagos, Nigeria
+            </p>
           </div>
 
-          <span className="font-sans text-xs tracking-[0.25em] uppercase text-[#C97A9E] font-bold block mb-4">
-            Continuous Fellowship
-          </span>
+          <div className="grid md:grid-cols-2 gap-8">
+            <TiltCard maxTilt={5}>
+              <div className="bg-white border border-[#EDD8E4] p-8 rounded-[36px_12px_36px_12px] shadow-sm hover:shadow-xl transition-all flex gap-6 items-center group">
+                <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-[#C97A9E] shadow-md group-hover:scale-105 transition-transform">
+                  <Image src="/convener.jpg" alt="Bunmi Alabi" fill className="object-cover" />
+                </div>
+                <div>
+                  <span className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E] block mb-1">
+                    Convener &amp; Visionary
+                  </span>
+                  <h4 className="font-display text-2xl text-[#1A1118]">Bunmi Alabi</h4>
+                  <p className="font-sans text-sm text-[#7A5C72] mt-1">
+                    Mental Health Counsellor, Author of Couples&rsquo; Waiting Room, Host of Just A Chat.
+                  </p>
+                </div>
+              </div>
+            </TiltCard>
 
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#1A1118] max-w-3xl mx-auto leading-tight">
-            Can&apos;t wait until October 2026? <br />
-            <span className="italic font-serif text-[#C97A9E]">Sisterhood happens every single day.</span>
-          </h2>
-
-          <p className="font-sans text-base md:text-lg text-[#7A5C72] max-w-2xl mx-auto mt-6 leading-relaxed">
-            Join the private Unbroken WhatsApp sisterhood circle to stay encouraged, supported in prayer, and connected with hundreds of women all year round.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-9 py-4 rounded-full hover:bg-[#9B4D77] transition-all font-semibold shadow-lg shadow-[#C97A9E]/25 inline-flex items-center gap-2 group"
-            >
-              <span>Join WhatsApp Sisterhood</span>
-              <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </a>
-
-            <Link
-              href="/unbroken"
-              className="font-sans text-xs tracking-[0.22em] uppercase text-[#1A1118] border border-[#EDD8E4] px-8 py-4 hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all rounded-full bg-white shadow-sm"
-            >
-              Explore Unbroken Community &rarr;
-            </Link>
+            <TiltCard maxTilt={5}>
+              <div className="bg-white border border-[#EDD8E4] p-8 rounded-[12px_36px_12px_36px] shadow-sm hover:shadow-xl transition-all flex gap-6 items-center group">
+                <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-[#C97A9E] shadow-md group-hover:scale-105 transition-transform">
+                  <Image src="/lolo1.jpg" alt="Omotunde Adebowale David (LOLO1)" fill className="object-cover" />
+                </div>
+                <div>
+                  <span className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E] block mb-1">
+                    Keynote Speaker 2019
+                  </span>
+                  <h4 className="font-display text-2xl text-[#1A1118]">Omotunde Adebowale David (LOLO1)</h4>
+                  <p className="font-sans text-sm text-[#7A5C72] mt-1">
+                    Renowned Broadcaster, Media Personality &amp; Motivational Speaker.
+                  </p>
+                </div>
+              </div>
+            </TiltCard>
           </div>
-
         </div>
       </section>
 

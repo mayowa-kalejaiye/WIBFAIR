@@ -33,7 +33,7 @@ export default function Hero() {
         <div className="md:col-span-6 lg:col-span-7 relative">
           <div className="relative aspect-[3/4] md:aspect-[4/5] w-full max-w-[600px] mx-auto md:ml-auto md:mr-0 overflow-hidden rounded-[2px] bg-paper">
             <Image
-              src="/enhanced/convener-enhanced.jpg"
+              src="/IMG_9117.JPG.jpeg"
               alt="Bunmi Alabi — portrait"
               fill
               priority

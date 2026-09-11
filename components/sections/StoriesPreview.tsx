@@ -36,7 +36,7 @@ export default function StoriesPreview() {
               <div className="relative aspect-[4/5] bg-paper overflow-hidden mb-8 rounded-[2px]">
                 <div className="absolute inset-0 bg-ink/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 <Image
-                  src="/assets/grid.jpg"
+                  src="/IMG_9347_1.jpeg"
                   alt={featuredStory.title}
                   fill
                   quality={90}
@@ -63,7 +63,7 @@ export default function StoriesPreview() {
                   <div className={`relative aspect-[4/3] bg-paper overflow-hidden mb-6 rounded-[2px] ${index === 1 ? 'lg:ml-12 lg:w-4/5' : ''}`}>
                     <div className="absolute inset-0 bg-ink/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <Image
-                      src={index === 0 ? "/assets/Nigerian_fashion_displays.jpg" : "/assets/Nigerian_market_scenes.jpg"}
+                      src={index === 0 ? "/IMG_9131.JPG.jpeg" : "/IMG_9133.JPG.jpeg"}
                       alt={story.title}
                       fill
                       quality={90}

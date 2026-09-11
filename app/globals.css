@@ -4,17 +4,29 @@
   --font-display: var(--font-instrument);
   --font-sans: var(--font-geist);
 
-  --color-cream: #F5F0E8;
-  --color-ink: #171512;
-  --color-paper: #EDE6DA;
-  --color-clay: #A56F52;
-  --color-olive: #62634A;
-  --color-white: #FCFAF6;
+  /* ── Brand: Pink & White (client-specified) ─────────────────────── */
+  --color-pink:        #E8A0BF;   /* soft pink — motifs, highlights */
+  --color-pink-deep:   #C97A9E;   /* deep pink — primary accent */
+  --color-pink-dark:   #9B4D77;   /* dark pink — strong CTA */
+  --color-blush:       #FDF6F8;   /* near-white blush — section bg */
+  --color-white:       #FFFFFF;
+
+  /* ── Neutral/ink system — keeps it editorial, not girly-cheap ───── */
+  --color-ink:         #1A1118;   /* deep warm black */
+  --color-ink-mid:     #3D2B3D;   /* softer dark for body text */
+  --color-border:      #EDD8E4;   /* subtle pink-tinted border */
+  --color-neutral:     #FAF7F9;   /* warm white — main page bg */
+
+  /* ── Legacy editorial tokens (kept for existing components) ──────── */
+  --color-cream:       #FDF6F8;
+  --color-paper:       #F5EBF1;
+  --color-clay:        #C97A9E;
+  --color-olive:       #7A5C72;
 }
 
 :root {
-  --background: var(--color-cream);
-  --foreground: var(--color-ink);
+  --background: #FFFFFF;
+  --foreground: #1A1118;
 }
 
 body {
@@ -22,6 +34,7 @@ body {
   color: var(--foreground);
 }
 
+/* Utility: line clamp */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -35,6 +48,7 @@ body {
   overflow: hidden;
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

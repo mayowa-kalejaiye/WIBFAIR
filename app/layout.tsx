@@ -18,6 +18,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.bunmialabi.com"),
   title: "Bunmi Alabi — Conversations worth having",
   description: "Stories, conversations and everything in between. Host of Just A Chat.",
   openGraph: {
@@ -32,6 +33,11 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,12 +48,17 @@ export default function RootLayout({
       lang="en"
       className={`${instrument.variable} ${geist.variable} font-sans antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-cream text-ink selection:bg-paper selection:text-ink">
+      <body className="min-h-screen flex flex-col bg-white text-ink selection:bg-blush selection:text-ink overflow-x-hidden">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-ink text-white px-4 py-2 z-[100]">
+          Skip to content
+        </a>
         <SmoothScrollProvider>
           <SiteHeader />
           <PageTransition>
             <div className="flex-1 flex flex-col">
-              <div className="flex-1">{children}</div>
+              <main id="main-content" className="flex-1 focus:outline-none" tabIndex={-1}>
+                {children}
+              </main>
               <Footer />
             </div>
           </PageTransition>

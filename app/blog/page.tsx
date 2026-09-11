@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Journal — Bunmi Alabi",
+  description: "Words that heal — essays on faith, mental health and purposeful living.",
+};
+
 const posts = [
   {
     title: "The art of letting go",
@@ -29,11 +34,11 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-white">
       <section className="pt-32 pb-16 md:pt-48 md:pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
-        <span className="font-sans text-xs tracking-widest uppercase text-clay font-semibold">Journal</span>
+        <span className="font-sans text-xs tracking-widest uppercase text-pink-deep font-semibold">Journal</span>
         <h1 className="font-display text-7xl md:text-[110px] leading-[0.85] tracking-tight mt-4 mb-6">
-          Words that <span className="text-clay">heal.</span>
+          Words that <span className="text-pink">heal.</span>
         </h1>
         <p className="font-sans text-xl text-olive max-w-xl">Essays and reflections on faith, mental health and purposeful living — the longer thoughts that don’t fit in a caption. For the canonical archive, see Stories.</p>
       </section>
@@ -41,16 +46,16 @@ export default function BlogPage() {
       <section className="pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post: any) => (
-            <Link key={post.title} href={post.href} className="group block bg-white border border-ink/10 overflow-hidden">
-              <div className="relative aspect-[16/9] overflow-hidden bg-paper">
+            <Link key={post.title} href={post.href} className="group block bg-white border border-border overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden bg-blush">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="font-sans text-[10px] tracking-widest uppercase text-clay font-semibold">{post.category}</span>
+                  <span className="font-sans text-[10px] tracking-widest uppercase text-pink-deep font-semibold">{post.category}</span>
                   <span className="font-sans text-xs text-olive">{post.date}</span>
                 </div>
-                <h2 className="font-display text-2xl leading-tight mb-3 group-hover:text-clay transition-colors">{post.title}</h2>
+                <h2 className="font-display text-2xl leading-tight mb-3 group-hover:text-pink-deep transition-colors">{post.title}</h2>
                 <p className="font-sans text-sm text-olive line-clamp-3">{post.excerpt}</p>
                 <span className="font-sans text-xs tracking-widest uppercase text-ink border-b border-ink pb-1 mt-4 inline-block">Read →</span>
               </div>
@@ -58,10 +63,10 @@ export default function BlogPage() {
           ))}
         </div>
 
-        <div className="mt-16 p-8 bg-paper border border-ink/10 text-center">
+        <div className="mt-16 p-8 bg-blush border border-border text-center">
           <h3 className="font-display text-2xl mb-2">Don’t miss a post</h3>
           <p className="font-sans text-olive mb-6">This journal mirrors Stories. New essays are published there first.</p>
-          <Link href="/stories" className="inline-block bg-ink text-cream font-sans text-xs tracking-widest uppercase px-8 py-3">Explore Stories</Link>
+          <Link href="/stories" className="inline-block bg-ink text-white font-sans text-xs tracking-widest uppercase px-8 py-3">Explore Stories</Link>
         </div>
       </section>
     </div>

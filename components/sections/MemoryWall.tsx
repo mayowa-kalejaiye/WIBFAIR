@@ -6,11 +6,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ARCHIVE_PHOTOS = [
-  { year: "1998", caption: "The beginning", src: "/new-assets/WhatsApp Image 2025-10-06 at 11.31.03_8ec76c87.jpg" },
-  { year: "2008", caption: "Wedding day", src: "/lolo1.jpg" },
-  { year: "2012", caption: "T.I.V Era", src: "/thumb6.jpg" },
-  { year: "2020", caption: "Vintage Africana", src: "/assets/african_women_entrepreneurs.jpg" },
-  { year: "2026", caption: "Present day", src: "/convener.jpg" },
+  { year: "1998", caption: "The beginning", src: "/IMG_9472.JPG.jpeg" },
+  { year: "2008", caption: "Wedding day", src: "/IMG_9473.JPG.jpeg" },
+  { year: "2012", caption: "T.I.V Era", src: "/IMG_9474.JPG.jpeg" },
+  { year: "2020", caption: "Vintage Africana", src: "/IMG_9475.JPG.jpeg" },
+  { year: "2026", caption: "Present day", src: "/IMG_9476.JPG.jpeg" },
 ];
 
 export default function MemoryWall() {
