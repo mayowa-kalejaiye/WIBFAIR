@@ -57,6 +57,17 @@ export default function UnbrokenPage() {
       
       {/* â”€â”€ HERO BANNER & EMBLEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-36 bg-[#FDF6F8] border-b border-[#EDD8E4]">
+        {/* Faded IMG_8906 backdrop */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Image
+            src="/IMG_8906.jpg"
+            alt=""
+            fill
+            className="object-cover object-[center_25%] opacity-55"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FDF6F8]/70 via-[#FDF6F8]/35 to-[#FDF6F8]" />
+        </div>
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute -bottom-24 -left-20 opacity-20 pointer-events-none">
@@ -80,26 +91,38 @@ export default function UnbrokenPage() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Headline & Action Suite */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <Reveal delay={0.08}>
-                <h1 className="font-display text-5xl md:text-7xl lg:text-[98px] leading-[0.88] tracking-tight text-[#1A1118]">
-                  Unbroken <br />
-                  <span className="italic font-serif text-[#C97A9E]">Ladies Community</span>
-                </h1>
+                <h1 className="sr-only">Unbroken Ladies Community</h1>
+                <div className="relative w-full max-w-[560px] aspect-[1254/1025] rounded-[40px_16px_40px_16px] overflow-hidden border-2 border-[#EDD8E4] shadow-xl bg-white">
+                  <Image
+                    src="/IMG_9362.PNG"
+                    alt="Unbroken Ladies Community — official crest"
+                    fill
+                    priority
+                    className="object-contain p-6"
+                    sizes="(max-width: 1024px) 100vw, 560px"
+                  />
+                </div>
               </Reveal>
 
+              
+            </div>
+
+            {/* Right: statement + links side by side */}
+            <div className="lg:col-span-6">
               <Reveal delay={0.16}>
-                <p className="font-sans text-lg md:text-xl text-[#7A5C72] leading-relaxed mt-8 max-w-xl">
+                <p className="font-display text-2xl md:text-4xl text-[#1A1118] leading-[1.2]">
                   A transformative movement empowering single mothers, mature singles, and women navigating life transitions. We gather to heal from brokenness, rediscover God-given identity, and walk in total wholeness.
                 </p>
               </Reveal>
 
-              <Reveal delay={0.24} className="mt-10 flex flex-wrap items-center gap-4">
+              <Reveal delay={0.24} className="mt-8 flex flex-col gap-4 max-w-md">
                 <a
                   href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-8 py-4 hover:bg-[#9B4D77] transition-all font-semibold rounded-full shadow-lg shadow-[#C97A9E]/25 inline-flex items-center gap-2 group"
+                  className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-6 py-4 hover:bg-[#9B4D77] transition-all font-semibold rounded-full shadow-lg shadow-[#C97A9E]/25 inline-flex items-center justify-center gap-2 group text-center"
                 >
                   <span>Join WhatsApp Community</span>
                   <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
@@ -107,83 +130,37 @@ export default function UnbrokenPage() {
 
                 <a
                   href="#upcoming-2026"
-                  className="font-sans text-xs tracking-[0.22em] uppercase text-[#1A1118] border border-[#EDD8E4] px-8 py-4 hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all rounded-full bg-white shadow-sm"
+                  className="font-sans text-xs tracking-[0.22em] uppercase text-[#1A1118] border border-[#EDD8E4] px-6 py-4 hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all rounded-full bg-white shadow-sm inline-flex items-center justify-center text-center"
                 >
                   Unbroken 2026 Conference &darr;
                 </a>
               </Reveal>
-
-              {/* Sisterhood Pillars */}
-              <Reveal delay={0.32} className="mt-14 pt-8 border-t border-[#EDD8E4] grid grid-cols-3 gap-6">
-                <div>
-                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">500+</p>
-                  <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
-                    Sisters Connected
-                  </p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">Annual</p>
-                  <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
-                    Flagship Gathering
-                  </p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl md:text-3xl text-[#1A1118]">100%</p>
-                  <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
-                    Safe Sisterhood
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Right Column: Architectural Shield Medallion for Official Emblem */}
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-full max-w-[460px]">
-                
-                {/* Botanical Sculpted Portal for Sisterhood Gathering Photo */}
-                <div className="relative aspect-square rounded-[60px_20px_60px_20px] bg-white border-2 border-[#EDD8E4] shadow-2xl shadow-[#C97A9E]/20 flex items-center justify-center group overflow-hidden">
-                  <Image
-                    src="/IMG_8906.jpg"
-                    alt="The Unbroken Sisterhood Gathering"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 460px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-
-                  {/* Inner subtle glow */}
-                  <div className="absolute inset-0 bg-[#C97A9E]/5 rounded-[60px_20px_60px_20px] pointer-events-none" />
-                </div>
-
-                {/* Floating Spinning Botanical Seal */}
-                <div className="absolute -top-8 -right-6 md:-right-10 z-20">
-                  <SpinningSeal
-                    text="UNBROKEN LADIES COMMUNITY â€¢ FAITH â€¢ PURPOSE â€¢ SISTERHOOD â€¢ "
-                    size={148}
-                    flowerSize={50}
-                  />
-                </div>
-
-                {/* Floating Sisterhood Pill */}
-                <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white/95 backdrop-blur-md border border-[#EDD8E4] p-5 rounded-[28px_10px_28px_10px] shadow-xl max-w-[260px] z-20">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-[#C97A9E]" />
-                    <p className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E]">
-                      Official Sisterhood
-                    </p>
-                  </div>
-                  <p className="font-display text-base text-[#1A1118] leading-snug">
-                    President: Bunmi Alabi
-                  </p>
-                  <p className="font-sans text-[11px] text-[#7A5C72] mt-1">
-                    Daily prayer, business networking, and intentional friendship.
-                  </p>
-                </div>
-
-              </div>
             </div>
 
           </div>
+
+          {/* Sisterhood Pillars — full-width strip */}
+          <div className="mt-16 pt-8 border-t border-[#1A1118]/10 grid grid-cols-3 gap-6">
+            <div className="text-center md:text-left">
+              <p className="font-display text-3xl md:text-4xl text-[#1A1118]">500+</p>
+              <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
+                Sisters Connected
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="font-display text-3xl md:text-4xl text-[#1A1118]">Annual</p>
+              <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
+                Flagship Gathering
+              </p>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="font-display text-3xl md:text-4xl text-[#1A1118]">100%</p>
+              <p className="font-sans text-[11px] tracking-wider uppercase text-[#C97A9E] font-bold mt-1">
+                Safe Sisterhood
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -194,12 +171,12 @@ export default function UnbrokenPage() {
           {/* Left: Sculpted Emblem Medallion with 3D Tilt */}
           <div className="lg:col-span-7">
             <TiltCard maxTilt={5}>
-              <div className="relative aspect-[16/11] rounded-[72px_24px_72px_24px] overflow-hidden border-2 border-[#EDD8E4] bg-[#FDF6F8] p-8 shadow-2xl shadow-[#C97A9E]/15 group flex items-center justify-center">
+              <div className="relative aspect-[16/11] rounded-[72px_24px_72px_24px] overflow-hidden border-2 border-[#EDD8E4] bg-[#FDF6F8] shadow-2xl shadow-[#C97A9E]/15 group">
                 <Image
-                  src="/IMG_9362.PNG"
-                  alt="Unbroken Ladies Community Official Crest"
+                  src="/unbroken-community.jpg"
+                  alt="Unbroken Ladies Community hangout — group photo"
                   fill
-                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
 
