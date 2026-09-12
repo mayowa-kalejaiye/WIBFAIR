@@ -21,15 +21,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.bunmialabi.com"),
   title: "Bunmi Alabi — Conversations worth having",
   description: "Stories, conversations and everything in between. Host of Just A Chat.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Bunmi Alabi — Conversations worth having",
     description: "Mental Health Counselor, Author of Couples' Waiting Room, President of Unbroken Ladies Community — Oasis Counseling, Just A Chat.",
-    images: ["/convener.jpg"],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Bunmi Alabi" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bunmi Alabi — Conversations worth having",
-    images: ["/convener.jpg"],
+    description: "Mental Health Counselor, Author of Couples' Waiting Room, President of Unbroken Ladies Community.",
+    images: ["/og-image.jpg"],
   },
 };
 

@@ -115,7 +115,7 @@ export const UNBROKEN_EDITIONS: UnbrokenEdition[] = [
       { name: "Tessy Osakwe", role: "Legal Practitioner" },
     ],
     flyer: "/WhatsApp%20Image%202026-09-11%20at%207.10.58%20PM.jpeg",
-    register: "https://bit.ly/4ywioV5",
+    register: "https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform",
     status: "upcoming",
   },
 ];

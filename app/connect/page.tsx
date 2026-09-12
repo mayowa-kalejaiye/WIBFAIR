@@ -162,7 +162,7 @@ export default function ConnectPage() {
 
               <div className="relative z-10 mt-8 pt-6 border-t border-[#EDD8E4]/60 text-center">
                 <a
-                  href="https://bit.ly/4ywiov5"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full block font-sans text-xs tracking-[0.2em] uppercase bg-[#1A1118] text-white py-4 rounded-full hover:bg-[#C97A9E] transition-all font-semibold shadow-md"

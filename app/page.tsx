@@ -238,7 +238,7 @@ export default function HomePage() {
 
                 <div className="flex flex-wrap gap-4 pt-2">
                   <a
-                    href="https://bit.ly/4ywiov5"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans text-xs tracking-[0.2em] uppercase bg-[#C97A9E] text-white px-9 py-4 rounded-full hover:bg-white hover:text-[#140D12] transition-all font-semibold shadow-lg shadow-[#C97A9E]/30"
@@ -732,7 +732,7 @@ export default function HomePage() {
                 Looking for community? Join hundreds of women rediscovering who God created them to be at <strong>Unbroken 2026: Becoming</strong>.
               </p>
               <a
-                href="https://bit.ly/4ywiov5"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-xs tracking-[0.2em] uppercase text-[#E8A0BF] hover:text-white border-b border-[#E8A0BF] pb-1 transition-colors font-semibold inline-block"

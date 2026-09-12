@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { Speaker } from "@/data/speakers";
@@ -13,11 +14,25 @@ export default function SpeakerProfileModal({
   speaker,
   onClose,
 }: SpeakerProfileModalProps) {
-  if (!speaker) return null;
+  // Lock page scroll + close on Escape while open
+  useEffect(() => {
+    if (!speaker) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [speaker, onClose]);
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      {speaker && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-hidden">
         {/* Backdrop overlay */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -44,7 +59,11 @@ export default function SpeakerProfileModal({
             &times;
           </button>
 
-          <div className="max-h-[85vh] overflow-y-auto p-6 sm:p-10 no-scrollbar">
+          <div
+            className="max-h-[85vh] overflow-y-auto overscroll-contain p-6 sm:p-10"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+          >
             {/* Header info layout */}
             <div className="grid sm:grid-cols-12 gap-6 sm:gap-8 items-start mb-8 pb-8 border-b border-[#EDD8E4]">
               {/* Speaker Photo */}
@@ -113,6 +132,7 @@ export default function SpeakerProfileModal({
           </div>
         </motion.div>
       </div>
+      )}
     </AnimatePresence>
   );
 }

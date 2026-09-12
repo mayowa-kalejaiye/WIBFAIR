@@ -21,7 +21,7 @@ const PATHWAYS = [
     title: "Attend Conference",
     desc: "Register for the annual gathering. Experience live ministry, practical life workshops, business marketplace, and life-changing fellowship.",
     btn: "Register Free (Bitly)",
-    href: "https://bit.ly/4ywiov5",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform",
     silhouette: "rounded-t-[84px] rounded-b-[28px]",
     badge: "Annual Gathering",
   },
@@ -336,7 +336,7 @@ export default function UnbrokenPage() {
 
                 <div className="mt-8 pt-6 border-t border-white/10">
                   <a
-                    href="https://bit.ly/4ywiov5"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-center font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white py-4 hover:bg-white hover:text-[#150D13] transition-all font-semibold rounded-full shadow-lg shadow-[#C97A9E]/30"

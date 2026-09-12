@@ -249,7 +249,7 @@ export default function EventsPage() {
 
                 <div className="mt-8 pt-6 border-t border-white/10">
                   <a
-                    href="https://bit.ly/4ywiov5"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe0f9JsVvNl0-mFZy9IgqRzoDlSL1vm0ETGJIzoFZnQSrDW_Q/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-center font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white py-4 hover:bg-white hover:text-[#150D13] transition-all font-semibold rounded-full shadow-lg shadow-[#C97A9E]/30"
