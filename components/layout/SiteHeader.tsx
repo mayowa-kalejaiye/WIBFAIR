@@ -67,7 +67,7 @@ export default function SiteHeader() {
             Bunmi Alabi
           </Link>
 
-          {/* Desktop nav — spread links as client specified */}
+          {/* Desktop nav â€” spread links as client specified */}
           <nav
             className="hidden lg:flex items-center gap-8 font-sans text-[13px] tracking-wide text-[#3D2B3D]"
             aria-label="Main navigation"
@@ -137,7 +137,7 @@ export default function SiteHeader() {
             </div>
           </nav>
 
-          {/* Right side — CTA + hamburger */}
+          {/* Right side â€” CTA + hamburger */}
           <div className="flex items-center gap-4 shrink-0">
             <Link
               href="/counseling"
@@ -190,7 +190,7 @@ export default function SiteHeader() {
           >
             <div className="max-w-[1600px] w-full mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               
-              {/* Column 1: The Core Pillars — Broken into 2 Columns on Mobile */}
+              {/* Column 1: The Core Pillars â€” Broken into 2 Columns on Mobile */}
               <div className="lg:col-span-7">
                 <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#E8A0BF] font-semibold mb-6 flex items-center gap-2">
                   <span className="w-6 h-px bg-[#E8A0BF]" />
@@ -271,10 +271,10 @@ export default function SiteHeader() {
                       onClick={() => setIsOpen(false)}
                       className="font-sans text-xs tracking-widest uppercase bg-[#C97A9E] text-white px-5 py-2.5 rounded-full font-semibold hover:bg-white hover:text-[#1A1118] transition-colors inline-block"
                     >
-                      Book Session →
+                      Book Session â†’
                     </Link>
                     <a
-                      href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                      href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-sans text-xs tracking-widest uppercase text-[#E8A0BF] hover:text-white transition-colors"
@@ -296,12 +296,12 @@ export default function SiteHeader() {
                 <a href="https://www.instagram.com/Bunmi.Tomialabi/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   Instagram: @Bunmi.Tomialabi
                 </a>
-                <a href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   WhatsApp Sisterhood
                 </a>
               </div>
               <p className="tracking-widest uppercase text-[10px] text-white/40">
-                Lagos, Nigeria · Global Outreach
+                Lagos, Nigeria Â· Global Outreach
               </p>
             </div>
           </motion.div>

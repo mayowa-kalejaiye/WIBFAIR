@@ -14,7 +14,7 @@ const CREDENTIALS = [
   "Mental Health Counsellor",
   "Author of Couples’ Waiting Room",
   "President, Unbroken Ladies Community",
-  "Convener, BAHF Humanitarian Foundation",
+  "Founder, BAHF Humanitarian Foundation",
 ];
 
 export default function AboutPage() {
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 Unbroken: Building Wholeness Across Nations
               </h3>
               <p className="font-sans text-base sm:text-lg text-[#3D2B3D] leading-[1.85]">
-                As President and Convener of the <strong>Unbroken Ladies Community</strong>, Bunmi stewards an expansive sisterhood. Through flagship annual conferences, hands-on entrepreneurial marketplaces, welfare initiatives, and an active year-round WhatsApp sisterhood, Unbroken empowers women to shed societal shame, discover God-given identity, and reign with authority and resilience.
+                As President &amp; Founder of the <strong>Unbroken Ladies Community</strong>, Bunmi stewards an expansive sisterhood. Through flagship annual conferences, hands-on entrepreneurial marketplaces, welfare initiatives, and an active year-round WhatsApp sisterhood, Unbroken empowers women to shed societal shame, discover God-given identity, and reign with authority and resilience.
               </p>
             </div>
 

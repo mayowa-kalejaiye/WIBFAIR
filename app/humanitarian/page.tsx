@@ -5,8 +5,8 @@ import FlowerMotif from "@/components/motif/FlowerMotif";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata = {
-  title: "Humanitarian Foundation — Bunmi Alabi",
-  description: "Bunmi Alabi Humanitarian Foundation (BAHF) — community initiatives, outreach, and practical support for women and vulnerable families.",
+  title: "Humanitarian Foundation â€” Bunmi Alabi",
+  description: "Bunmi Alabi Humanitarian Foundation (BAHF) â€” community initiatives, outreach, and practical support for women and vulnerable families.",
 };
 
 export default function HumanitarianPage() {
@@ -46,7 +46,7 @@ export default function HumanitarianPage() {
               Partner or Donate
             </Link>
             <a
-              href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+              href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
               target="_blank"
               rel="noopener noreferrer"
               className="font-sans text-xs tracking-[0.2em] uppercase text-[#1A1118] border border-[#EDD8E4] px-8 py-4 hover:border-[#C97A9E] transition-colors"
@@ -101,6 +101,7 @@ export default function HumanitarianPage() {
                 <h3 className="font-display text-2xl text-[#1A1118] mb-3">{pillar.title}</h3>
                 <p className="font-sans text-[#7A5C72] text-sm leading-relaxed">{pillar.desc}</p>
               </div>
+            ))}
           </div>
         </div>
       </section>
@@ -171,7 +172,7 @@ export default function HumanitarianPage() {
             Together, we can rebuild broken lives.
           </h2>
           <p className="font-sans text-lg text-[#7A5C72] mt-6 leading-relaxed">
-            Whether you are an individual wanting to sponsor a single mother, an organization seeking a transparent humanitarian partner, or a volunteer offering time and skills — we welcome you with open arms.
+            Whether you are an individual wanting to sponsor a single mother, an organization seeking a transparent humanitarian partner, or a volunteer offering time and skills â€” we welcome you with open arms.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link

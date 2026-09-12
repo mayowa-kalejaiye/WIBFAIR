@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import FlowerMotif from "@/components/motif/FlowerMotif";
@@ -8,7 +8,7 @@ import TiltCard from "@/components/motion/TiltCard";
 import HeroTitleRotator from "@/components/motion/HeroTitleRotator";
 
 const SPEAKERS_2026 = [
-  { name: "Bunmi Alabi", role: "Convener", sub: "Unbroken Ladies", img: "/IMG_9133.JPG.jpeg" },
+  { name: "Bunmi Alabi", role: "President & Founder", sub: "Unbroken Ladies", img: "/IMG_9133.JPG.jpeg" },
   { name: "Dr. Funke Sobowale", role: "Founder", sub: "G.E.T", img: "/IMG_9128.JPG.jpeg" },
   { name: "Hunsu Omolara Margaret", role: "Public Health", sub: "Professional", img: "/IMG_9131.JPG.jpeg" },
   { name: "Doreen Omosele TMA", role: "CEO", sub: "Narra Africa Media", img: "/IMG_9127.JPG.jpeg" },
@@ -19,10 +19,10 @@ export default function HomePage() {
   return (
     <div className="w-full bg-[#FCFAF8] text-[#1A1118] overflow-hidden">
 
-      {/* ── DRAMATIC HERO: ARCHITECTURAL SILHOUETTES & DEPTH ───────────────────
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ DRAMATIC HERO: ARCHITECTURAL SILHOUETTES & DEPTH Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
           NO BORING BOXES. 
           Cathedral Arch Portal + Floating Spinning Seal + Layered Typography
-      ──────────────────────────────────────────────────────────────────────── */}
+      Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <section className="relative min-h-[100svh] pt-32 pb-20 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#FAF5F7] via-[#FCFAF8] to-[#FCFAF8]">
         
         {/* Ambient atmospheric aura */}
@@ -44,7 +44,7 @@ export default function HomePage() {
               <span>&bull;</span>
               <span>President, Unbroken Ladies</span>
               <span>&bull;</span>
-              <span>Convener, BAHF</span>
+              <span>Founder, BAHF</span>
               <span>&bull;</span>
               <span>Author</span>
             </div>
@@ -72,14 +72,14 @@ export default function HomePage() {
                 </h1>
               </Reveal>
 
-              {/* Strategist Mandated Titles — Single-spot Vertical Rotator on Mobile, Full Line on Desktop */}
+              {/* Strategist Mandated Titles Ã¢â‚¬â€ Single-spot Vertical Rotator on Mobile, Full Line on Desktop */}
               <Reveal delay={0.15}>
                 <HeroTitleRotator />
               </Reveal>
 
               <Reveal delay={0.2}>
                 <p className="font-sans text-lg md:text-xl text-[#7A5C72] leading-relaxed max-w-xl mt-6">
-                  A sanctuary for authentic conversations, emotional restoration, and purposeful sisterhood — gathered under <em>Oasis</em>, <em>Unbroken</em>, and <em>Just A Chat</em>.
+                  A sanctuary for authentic conversations, emotional restoration, and purposeful sisterhood Ã¢â‚¬â€ gathered under <em>Oasis</em>, <em>Unbroken</em>, and <em>Just A Chat</em>.
                 </p>
               </Reveal>
 
@@ -95,7 +95,7 @@ export default function HomePage() {
                   href="/unbroken"
                   className="font-sans text-xs tracking-[0.2em] uppercase text-[#1A1118] border border-[#1A1118]/20 px-9 py-4 rounded-full hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all duration-300 bg-white/50 backdrop-blur-sm font-semibold text-center"
                 >
-                  Unbroken Sisterhood →
+                  Unbroken Sisterhood Ã¢â€ â€™
                 </Link>
               </Reveal>
             </div>
@@ -106,18 +106,18 @@ export default function HomePage() {
               {/* Spinning Brand Seal */}
               <div className="absolute -top-6 -left-3 sm:-top-10 sm:-left-6 md:-left-12 z-30 origin-top-left">
                 <SpinningSeal
-                  text="BUNMI ALABI • SISTERHOOD • HEALING • OASIS • UNBROKEN •"
+                  text="BUNMI ALABI Ã¢â‚¬Â¢ SISTERHOOD Ã¢â‚¬Â¢ HEALING Ã¢â‚¬Â¢ OASIS Ã¢â‚¬Â¢ UNBROKEN Ã¢â‚¬Â¢"
                   size={140}
                   flowerSize={46}
                 />
               </div>
 
-              {/* Cathedral Arched Portal — Clean, Sharp, Uncluttered */}
+              {/* Cathedral Arched Portal Ã¢â‚¬â€ Clean, Sharp, Uncluttered */}
               <TiltCard maxTilt={6} className="relative w-full max-w-[340px] sm:max-w-[460px] mx-auto">
                 <div className="relative aspect-[3/4] w-full rounded-t-[220px] md:rounded-t-[260px] rounded-b-[36px] overflow-hidden shadow-2xl border-4 border-white bg-gradient-to-b from-[#F9E6EE] to-[#FAF7F9]">
                   <Image
                     src="/IMG_9475.JPG.jpeg"
-                    alt="Bunmi Alabi — Professional Counselor, President Unbroken, Convener BAHF, Author"
+                    alt="Bunmi Alabi Ã¢â‚¬â€ Professional Counselor, President Unbroken, Founder BAHF, Author"
                     fill
                     priority
                     quality={95}
@@ -132,7 +132,7 @@ export default function HomePage() {
                   <div className="absolute bottom-5 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-white/80 shadow-lg text-center">
                     <p className="font-display text-base sm:text-lg text-[#1A1118]">Bunmi Alabi</p>
                     <p className="font-sans text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-[#C97A9E] font-semibold">
-                      Mental Health Counsellor &bull; Author &bull; Convener
+                      Mental Health Counsellor &bull; Author &bull; President
                     </p>
                   </div>
                 </div>
@@ -156,13 +156,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── KINETIC RUNNING MARQUEE ────────────────────────────────────────── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ KINETIC RUNNING MARQUEE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <MarqueeTicker speed={32} />
 
-      {/* ── UNBROKEN 2026: BECOMING (GRAND DRAMATIC PRESENTATION) ────────────
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ UNBROKEN 2026: BECOMING (GRAND DRAMATIC PRESENTATION) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
           NO BORING BOXES!
           Asymmetric Sculpted Glass Frame + 3D Tilt + Arched Speaker Shrines
-      ──────────────────────────────────────────────────────────────────────── */}
+      Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <section className="py-24 md:py-40 bg-[#140D12] text-white relative overflow-hidden">
         
         {/* Glow Spheres */}
@@ -243,7 +243,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="font-sans text-xs tracking-[0.2em] uppercase bg-[#C97A9E] text-white px-9 py-4 rounded-full hover:bg-white hover:text-[#140D12] transition-all font-semibold shadow-lg shadow-[#C97A9E]/30"
                   >
-                    Register Free on Bitly →
+                    Register Free on Bitly Ã¢â€ â€™
                   </a>
                   <Link
                     href="/events"
@@ -251,6 +251,26 @@ export default function HomePage() {
                   >
                     View All Details
                   </Link>
+                </div>
+
+                <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white/[0.06] border border-white/15 p-5 rounded-2xl">
+                    <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-[#E8A0BF] font-bold">Outfit sales — ends 30th Sept</p>
+                    <p className="font-sans text-sm text-white/85 mt-2">Pink Hoodie ₦15k · Hoodie & Trouser ₦25k · Shirt ₦8k — Parallex Bank 2002994908, Oluwatosin Adeyemi. DM screenshot to confirm.</p>
+                    <div className="mt-3 flex gap-4">
+                      <a href="/events" className="font-sans text-xs font-bold text-[#E8A0BF] border-b border-[#E8A0BF] pb-1">Shop merch</a>
+                      <a href="https://www.instagram.com/p/Dc-3sFSACi4/" target="_blank" rel="noopener noreferrer" className="font-sans text-xs font-bold text-white/80 border-b border-white/40 pb-1">Instagram post</a>
+                    </div>
+                  </div>
+                  <div className="bg-white/[0.06] border border-white/15 p-5 rounded-2xl">
+                    <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-[#E8A0BF] font-bold">Unbroken moments</p>
+                    <p className="font-sans text-sm text-white/85 mt-2">Hangout, 2025 pictures & the latest SHERO post where LOLO1 appeared.</p>
+                    <div className="mt-3 flex flex-wrap gap-3">
+                      <a href="https://www.instagram.com/p/DRxtzsJAOK7/" target="_blank" rel="noopener noreferrer" className="font-sans text-xs font-bold text-white/80 border-b border-white/40 pb-1">Hangout</a>
+                      <a href="https://www.instagram.com/p/DQ_j85giEAj/" target="_blank" rel="noopener noreferrer" className="font-sans text-xs font-bold text-white/80 border-b border-white/40 pb-1">2025 pics</a>
+                      <a href="https://www.instagram.com/p/DQeEgsSiKjt/" target="_blank" rel="noopener noreferrer" className="font-sans text-xs font-bold text-[#E8A0BF] border-b border-[#E8A0BF] pb-1">Latest (LOLO1)</a>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="pt-6 border-t border-white/10 flex flex-wrap gap-6 text-xs font-sans text-white/60">
@@ -292,7 +312,7 @@ export default function HomePage() {
                 </h3>
               </div>
               <Link href="/unbroken" className="hidden sm:inline-flex font-sans text-xs tracking-widest uppercase text-[#E8A0BF] hover:text-white transition-colors">
-                Explore Lineup →
+                Explore Lineup Ã¢â€ â€™
               </Link>
             </div>
 
@@ -327,12 +347,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── THE THREE PILLARS: SCULPTED SANCTUARY PORTALS ─────────────────────
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ THE THREE PILLARS: SCULPTED SANCTUARY PORTALS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
           NO BORING BOXES!
           Pillar 1: Arched Sanctuary Portal (Oasis)
           Pillar 2: Organic Sisterhood Pill (Unbroken)
           Pillar 3: Cinema Capsule (Just A Chat)
-      ──────────────────────────────────────────────────────────────────────── */}
+      Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <section className="py-24 md:py-40 max-w-[1600px] mx-auto px-6 md:px-12">
         
         <div className="text-center max-w-2xl mx-auto mb-28">
@@ -345,13 +365,13 @@ export default function HomePage() {
           </h2>
         </div>
 
-        {/* ── PILLAR 01: OASIS COUNSELLING (ARCHED SANCTUARY PORTAL) ── */}
+        {/* Ã¢â€â‚¬Ã¢â€â‚¬ PILLAR 01: OASIS COUNSELLING (ARCHED SANCTUARY PORTAL) Ã¢â€â‚¬Ã¢â€â‚¬ */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-36 md:mb-52">
           
           <div className="lg:col-span-6 lg:pr-12 space-y-6">
             <div className="flex items-center gap-3">
               <span className="font-sans text-[10px] tracking-[0.25em] uppercase px-3 py-1 rounded-full bg-[#FDF6F8] text-[#C97A9E] border border-[#EDD8E4] font-semibold">
-                01 · Private Therapy Haven
+                01 Ã‚Â· Private Therapy Haven
               </span>
             </div>
             
@@ -360,7 +380,7 @@ export default function HomePage() {
             </h3>
 
             <p className="font-sans text-lg text-[#7A5C72] leading-relaxed max-w-lg">
-              A private, unhurried sanctuary to untangle grief, marital crisis, and lone parenting exhaustion. Designed without clinical chill — here, compassionate therapy meets deep spiritual dignity.
+              A private, unhurried sanctuary to untangle grief, marital crisis, and lone parenting exhaustion. Designed without clinical chill Ã¢â‚¬â€ here, compassionate therapy meets deep spiritual dignity.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
@@ -369,7 +389,7 @@ export default function HomePage() {
                 className="font-sans text-xs tracking-[0.2em] uppercase bg-[#C97A9E] text-white px-8 py-4 rounded-full hover:bg-[#9B4D77] transition-all font-semibold shadow-md inline-flex items-center gap-2"
               >
                 <span>Book a Private Session</span>
-                <span>→</span>
+                <span>Ã¢â€ â€™</span>
               </Link>
             </div>
           </div>
@@ -380,7 +400,7 @@ export default function HomePage() {
               <div className="relative aspect-[3/4] rounded-t-[220px] md:rounded-t-[280px] rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#FDF6F8]">
                 <Image
                   src="/IMG_9476.JPG.jpeg"
-                  alt="Bunmi Alabi — Oasis Counselling Sanctuary"
+                  alt="Bunmi Alabi Ã¢â‚¬â€ Oasis Counselling Sanctuary"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 480px"
@@ -396,7 +416,7 @@ export default function HomePage() {
 
         </div>
 
-        {/* ── PILLAR 02: UNBROKEN (SCULPTED ASYMMETRIC SISTERHOOD FRAME) ── */}
+        {/* Ã¢â€â‚¬Ã¢â€â‚¬ PILLAR 02: UNBROKEN (SCULPTED ASYMMETRIC SISTERHOOD FRAME) Ã¢â€â‚¬Ã¢â€â‚¬ */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-36 md:mb-52">
           
           <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center relative">
@@ -417,7 +437,7 @@ export default function HomePage() {
                   <div>
                     <p className="font-display text-2xl text-white">Unbroken Sisterhood</p>
                     <p className="font-sans text-xs tracking-widest text-[#E8A0BF] uppercase font-semibold">
-                      Faith • Purpose • Impact
+                      Faith Ã¢â‚¬Â¢ Purpose Ã¢â‚¬Â¢ Impact
                     </p>
                   </div>
                   <div className="relative w-14 h-14 bg-white/15 backdrop-blur-md rounded-full p-2 border border-white/30">
@@ -431,7 +451,7 @@ export default function HomePage() {
           <div className="lg:col-span-6 lg:pl-12 order-1 lg:order-2 space-y-6">
             <div className="flex items-center gap-3">
               <span className="font-sans text-[10px] tracking-[0.25em] uppercase px-3 py-1 rounded-full bg-[#FDF6F8] text-[#C97A9E] border border-[#EDD8E4] font-semibold">
-                02 · Sisterhood Movement
+                02 Ã‚Â· Sisterhood Movement
               </span>
             </div>
 
@@ -445,13 +465,13 @@ export default function HomePage() {
 
             <div className="pt-4 flex flex-wrap gap-4">
               <a
-                href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-xs tracking-[0.2em] uppercase bg-[#1A1118] text-white px-8 py-4 rounded-full hover:bg-[#C97A9E] transition-all font-semibold shadow-md inline-flex items-center gap-2"
               >
                 <span>Join WhatsApp Sisterhood</span>
-                <span>↗</span>
+                <span>Ã¢â€ â€”</span>
               </a>
               <Link
                 href="/unbroken"
@@ -464,13 +484,13 @@ export default function HomePage() {
 
         </div>
 
-        {/* ── PILLAR 03: JUST A CHAT (CURVED CINEMA CAPSULE) ── */}
+        {/* Ã¢â€â‚¬Ã¢â€â‚¬ PILLAR 03: JUST A CHAT (CURVED CINEMA CAPSULE) Ã¢â€â‚¬Ã¢â€â‚¬ */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           <div className="lg:col-span-6 lg:pr-12 space-y-6">
             <div className="flex items-center gap-3">
               <span className="font-sans text-[10px] tracking-[0.25em] uppercase px-3 py-1 rounded-full bg-[#FDF6F8] text-[#C97A9E] border border-[#EDD8E4] font-semibold">
-                03 · YouTube Media Broadcast
+                03 Ã‚Â· YouTube Media Broadcast
               </span>
             </div>
 
@@ -479,7 +499,7 @@ export default function HomePage() {
             </h3>
 
             <p className="font-sans text-lg text-[#7A5C72] leading-relaxed max-w-lg">
-              No television scripts, no filtered veneers. Bi-weekly conversations on YouTube addressing what we usually leave unsaid — blended family tensions, emotional burnout, sexual intimacy, and resilient faith.
+              No television scripts, no filtered veneers. Bi-weekly conversations on YouTube addressing what we usually leave unsaid Ã¢â‚¬â€ blended family tensions, emotional burnout, sexual intimacy, and resilient faith.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
@@ -490,7 +510,7 @@ export default function HomePage() {
                 className="font-sans text-xs tracking-[0.2em] uppercase bg-[#C97A9E] text-white px-8 py-4 rounded-full hover:bg-[#9B4D77] transition-all font-semibold shadow-md inline-flex items-center gap-2"
               >
                 <span>Watch on YouTube</span>
-                <span>↗</span>
+                <span>Ã¢â€ â€”</span>
               </a>
               <Link
                 href="/just-a-chat"
@@ -544,10 +564,10 @@ export default function HomePage() {
 
       </section>
 
-      {/* ── HUMANITARIAN FOUNDATION: THE COMPASSION CREST (BAHF) ────────────
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ HUMANITARIAN FOUNDATION: THE COMPASSION CREST (BAHF) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
           NO RECTANGULAR DIVS!
           Sculpted Organic Medallion Frame with Radiant Light
-      ──────────────────────────────────────────────────────────────────────── */}
+      Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <section className="py-24 md:py-36 bg-[#FDF6F8] border-y border-[#EDD8E4] px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
@@ -565,7 +585,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#EDD8E4] text-[#C97A9E] font-sans text-[10px] tracking-widest uppercase font-semibold">
-              BAHF · Humanitarian Wing
+              BAHF Ã‚Â· Humanitarian Wing
             </div>
             
             <h2 className="font-display text-4xl sm:text-6xl text-[#1A1118] tracking-tight leading-[0.95]">
@@ -582,7 +602,7 @@ export default function HomePage() {
                 href="/humanitarian"
                 className="font-sans text-xs tracking-[0.2em] uppercase bg-[#1A1118] text-white px-8 py-4 rounded-full hover:bg-[#C97A9E] transition-colors font-semibold"
               >
-                Foundation Initiatives →
+                Foundation Initiatives Ã¢â€ â€™
               </Link>
               <Link
                 href="/connect"
@@ -596,9 +616,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BOTANICAL SHRINE PULL QUOTE ──────────────────────────────────────
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ BOTANICAL SHRINE PULL QUOTE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
           Atmospheric spinning seal, floating layered blooms, oversized typography
-      ──────────────────────────────────────────────────────────────────────── */}
+      Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <section className="py-32 md:py-48 px-6 md:px-12 bg-white text-center relative overflow-hidden">
         
         {/* Ambient background motifs */}
@@ -613,7 +633,7 @@ export default function HomePage() {
           
           <div className="flex justify-center">
             <SpinningSeal
-              text="BUNMI ALABI • RESTORING WHOLENESS • FAITH • LOVE •"
+              text="BUNMI ALABI Ã¢â‚¬Â¢ RESTORING WHOLENESS Ã¢â‚¬Â¢ FAITH Ã¢â‚¬Â¢ LOVE Ã¢â‚¬Â¢"
               size={130}
               flowerSize={44}
             />
@@ -633,17 +653,17 @@ export default function HomePage() {
 
           <Reveal delay={0.2}>
             <cite className="not-italic font-sans text-xs tracking-[0.25em] uppercase text-[#C97A9E] font-bold block pt-4">
-              — Bunmi Alabi
+              Ã¢â‚¬â€ Bunmi Alabi
             </cite>
           </Reveal>
 
         </div>
       </section>
 
-      {/* ── THE LUXURY FINAL CALL-TO-ACTION (STUDIO GRADE) ────────────────────
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ THE LUXURY FINAL CALL-TO-ACTION (STUDIO GRADE) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
           The defining moment of decision. Real urgency, uncompromised dignity.
           Cathedral sanctuary archway + dual pathways (Oasis / Unbroken)
-      ──────────────────────────────────────────────────────────────────────── */}
+      Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <section className="py-24 md:py-40 bg-[#140D12] text-white relative overflow-hidden">
         
         {/* Soft atmospheric ambient glow */}
@@ -654,7 +674,7 @@ export default function HomePage() {
           {/* Central Animated Botanical Emblem */}
           <div className="flex justify-center mb-8">
             <SpinningSeal
-              text="BUNMI ALABI • TAKE THE FIRST STEP • OASIS SANCTUARY •"
+              text="BUNMI ALABI Ã¢â‚¬Â¢ TAKE THE FIRST STEP Ã¢â‚¬Â¢ OASIS SANCTUARY Ã¢â‚¬Â¢"
               size={140}
               flowerSize={46}
             />
@@ -674,7 +694,7 @@ export default function HomePage() {
           {/* Gain Statement: The Reframe of Strength */}
           <Reveal delay={0.15}>
             <p className="font-sans text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mt-8 leading-relaxed">
-              Stepping into Oasis isn&apos;t an admission of weakness — it is reclaiming the clarity, emotional safety, and practical guidance you need to rebuild in confidence.
+              Stepping into Oasis isn&apos;t an admission of weakness Ã¢â‚¬â€ it is reclaiming the clarity, emotional safety, and practical guidance you need to rebuild in confidence.
             </p>
           </Reveal>
 
@@ -687,7 +707,7 @@ export default function HomePage() {
               className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-10 py-5 rounded-full hover:bg-white hover:text-[#140D12] transition-all duration-300 font-semibold shadow-2xl shadow-[#C97A9E]/40 hover:scale-105 inline-flex items-center gap-3"
             >
               <span>Reserve Your Confidential Session</span>
-              <span className="text-lg">→</span>
+              <span className="text-lg">Ã¢â€ â€™</span>
             </a>
           </Reveal>
 
@@ -698,9 +718,9 @@ export default function HomePage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E8A0BF]" />
                 100% Confidential & Judgment-Free
               </span>
-              <span className="hidden sm:inline text-white/30">•</span>
+              <span className="hidden sm:inline text-white/30">Ã¢â‚¬Â¢</span>
               <span>In-Person in Lagos or Virtual Worldwide</span>
-              <span className="hidden sm:inline text-white/30">•</span>
+              <span className="hidden sm:inline text-white/30">Ã¢â‚¬Â¢</span>
               <span>Direct Personal Response Within 24 Hours</span>
             </div>
           </Reveal>
@@ -717,10 +737,10 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="font-sans text-xs tracking-[0.2em] uppercase text-[#E8A0BF] hover:text-white border-b border-[#E8A0BF] pb-1 transition-colors font-semibold inline-block"
               >
-                Claim Your Free Seat on Bitly (Sat. 31 Oct) →
+                Claim Your Free Seat on Bitly (Sat. 31 Oct) Ã¢â€ â€™
               </a>
               <p className="font-sans text-[11px] text-white/40 mt-2">
-                Compulsory registration guarantees hall seating at Abule Egba, Lagos · Dresscode: Pink
+                Compulsory registration guarantees hall seating at Abule Egba, Lagos Ã‚Â· Dresscode: Pink
               </p>
             </div>
           </Reveal>

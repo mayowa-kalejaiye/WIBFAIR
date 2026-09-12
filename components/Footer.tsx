@@ -18,14 +18,14 @@ export default function Footer() {
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
 
-        {/* ── TOP SECTION: EDITORIAL MANIFESTO & SPINNING SEAL ──────────── */}
+        {/* â”€â”€ TOP SECTION: EDITORIAL MANIFESTO & SPINNING SEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 pb-20 border-b border-white/10 items-start">
           
           <div className="lg:col-span-6 space-y-6">
             <div className="flex items-center gap-4">
               <span className="w-8 h-px bg-[#C97A9E]" />
               <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#E8A0BF] font-semibold">
-                Sanctuary · Wholeness · Sisterhood
+                Sanctuary Â· Wholeness Â· Sisterhood
               </p>
             </div>
 
@@ -43,10 +43,10 @@ export default function Footer() {
                 href="/counseling"
                 className="font-sans text-xs tracking-[0.2em] uppercase bg-[#C97A9E] text-white px-7 py-3.5 rounded-full hover:bg-white hover:text-[#110A0F] transition-all font-semibold shadow-md"
               >
-                Book Oasis Counselling →
+                Book Oasis Counselling â†’
               </Link>
               <a
-                href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-xs tracking-[0.2em] uppercase border border-white/20 text-white px-7 py-3.5 rounded-full hover:border-[#E8A0BF] hover:text-[#E8A0BF] transition-colors"
@@ -150,18 +150,18 @@ export default function Footer() {
 
         </div>
 
-        {/* ── METADATA & COPYRIGHT STRIP ───────────────────────────────────── */}
+        {/* â”€â”€ METADATA & COPYRIGHT STRIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="pt-8 pb-12 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-white/40">
           <p className="tracking-widest uppercase text-[10px]">
-            © {new Date().getFullYear()} Bunmi Alabi. All rights reserved.
+            Â© {new Date().getFullYear()} Bunmi Alabi. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-[10px] tracking-widest uppercase">
             <span>Faith</span>
-            <span>•</span>
+            <span>â€¢</span>
             <span>Purpose</span>
-            <span>•</span>
+            <span>â€¢</span>
             <span>Sisterhood</span>
-            <span>•</span>
+            <span>â€¢</span>
             <span>Impact</span>
           </div>
           <p className="tracking-widest uppercase text-[10px] text-white/50">
@@ -171,10 +171,10 @@ export default function Footer() {
 
       </div>
 
-      {/* ── MONUMENTAL SIGNATURE: "BUNMI ALABI" WITH BOTANICAL GARDEN OVERLAY ──
+      {/* â”€â”€ MONUMENTAL SIGNATURE: "BUNMI ALABI" WITH BOTANICAL GARDEN OVERLAY â”€â”€
           Oversized, colossal luxury typography cropped slightly off the bottom edge,
           blooming with floral ornaments growing like a living garden across the letters.
-      ──────────────────────────────────────────────────────────────────────── */}
+      â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="relative w-full overflow-hidden select-none border-t border-white/5 pt-4">
         
         {/* Living Garden of Floral Ornaments Placed Thoughtfully Across the Lettering */}
@@ -203,7 +203,7 @@ export default function Footer() {
           {/* Flower 5: Central garden centerpiece between BUNMI and ALABI */}
           <div className="absolute top-[12%] left-[48%] sm:left-[50%] -translate-x-1/2 rotate-90 scale-75 sm:scale-100">
             <SpinningSeal
-              text="BUNMI ALABI • LIVING GARDEN • WHOLENESS •"
+              text="BUNMI ALABI â€¢ LIVING GARDEN â€¢ WHOLENESS â€¢"
               size={105}
               flowerSize={36}
             />

@@ -7,7 +7,7 @@ import TiltCard from "@/components/motion/TiltCard";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata = {
-  title: "Connect & Inquiries — Bunmi Alabi",
+  title: "Connect & Inquiries â€” Bunmi Alabi",
   description: "Direct communication pathways for Oasis Counselling, Unbroken sponsorship, keynote speaking invitations, and official media inquiries.",
 };
 
@@ -21,12 +21,12 @@ export default function ConnectPage() {
 
       <div className="max-w-[1500px] mx-auto px-6 md:px-12 relative z-10">
         
-        {/* ── HEADER: SCULPTED SANCTUARY INVITATION ───────────────────────── */}
+        {/* â”€â”€ HEADER: SCULPTED SANCTUARY INVITATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
           
           <div className="flex justify-center mb-8">
             <SpinningSeal
-              text="BUNMI ALABI • CONVERSATIONS WORTH HAVING • CONNECT •"
+              text="BUNMI ALABI â€¢ CONVERSATIONS WORTH HAVING â€¢ CONNECT â€¢"
               size={140}
               flowerSize={46}
             />
@@ -36,7 +36,7 @@ export default function ConnectPage() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#EDD8E4] shadow-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-[#C97A9E]" />
               <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#7A5C72] font-semibold">
-                Direct Channels · Lagos & Global
+                Direct Channels Â· Lagos & Global
               </span>
             </div>
           </Reveal>
@@ -56,14 +56,14 @@ export default function ConnectPage() {
 
         </div>
 
-        {/* ── THREE ARCHITECTURAL PORTALS (NO BORING RECTANGLES) ───────────────
+        {/* â”€â”€ THREE ARCHITECTURAL PORTALS (NO BORING RECTANGLES) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             Portal 1: Cathedral Archway (Oasis Counselling)
             Portal 2: Asymmetric Sisterhood Frame (Unbroken & 2026 Conference)
             Portal 3: Refined Executive Stationery Capsule (Media & Speaking)
-        ──────────────────────────────────────────────────────────────────────── */}
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="grid md:grid-cols-3 gap-8 lg:gap-10 items-stretch mb-24">
           
-          {/* ── PORTAL 01: OASIS COUNSELLING SANCTUARY ── */}
+          {/* â”€â”€ PORTAL 01: OASIS COUNSELLING SANCTUARY â”€â”€ */}
           <TiltCard maxTilt={7} className="h-full">
             <div className="h-full flex flex-col justify-between rounded-t-[140px] rounded-b-[28px] bg-gradient-to-b from-[#FDF6F8] via-white to-[#FDF6F8] p-8 lg:p-10 border-2 border-white shadow-xl shadow-[#C97A9E]/10 relative overflow-hidden group">
               
@@ -77,7 +77,7 @@ export default function ConnectPage() {
                 </div>
 
                 <span className="font-sans text-[10px] tracking-[0.25em] uppercase px-3.5 py-1 rounded-full bg-white border border-[#EDD8E4] text-[#C97A9E] font-semibold mb-4">
-                  01 · Private Therapy
+                  01 Â· Private Therapy
                 </span>
 
                 <h3 className="font-display text-3xl sm:text-4xl text-[#1A1118] tracking-tight mb-3">
@@ -91,7 +91,7 @@ export default function ConnectPage() {
                 <div className="w-full pt-4 border-t border-[#EDD8E4]/60 space-y-2 text-xs font-sans text-[#7A5C72]">
                   <p className="flex items-center justify-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C97A9E]" />
-                    <span>In-person in Lagos · Virtual worldwide</span>
+                    <span>In-person in Lagos Â· Virtual worldwide</span>
                   </p>
                   <p className="flex items-center justify-center gap-2 text-[11px] text-[#C97A9E] font-medium">
                     <span>Direct WhatsApp reservation</span>
@@ -106,7 +106,7 @@ export default function ConnectPage() {
                   rel="noopener noreferrer"
                   className="w-full block font-sans text-xs tracking-[0.2em] uppercase bg-[#C97A9E] text-white py-4 rounded-full hover:bg-[#9B4D77] transition-all font-semibold shadow-md shadow-[#C97A9E]/20"
                 >
-                  Reserve on WhatsApp →
+                  Reserve on WhatsApp â†’
                 </a>
                 <p className="font-sans text-[11px] text-[#7A5C72]/70 mt-2">
                   Response within 24 hours
@@ -116,7 +116,7 @@ export default function ConnectPage() {
             </div>
           </TiltCard>
 
-          {/* ── PORTAL 02: UNBROKEN COMMUNITY & 2026 CONFERENCE ── */}
+          {/* â”€â”€ PORTAL 02: UNBROKEN COMMUNITY & 2026 CONFERENCE â”€â”€ */}
           <TiltCard maxTilt={7} className="h-full">
             <div className="h-full flex flex-col justify-between rounded-[56px_20px_56px_20px] bg-gradient-to-br from-[#FAF7F9] via-white to-[#FDF6F8] p-8 lg:p-10 border-2 border-white shadow-xl shadow-[#1A1118]/5 relative overflow-hidden group">
               
@@ -132,7 +132,7 @@ export default function ConnectPage() {
                 </div>
 
                 <span className="font-sans text-[10px] tracking-[0.25em] uppercase px-3.5 py-1 rounded-full bg-white border border-[#EDD8E4] text-[#C97A9E] font-semibold mb-4">
-                  02 · Sisterhood & Events
+                  02 Â· Sisterhood & Events
                 </span>
 
                 <h3 className="font-display text-3xl sm:text-4xl text-[#1A1118] tracking-tight mb-3">
@@ -167,7 +167,7 @@ export default function ConnectPage() {
                   rel="noopener noreferrer"
                   className="w-full block font-sans text-xs tracking-[0.2em] uppercase bg-[#1A1118] text-white py-4 rounded-full hover:bg-[#C97A9E] transition-all font-semibold shadow-md"
                 >
-                  Register Free on Bitly →
+                  Register Free on Bitly â†’
                 </a>
                 <p className="font-sans text-[11px] text-[#7A5C72]/70 mt-2">
                   Dresscode: All Shades of Pink
@@ -177,7 +177,7 @@ export default function ConnectPage() {
             </div>
           </TiltCard>
 
-          {/* ── PORTAL 03: SPEAKING, MEDIA & BAHF FOUNDATION ── */}
+          {/* â”€â”€ PORTAL 03: SPEAKING, MEDIA & BAHF FOUNDATION â”€â”€ */}
           <TiltCard maxTilt={7} className="h-full">
             <div className="h-full flex flex-col justify-between rounded-[24px_56px_24px_56px] bg-gradient-to-bl from-[#FDF6F8] via-white to-[#FAF7F9] p-8 lg:p-10 border-2 border-white shadow-xl shadow-[#C97A9E]/10 relative overflow-hidden group">
               
@@ -193,7 +193,7 @@ export default function ConnectPage() {
                 </div>
 
                 <span className="font-sans text-[10px] tracking-[0.25em] uppercase px-3.5 py-1 rounded-full bg-white border border-[#EDD8E4] text-[#C97A9E] font-semibold mb-4">
-                  03 · Media & Speaking
+                  03 Â· Media & Speaking
                 </span>
 
                 <h3 className="font-display text-3xl sm:text-4xl text-[#1A1118] tracking-tight mb-3">
@@ -221,7 +221,7 @@ export default function ConnectPage() {
                   href="mailto:unbrokenladies@gmail.com"
                   className="w-full block font-sans text-xs tracking-[0.2em] uppercase border-2 border-[#1A1118] text-[#1A1118] py-3.5 rounded-full hover:bg-[#1A1118] hover:text-white transition-all font-semibold"
                 >
-                  Email Executive Office →
+                  Email Executive Office â†’
                 </a>
                 <p className="font-sans text-[11px] text-[#7A5C72]/70 mt-2">
                   unbrokenladies@gmail.com
@@ -233,7 +233,7 @@ export default function ConnectPage() {
 
         </div>
 
-        {/* ── SOCIAL NETWORK & SISTERHOOD BAR ──────────────────────────────── */}
+        {/* â”€â”€ SOCIAL NETWORK & SISTERHOOD BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="py-12 border-t border-[#EDD8E4] flex flex-wrap items-center justify-between gap-6">
           <p className="font-sans text-xs tracking-[0.2em] uppercase text-[#7A5C72] font-semibold">
             Official Channels:
@@ -246,7 +246,7 @@ export default function ConnectPage() {
               className="text-[#1A1118] hover:text-[#C97A9E] transition-colors flex items-center gap-2"
             >
               <span>YouTube Channel</span>
-              <span className="text-[#C97A9E]">↗</span>
+              <span className="text-[#C97A9E]">â†—</span>
             </a>
             <a
               href="https://www.instagram.com/Bunmi.Tomialabi/"
@@ -255,16 +255,16 @@ export default function ConnectPage() {
               className="text-[#1A1118] hover:text-[#C97A9E] transition-colors flex items-center gap-2"
             >
               <span>Instagram</span>
-              <span className="text-[#C97A9E]">↗</span>
+              <span className="text-[#C97A9E]">â†—</span>
             </a>
             <a
-              href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+              href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#1A1118] hover:text-[#C97A9E] transition-colors flex items-center gap-2"
             >
               <span>WhatsApp Sisterhood</span>
-              <span className="text-[#C97A9E]">↗</span>
+              <span className="text-[#C97A9E]">â†—</span>
             </a>
           </div>
         </div>

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: "Stories, conversations and everything in between. Host of Just A Chat.",
   openGraph: {
     title: "Bunmi Alabi — Conversations worth having",
-    description: "Mental Health Counselor, Author of Couples' Waiting Room, Convener of Unbroken — Oasis Counseling, Just A Chat.",
+    description: "Mental Health Counselor, Author of Couples' Waiting Room, President of Unbroken Ladies Community — Oasis Counseling, Just A Chat.",
     images: ["/convener.jpg"],
   },
   twitter: {

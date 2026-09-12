@@ -219,7 +219,7 @@ export default async function JustAChatPage() {
                   {/* Bottom Host Name Pill */}
                   <div className="absolute bottom-6 left-6 right-6 text-center">
                     <span className="font-sans text-[10px] tracking-[0.25em] uppercase font-bold text-[#E8A0BF] block mb-1">
-                      Broadcaster & Convener
+                      Broadcaster & Host
                     </span>
                     <p className="font-display text-2xl text-white">Bunmi Alabi</p>
                   </div>

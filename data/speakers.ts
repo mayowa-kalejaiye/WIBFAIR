@@ -18,8 +18,8 @@ export const SPEAKERS_ROSTER: Speaker[] = [
   {
     id: "bunmi-alabi",
     name: "Bunmi Alabi",
-    role: "Convener & Founder",
-    subRole: "Mental Health Counsellor & Author",
+    role: "President & Founder",
+    subRole: "President, Unbroken Ladies Community",
     title: "Mental Health Counselor & Coach | Speaker | Assistant Pastor | Author | Entrepreneur | Media Personality | President, Unbroken Ladies Community",
     img: "/IMG_9133.JPG.jpeg",
     bio: [

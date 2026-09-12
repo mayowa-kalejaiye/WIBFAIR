@@ -6,11 +6,14 @@ import Reveal from "@/components/motion/Reveal";
 import SpinningSeal from "@/components/motion/SpinningSeal";
 import TiltCard from "@/components/motion/TiltCard";
 import SpeakersRosterSection from "@/components/sections/SpeakersRosterSection";
+import UnbrokenMerch from "@/components/sections/UnbrokenMerch";
+import UnbrokenInstagram from "@/components/sections/UnbrokenInstagram";
+import UnbrokenArchive from "@/components/sections/UnbrokenArchive";
 
 export const metadata = {
-  title: "Events & Gatherings — Bunmi Alabi",
+  title: "Events & Gatherings â€” Bunmi Alabi",
   description:
-    "Unbroken 2026: Becoming — Annual women's conference hosted by Bunmi Alabi. 31st October 2026, Lagos Nigeria.",
+    "Unbroken 2026: Becoming â€” Annual women's conference hosted by Bunmi Alabi. 31st October 2026, Lagos Nigeria.",
 };
 
 const GATHERING_FORMATS = [
@@ -48,7 +51,7 @@ export default function EventsPage() {
   return (
     <div className="bg-white min-h-screen text-[#1A1118]">
       
-      {/* ── HERO: GATHERINGS & CONVOCATIONS ──────────────────────────────── */}
+      {/* â”€â”€ HERO: GATHERINGS & CONVOCATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-36 bg-[#FDF6F8] border-b border-[#EDD8E4]">
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -164,7 +167,7 @@ export default function EventsPage() {
                 {/* Floating Spinning Seal */}
                 <div className="absolute -top-8 -right-6 md:-right-10 z-20">
                   <SpinningSeal
-                    text="BUNMI ALABI • CONFERENCES • HEALING • SISTERHOOD • "
+                    text="BUNMI ALABI â€¢ CONFERENCES â€¢ HEALING â€¢ SISTERHOOD â€¢ "
                     size={148}
                     flowerSize={50}
                   />
@@ -177,7 +180,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── FEATURED GRAND EVENT: UNBROKEN 2026 (ALIGNED WITH UNBROKEN PAGE) ── */}
+      {/* â”€â”€ FEATURED GRAND EVENT: UNBROKEN 2026 (ALIGNED WITH UNBROKEN PAGE) â”€â”€ */}
       <section id="flagship-2026" className="py-24 md:py-36 bg-[#150D13] text-white relative overflow-hidden">
         {/* Radial Ambient Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -308,13 +311,27 @@ export default function EventsPage() {
 
           </div>
 
-          {/* ── SPEAKERS ROSTER (INTERACTIVE MODALS & PROFILES) ─────────────────── */}
+          {/* â”€â”€ SPEAKERS ROSTER (INTERACTIVE MODALS & PROFILES) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <SpeakersRosterSection />
 
         </div>
       </section>
 
-      {/* ── GATHERING FORMATS (4 ARCHITECTURAL SILHOUETTES) ──────────────── */}
+      <section className="py-16 md:py-20 px-6 md:px-12 max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-8">
+        <UnbrokenMerch compact />
+        <UnbrokenInstagram />
+      </section>
+
+      <section className="pb-20 md:pb-28 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <UnbrokenArchive />
+        <div className="mt-8 text-center">
+          <a href="/unbroken#past-2019" className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[#C97A9E] border-b border-[#C97A9E] pb-1">
+            Full Unbroken story
+          </a>
+        </div>
+      </section>
+
+      {/* â”€â”€ GATHERING FORMATS (4 ARCHITECTURAL SILHOUETTES) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section id="formats" className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <Eyebrow>Curated Spaces</Eyebrow>
@@ -361,7 +378,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── CONTINUOUS SISTERHOOD CALLOUT BANNER ─────────────────────────── */}
+      {/* â”€â”€ CONTINUOUS SISTERHOOD CALLOUT BANNER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1400px] mx-auto">
         <div className="relative rounded-[56px] bg-[#FDF6F8] border border-[#EDD8E4] p-10 md:p-20 text-center shadow-xl overflow-hidden">
           
@@ -384,7 +401,7 @@ export default function EventsPage() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+              href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
               target="_blank"
               rel="noopener noreferrer"
               className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-9 py-4 rounded-full hover:bg-[#9B4D77] transition-all font-semibold shadow-lg shadow-[#C97A9E]/25 inline-flex items-center gap-2 group"

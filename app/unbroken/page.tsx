@@ -6,9 +6,12 @@ import Reveal from "@/components/motion/Reveal";
 import SpinningSeal from "@/components/motion/SpinningSeal";
 import TiltCard from "@/components/motion/TiltCard";
 import SpeakersRosterSection from "@/components/sections/SpeakersRosterSection";
+import UnbrokenArchive from "@/components/sections/UnbrokenArchive";
+import UnbrokenMerch from "@/components/sections/UnbrokenMerch";
+import UnbrokenInstagram from "@/components/sections/UnbrokenInstagram";
 
 export const metadata = {
-  title: "Unbroken Ladies Community — Bunmi Alabi",
+  title: "Unbroken Ladies Community â€” Bunmi Alabi",
   description:
     "Faith, Purpose, Sisterhood, Impact. Home of the annual Unbroken conference, WhatsApp community, and women's empowerment initiatives.",
 };
@@ -26,7 +29,7 @@ const PATHWAYS = [
     title: "Join WhatsApp Sisterhood",
     desc: "Step into our private, active sisterhood for daily encouragement, heartfelt prayer support, mutual accountability, and sisterly connection.",
     btn: "Join Private Circle",
-    href: "https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt",
+    href: "https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4",
     silhouette: "rounded-[44px_16px_44px_16px]",
     badge: "Daily Community",
   },
@@ -52,7 +55,7 @@ export default function UnbrokenPage() {
   return (
     <div className="bg-white min-h-screen text-[#1A1118]">
       
-      {/* ── HERO BANNER & EMBLEM ─────────────────────────────────────────── */}
+      {/* â”€â”€ HERO BANNER & EMBLEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-36 bg-[#FDF6F8] border-b border-[#EDD8E4]">
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -93,7 +96,7 @@ export default function UnbrokenPage() {
 
               <Reveal delay={0.24} className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                  href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans text-xs tracking-[0.22em] uppercase bg-[#C97A9E] text-white px-8 py-4 hover:bg-[#9B4D77] transition-all font-semibold rounded-full shadow-lg shadow-[#C97A9E]/25 inline-flex items-center gap-2 group"
@@ -155,7 +158,7 @@ export default function UnbrokenPage() {
                 {/* Floating Spinning Botanical Seal */}
                 <div className="absolute -top-8 -right-6 md:-right-10 z-20">
                   <SpinningSeal
-                    text="UNBROKEN LADIES COMMUNITY • FAITH • PURPOSE • SISTERHOOD • "
+                    text="UNBROKEN LADIES COMMUNITY â€¢ FAITH â€¢ PURPOSE â€¢ SISTERHOOD â€¢ "
                     size={148}
                     flowerSize={50}
                   />
@@ -184,7 +187,7 @@ export default function UnbrokenPage() {
         </div>
       </section>
 
-      {/* ── SISTERHOOD SHOWCASE (OFFICIAL EMBLEM & INSTAGRAM SPOTLIGHT) ───────── */}
+      {/* â”€â”€ SISTERHOOD SHOWCASE (OFFICIAL EMBLEM & INSTAGRAM SPOTLIGHT) â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -241,7 +244,7 @@ export default function UnbrokenPage() {
 
             <div className="pt-4 flex flex-wrap gap-4">
               <a
-                href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
+                href="https://chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1?s=sw&p=i&mlu=4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-xs tracking-[0.22em] uppercase font-bold bg-[#C97A9E] text-white px-8 py-4 rounded-full hover:bg-[#9B4D77] transition-all shadow-md inline-flex items-center gap-2 group"
@@ -264,7 +267,7 @@ export default function UnbrokenPage() {
         </div>
       </section>
 
-      {/* ── UPCOMING FLAGSHIP: UNBROKEN 2026: BECOMING (MIDNIGHT LUXURY) ──── */}
+      {/* â”€â”€ UPCOMING FLAGSHIP: UNBROKEN 2026: BECOMING (MIDNIGHT LUXURY) â”€â”€â”€â”€ */}
       <section id="upcoming-2026" className="py-24 md:py-36 bg-[#150D13] text-white relative overflow-hidden">
         {/* Radial Ambient Glow */}
         <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#C97A9E]/15 rounded-full blur-[140px] pointer-events-none" />
@@ -395,13 +398,13 @@ export default function UnbrokenPage() {
 
           </div>
 
-          {/* ── SPEAKERS ROSTER (INTERACTIVE MODALS & PROFILES) ─────────────────── */}
+          {/* â”€â”€ SPEAKERS ROSTER (INTERACTIVE MODALS & PROFILES) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <SpeakersRosterSection />
 
         </div>
       </section>
 
-      {/* ── HOW TO BE A PART (4 ARCHITECTURAL SILHOUETTES) ───────────────── */}
+      {/* â”€â”€ HOW TO BE A PART (4 ARCHITECTURAL SILHOUETTES) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <Eyebrow>Engage &amp; Belong</Eyebrow>
@@ -452,7 +455,7 @@ export default function UnbrokenPage() {
         </div>
       </section>
 
-      {/* ── ARCHIVAL: UNBROKEN 2019 LANDMARK GATHERING ───────────────────── */}
+      {/* â”€â”€ ARCHIVAL: UNBROKEN 2019 LANDMARK GATHERING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section id="past-2019" className="py-20 md:py-28 bg-[#FDF6F8] border-t border-[#EDD8E4] px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-4 border-b border-[#EDD8E4]">
@@ -472,7 +475,9 @@ export default function UnbrokenPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <UnbrokenArchive />
+
+          <div className="mt-10 grid md:grid-cols-2 gap-8">
             <TiltCard maxTilt={5}>
               <div className="bg-white border border-[#EDD8E4] p-8 rounded-[36px_12px_36px_12px] shadow-sm hover:shadow-xl transition-all flex gap-6 items-center group">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-[#C97A9E] shadow-md group-hover:scale-105 transition-transform">
@@ -480,7 +485,7 @@ export default function UnbrokenPage() {
                 </div>
                 <div>
                   <span className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E] block mb-1">
-                    Convener &amp; Visionary
+                    President &amp; Visionary — Host every year
                   </span>
                   <h4 className="font-display text-2xl text-[#1A1118]">Bunmi Alabi</h4>
                   <p className="font-sans text-sm text-[#7A5C72] mt-1">
@@ -490,24 +495,19 @@ export default function UnbrokenPage() {
               </div>
             </TiltCard>
 
-            <TiltCard maxTilt={5}>
-              <div className="bg-white border border-[#EDD8E4] p-8 rounded-[12px_36px_12px_36px] shadow-sm hover:shadow-xl transition-all flex gap-6 items-center group">
-                <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-[#C97A9E] shadow-md group-hover:scale-105 transition-transform">
-                  <Image src="/lolo1.jpg" alt="Omotunde Adebowale David (LOLO1)" fill className="object-cover" />
-                </div>
-                <div>
-                  <span className="font-sans text-[10px] tracking-widest uppercase font-bold text-[#C97A9E] block mb-1">
-                    Keynote Speaker 2019
-                  </span>
-                  <h4 className="font-display text-2xl text-[#1A1118]">Omotunde Adebowale David (LOLO1)</h4>
-                  <p className="font-sans text-sm text-[#7A5C72] mt-1">
-                    Renowned Broadcaster, Media Personality &amp; Motivational Speaker.
-                  </p>
-                </div>
-              </div>
-            </TiltCard>
+
           </div>
         </div>
+      </section>
+
+      {/* ── OUTFIT SALES ── */}
+      <section className="py-16 md:py-20 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <UnbrokenMerch />
+      </section>
+
+      {/* ── INSTAGRAM ── */}
+      <section className="pb-20 md:pb-28 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <UnbrokenInstagram />
       </section>
 
     </div>

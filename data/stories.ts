@@ -48,6 +48,6 @@ export const STORIES: Story[] = [
     coverImage: "/assets/cultural_festivals.jpg",
     category: "Empowerment",
     publishedAt: "2025-10-15",
-    content: "Unbroken is a platform that empowers women, especially single mums and mature single ladies, to rise above life's challenges, heal from brokenness, rediscover identity, and embrace wholeness. Every October, our annual Unbroken Conference gathers women from all walks of life. SHERO2025 theme 'She Rose * She Rebuilt * She Reigns' features Marketplace Extravaganza, Kiddies Fun Park, Entertainment Village, One-Day Seminar. Speakers: Bunmi Alabi and Omotunde Adebowale David (LOLO1). Join via chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf.",
+    content: "Unbroken is a platform that empowers women, especially single mums and mature single ladies, to rise above life's challenges, heal from brokenness, rediscover identity, and embrace wholeness. Every October, our annual Unbroken Conference gathers women from all walks of life. SHERO2025 theme 'She Rose * She Rebuilt * She Reigns' features Marketplace Extravaganza, Kiddies Fun Park, Entertainment Village, One-Day Seminar. Speakers: Bunmi Alabi and Omotunde Adebowale David (LOLO1). Join via chat.whatsapp.com/JfVWDOML1iF0UDvrDXNnC1.",
   }
 ];
