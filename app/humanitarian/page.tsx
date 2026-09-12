@@ -101,9 +101,10 @@ export default function HumanitarianPage() {
                 <h3 className="font-display text-2xl text-[#1A1118] mb-3">{pillar.title}</h3>
                 <p className="font-sans text-[#7A5C72] text-sm leading-relaxed">{pillar.desc}</p>
               </div>
-            ))}
           </div>
         </div>
+      </section>
+
       {/* Makoko Outreach Feature */}
       <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1600px] mx-auto border-b border-[#EDD8E4]">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
