@@ -5,45 +5,13 @@ import FlowerMotif from "@/components/motif/FlowerMotif";
 import Reveal from "@/components/motion/Reveal";
 import SpinningSeal from "@/components/motion/SpinningSeal";
 import TiltCard from "@/components/motion/TiltCard";
+import SpeakersRosterSection from "@/components/sections/SpeakersRosterSection";
 
 export const metadata = {
   title: "Events & Gatherings — Bunmi Alabi",
   description:
     "Unbroken 2026: Becoming — Annual women's conference hosted by Bunmi Alabi. 31st October 2026, Lagos Nigeria.",
 };
-
-const SPEAKERS = [
-  {
-    name: "Bunmi Alabi",
-    role: "Convener & Founder",
-    sub: "Mental Health Counsellor & Author",
-    img: "/IMG_9133.JPG.jpeg",
-  },
-  {
-    name: "Dr. Funke Sobowale",
-    role: "G.E.T Founder",
-    sub: "Keynote Speaker",
-    img: "/IMG_9128.JPG.jpeg",
-  },
-  {
-    name: "Hunsu Omolara Margaret",
-    role: "Public Health Professional",
-    sub: "Keynote Speaker",
-    img: "/IMG_9131.JPG.jpeg",
-  },
-  {
-    name: "Doreen Omosele TMA",
-    role: "CEO Narra Africa Media",
-    sub: "Keynote Speaker",
-    img: "/IMG_9127.JPG.jpeg",
-  },
-  {
-    name: "Tessy Osakwe",
-    role: "Legal Practitioner",
-    sub: "Keynote Speaker",
-    img: "/IMG_9123.JPG.jpeg",
-  },
-];
 
 const GATHERING_FORMATS = [
   {
@@ -340,54 +308,8 @@ export default function EventsPage() {
 
           </div>
 
-          {/* ── SPEAKERS ROSTER (CATHEDRAL ARCH SHRINES) ───────────────────── */}
-          <div className="mt-28 pt-16 border-t border-white/10">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-sans text-xs tracking-[0.25em] uppercase text-[#E8A0BF] font-bold block mb-2">
-                Ministers &amp; Keynote Leaders
-              </span>
-              <h3 className="font-display text-4xl md:text-5xl text-white">
-                Featured Keynote Speakers
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {SPEAKERS.map((sp) => (
-                <TiltCard key={sp.name} maxTilt={6}>
-                  <div className="group bg-[#1E131B] border border-white/10 rounded-t-[72px] rounded-b-[20px] overflow-hidden hover:border-[#E8A0BF] transition-all p-3 shadow-xl h-full flex flex-col justify-between">
-                    <div>
-                      {/* Speaker Photo in Arched Frame */}
-                      <div className="relative aspect-[4/5] rounded-t-[60px] rounded-b-[16px] overflow-hidden mb-4 bg-[#150D13]">
-                        <Image
-                          src={sp.img}
-                          alt={`${sp.name} — Unbroken Keynote Speaker`}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 20vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#150D13]/80 via-transparent to-transparent opacity-50" />
-                      </div>
-
-                      <div className="px-2">
-                        <h4 className="font-display text-lg md:text-xl text-white group-hover:text-[#E8A0BF] transition-colors leading-tight">
-                          {sp.name}
-                        </h4>
-                        <p className="font-sans text-xs text-[#E8A0BF] mt-1 font-semibold">
-                          {sp.role}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="px-2 pt-3 border-t border-white/10 mt-3">
-                      <p className="font-sans text-[11px] text-white/50">
-                        {sp.sub}
-                      </p>
-                    </div>
-                  </div>
-                </TiltCard>
-              ))}
-            </div>
-          </div>
+          {/* ── SPEAKERS ROSTER (INTERACTIVE MODALS & PROFILES) ─────────────────── */}
+          <SpeakersRosterSection />
 
         </div>
       </section>

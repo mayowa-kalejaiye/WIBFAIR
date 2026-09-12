@@ -5,45 +5,13 @@ import FlowerMotif from "@/components/motif/FlowerMotif";
 import Reveal from "@/components/motion/Reveal";
 import SpinningSeal from "@/components/motion/SpinningSeal";
 import TiltCard from "@/components/motion/TiltCard";
+import SpeakersRosterSection from "@/components/sections/SpeakersRosterSection";
 
 export const metadata = {
   title: "Unbroken Ladies Community — Bunmi Alabi",
   description:
     "Faith, Purpose, Sisterhood, Impact. Home of the annual Unbroken conference, WhatsApp community, and women's empowerment initiatives.",
 };
-
-const SPEAKERS_2026 = [
-  {
-    name: "Bunmi Alabi",
-    role: "Convener & Founder",
-    sub: "Mental Health Counsellor & Author",
-    img: "/IMG_9133.JPG.jpeg",
-  },
-  {
-    name: "Dr. Funke Sobowale",
-    role: "G.E.T Founder",
-    sub: "Keynote Speaker",
-    img: "/IMG_9128.JPG.jpeg",
-  },
-  {
-    name: "Hunsu Omolara Margaret",
-    role: "Public Health Professional",
-    sub: "Keynote Speaker",
-    img: "/IMG_9131.JPG.jpeg",
-  },
-  {
-    name: "Doreen Omosele TMA",
-    role: "CEO Narra Africa Media",
-    sub: "Keynote Speaker",
-    img: "/IMG_9127.JPG.jpeg",
-  },
-  {
-    name: "Tessy Osakwe",
-    role: "Legal Practitioner",
-    sub: "Keynote Speaker",
-    img: "/IMG_9123.JPG.jpeg",
-  },
-];
 
 const PATHWAYS = [
   {
@@ -169,17 +137,16 @@ export default function UnbrokenPage() {
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="relative w-full max-w-[460px]">
                 
-                {/* Botanical Sculpted Shield Medallion */}
-                <div className="relative aspect-square rounded-[60px_20px_60px_20px] bg-white border-2 border-[#EDD8E4] p-10 shadow-2xl shadow-[#C97A9E]/20 flex items-center justify-center group overflow-hidden">
-                  <div className="relative w-full h-full p-4">
-                    <Image
-                      src="/IMG_9362.PNG"
-                      alt="Unbroken Ladies Community Official Emblem"
-                      fill
-                      priority
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
+                {/* Botanical Sculpted Portal for Sisterhood Gathering Photo */}
+                <div className="relative aspect-square rounded-[60px_20px_60px_20px] bg-white border-2 border-[#EDD8E4] shadow-2xl shadow-[#C97A9E]/20 flex items-center justify-center group overflow-hidden">
+                  <Image
+                    src="/IMG_8906.jpg"
+                    alt="The Unbroken Sisterhood Gathering"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 460px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
 
                   {/* Inner subtle glow */}
                   <div className="absolute inset-0 bg-[#C97A9E]/5 rounded-[60px_20px_60px_20px] pointer-events-none" />
@@ -217,35 +184,40 @@ export default function UnbrokenPage() {
         </div>
       </section>
 
-      {/* ── SISTERHOOD SHOWCASE (IMG_8906 ORGANIC SILHOUETTE) ─────────────── */}
+      {/* ── SISTERHOOD SHOWCASE (OFFICIAL EMBLEM & INSTAGRAM SPOTLIGHT) ───────── */}
       <section className="py-24 md:py-36 px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left: Sculpted Organic Leaf Portal with 3D Tilt */}
+          {/* Left: Sculpted Emblem Medallion with 3D Tilt */}
           <div className="lg:col-span-7">
             <TiltCard maxTilt={5}>
-              <div className="relative aspect-[16/11] rounded-[72px_24px_72px_24px] overflow-hidden border-2 border-[#EDD8E4] shadow-2xl shadow-[#C97A9E]/15 group">
+              <div className="relative aspect-[16/11] rounded-[72px_24px_72px_24px] overflow-hidden border-2 border-[#EDD8E4] bg-[#FDF6F8] p-8 shadow-2xl shadow-[#C97A9E]/15 group flex items-center justify-center">
                 <Image
-                  src="/IMG_8906.jpg"
-                  alt="The Unbroken Sisterhood Gathering"
+                  src="/IMG_9362.PNG"
+                  alt="Unbroken Ladies Community Official Crest"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1118]/70 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1118]/30 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity pointer-events-none" />
 
                 {/* Floating HUD Badge */}
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
                   <div className="bg-[#1A1118]/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                     <span className="font-sans text-[11px] tracking-widest uppercase font-semibold text-[#E8A0BF]">
-                      Lagos Sisterhood Chapter
+                      Lagos Sisterhood Movement
                     </span>
                   </div>
-                  <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-sans">
-                    <span className="w-2 h-2 rounded-full bg-[#E8A0BF]" />
-                    <span>Real Community</span>
-                  </div>
+                  <a
+                    href="https://www.instagram.com/p/DW1vEujAP7t/?img_index=3&stkn=MWwzczhxeXVqb2diMQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/90 text-[#1A1118] text-xs font-sans font-bold hover:bg-[#C97A9E] hover:text-white transition-colors"
+                  >
+                    <span>View on Instagram</span>
+                    <span>&rarr;</span>
+                  </a>
                 </div>
               </div>
             </TiltCard>
@@ -267,7 +239,7 @@ export default function UnbrokenPage() {
               Unbroken is not merely a once-a-year conference &mdash; it is a living, daily sanctuary. Through private WhatsApp circles, shared devotions, business networking, crisis prayer calls, and authentic fellowship, women discover that brokenness was never the final chapter.
             </p>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap gap-4">
               <a
                 href="https://chat.whatsapp.com/Ino2Q7J4oJ58hhUjJMAAlf?mode=wwt"
                 target="_blank"
@@ -276,6 +248,15 @@ export default function UnbrokenPage() {
               >
                 <span>Join our private WhatsApp circle</span>
                 <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/p/DW1vEujAP7t/?img_index=3&stkn=MWwzczhxeXVqb2diMQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs tracking-[0.22em] uppercase font-bold text-[#1A1118] border border-[#EDD8E4] px-7 py-4 rounded-full hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all"
+              >
+                Instagram Feature &rarr;
               </a>
             </div>
           </div>
@@ -414,54 +395,8 @@ export default function UnbrokenPage() {
 
           </div>
 
-          {/* ── SPEAKERS ROSTER (CATHEDRAL ARCH SHRINES) ───────────────────── */}
-          <div className="mt-28 pt-16 border-t border-white/10">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-sans text-xs tracking-[0.25em] uppercase text-[#E8A0BF] font-bold block mb-2">
-                Ministers &amp; Keynote Leaders
-              </span>
-              <h3 className="font-display text-4xl md:text-5xl text-white">
-                Meet the 2026 Speakers
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {SPEAKERS_2026.map((sp) => (
-                <TiltCard key={sp.name} maxTilt={6}>
-                  <div className="group bg-[#1E131B] border border-white/10 rounded-t-[72px] rounded-b-[20px] overflow-hidden hover:border-[#E8A0BF] transition-all p-3 shadow-xl h-full flex flex-col justify-between">
-                    <div>
-                      {/* Speaker Photo in Arched Frame */}
-                      <div className="relative aspect-[4/5] rounded-t-[60px] rounded-b-[16px] overflow-hidden mb-4 bg-[#150D13]">
-                        <Image
-                          src={sp.img}
-                          alt={`${sp.name} — Unbroken Keynote Speaker`}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 20vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#150D13]/80 via-transparent to-transparent opacity-50" />
-                      </div>
-
-                      <div className="px-2">
-                        <h4 className="font-display text-lg md:text-xl text-white group-hover:text-[#E8A0BF] transition-colors leading-tight">
-                          {sp.name}
-                        </h4>
-                        <p className="font-sans text-xs text-[#E8A0BF] mt-1 font-semibold">
-                          {sp.role}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="px-2 pt-3 border-t border-white/10 mt-3">
-                      <p className="font-sans text-[11px] text-white/50">
-                        {sp.sub}
-                      </p>
-                    </div>
-                  </div>
-                </TiltCard>
-              ))}
-            </div>
-          </div>
+          {/* ── SPEAKERS ROSTER (INTERACTIVE MODALS & PROFILES) ─────────────────── */}
+          <SpeakersRosterSection />
 
         </div>
       </section>

@@ -104,6 +104,62 @@ export default function HumanitarianPage() {
             ))}
           </div>
         </div>
+      {/* Makoko Outreach Feature */}
+      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1600px] mx-auto border-b border-[#EDD8E4]">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-6 space-y-6">
+            <div className="flex items-center gap-3">
+              <FlowerMotif size={44} ambient={true} />
+              <span className="w-8 h-px bg-[#C97A9E]" />
+              <Eyebrow>Recent Outreach</Eyebrow>
+            </div>
+
+            <h2 className="font-display text-4xl md:text-5xl text-[#1A1118] leading-[1.1]">
+              BAHF Outreach to Makoko Community
+            </h2>
+
+            <p className="font-sans text-base md:text-lg text-[#7A5C72] leading-relaxed">
+              In celebration of founder Bunmi Alabi&apos;s birthday, the Bunmi Alabi Humanitarian Foundation visited Makoko Community to deliver vital welfare support, educational materials, food packs, and hope to children and single mothers.
+            </p>
+
+            <div className="pt-4 flex flex-wrap gap-4">
+              <a
+                href="https://www.instagram.com/p/DVRkWjDgCrp/?stkn=ZnB3eG02OXZoODc3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs tracking-[0.2em] uppercase font-bold bg-[#C97A9E] text-white px-7 py-3.5 rounded-full hover:bg-[#9B4D77] transition-all shadow-md inline-flex items-center gap-2"
+              >
+                <span>Makoko Birthday Visit</span>
+                <span>&rarr;</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/p/DVRQH9BiLsh/?stkn=MWwzdGJtNzM0OG9ydg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[#1A1118] border border-[#EDD8E4] px-7 py-3.5 rounded-full hover:border-[#C97A9E] hover:text-[#C97A9E] transition-all inline-flex items-center gap-2"
+              >
+                <span>More Outreach Photos</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 bg-[#FDF6F8] p-8 md:p-12 rounded-[40px_16px_40px_16px] border border-[#EDD8E4] shadow-lg">
+            <h3 className="font-display text-2xl text-[#1A1118] mb-4">
+              &ldquo;Restoring Hope, Empowering Future&rdquo;
+            </h3>
+            <p className="font-sans text-sm text-[#7A5C72] leading-relaxed mb-6">
+              Our mission in Makoko and vulnerable grassroots communities across Lagos remains constant: ensuring children from single-parent homes have access to education, emotional dignity, and a pathway out of generational poverty.
+            </p>
+            <div className="flex items-center gap-4 pt-4 border-t border-[#EDD8E4]">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#C97A9E]" />
+              <p className="font-sans text-xs tracking-widest uppercase font-bold text-[#1A1118]">
+                Makoko Outreach &bull; Lagos State
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Get Involved CTA */}
